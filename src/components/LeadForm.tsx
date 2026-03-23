@@ -58,6 +58,25 @@ export function LeadForm() {
             <label htmlFor="workEmail" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Work Email</label>
             <input id="workEmail" placeholder="ops@enterprise.com" title="Work Email" required type="email" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium" />
           </div>
+          <div className="space-y-2">
+            <label htmlFor="phone" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Phone Number</label>
+            <input id="phone" placeholder="+91 XXXX-XXXXXX" title="Phone Number" required type="tel" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium" />
+          </div>
+          <div className="space-y-2">
+            <label htmlFor="volume" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Shipment Volume (Monthly)</label>
+            <input id="volume" placeholder="e.g. 50+ Containers" title="Shipment Volume" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+           <div className="space-y-2">
+             <label htmlFor="origin" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Origin Hub</label>
+             <input id="origin" placeholder="e.g. ICD Dadri / Mumbai" title="Origin" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium" />
+           </div>
+           <div className="space-y-2">
+             <label htmlFor="destination" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Destination Hub</label>
+             <input id="destination" placeholder="e.g. Kathmandu / Dubai" title="Destination" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium" />
+           </div>
         </div>
         
         <div className="space-y-2">

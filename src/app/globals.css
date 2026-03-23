@@ -8,7 +8,36 @@
   --color-surface-soft: #f2f4f6;
   
   --color-text-primary: #191c1e;
+  --color-text-primary: #191c1e;
   --color-text-secondary: #44474d;
+
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: rotate(0deg) scale(2);
+    }
+    100% {
+      transform: rotate(360deg) scale(2);
+    }
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+
+  --animate-aurora: aurora 60s linear infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
 }
 
 :root {

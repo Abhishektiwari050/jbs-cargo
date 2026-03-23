@@ -32,15 +32,18 @@ export function Navbar() {
         scrolled ? "bg-white/80 backdrop-blur-xl border-b border-black/5 py-3" : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto flex items-center justify-between bg-white/5 backdrop-blur-md rounded-2xl px-8 py-3 border border-white/10">
         {/* Logo Lockup */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-[var(--color-brand-blue)] rounded-lg flex items-center justify-center group-hover:bg-[var(--color-brand-orange)] transition-colors duration-500">
+          <div className="w-10 h-10 bg-[var(--color-brand-blue)] rounded-lg flex items-center justify-center group-hover:bg-[var(--color-brand-orange)] transition-colors duration-500 shadow-xl shadow-black/20">
              <span className="text-white font-black text-xl">J</span>
           </div>
-          <span className="text-2xl font-black tracking-tighter text-[var(--color-brand-blue)] font-display uppercase">
-            JBS<span className="text-[var(--color-brand-orange)]">Cargo</span>
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl font-black tracking-tighter text-[var(--color-brand-blue)] font-display uppercase leading-none">
+              JBS<span className="text-[var(--color-brand-orange)]">Cargo</span>
+            </span>
+            <span className="text-[8px] font-bold text-gray-500 uppercase tracking-widest mt-0.5">since 2005</span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
@@ -49,16 +52,23 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-bold text-[var(--color-brand-blue)]/70 hover:text-[var(--color-brand-blue)] uppercase tracking-widest transition-colors"
+              className="group relative flex items-center gap-2 text-xs font-black text-[var(--color-brand-blue)]/60 hover:text-[var(--color-brand-blue)] uppercase tracking-widest transition-colors"
             >
+              {link.name === "Tracking" && (
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
+                </span>
+              )}
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--color-brand-orange)] transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
           <button 
             onClick={() => window.location.href = '/contact'}
-            className="px-6 py-2.5 bg-[var(--color-brand-blue)] text-white rounded-lg font-bold text-sm hover:bg-[var(--color-brand-orange)] transition-all shadow-lg hover:shadow-[var(--color-brand-orange)]/20"
+            className="px-6 py-2.5 bg-[var(--color-brand-blue)] text-white rounded-xl font-black text-xs hover:bg-[var(--color-brand-orange)] transition-all shadow-2xl hover:shadow-[var(--color-brand-orange)]/30 uppercase tracking-tighter"
           >
-            Get Quote
+            Terminal Login
           </button>
         </nav>
 
