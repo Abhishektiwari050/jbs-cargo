@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-blue: #0A192F;
+  --color-brand-orange: #dd5c00;
+  --color-surface-white: #FFFFFF;
+  --color-surface-light: #eceef0;
+  --color-surface-soft: #f2f4f6;
+  
+  --color-text-primary: #191c1e;
+  --color-text-secondary: #44474d;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Tonal Architecture - Level 0 Surface */
+  --background: #f7f9fb; 
+  --foreground: #191c1e;
+  
+  /* Tyopgraphy - The Editorial Voice */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+/* Base Aceternity component utilities for layout */
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tonal Layering Utilities */
+.surface-lift {
+  background: var(--color-surface-white);
+  box-shadow: 0 20px 40px rgba(10, 25, 47, 0.06);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-33.33%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
