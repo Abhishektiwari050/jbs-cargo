@@ -19,7 +19,7 @@ export default function Home() {
         <img 
           src="/images/hero-reefer.png" 
           alt="Hero Reefer"
-          className="absolute inset-0 w-full h-full object-cover brightness-110 opacity-10"
+          className="absolute inset-0 w-full h-full object-cover brightness-105 opacity-20"
         />
         
         <div className="z-10 text-center max-w-7xl mx-auto px-6">
