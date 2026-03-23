@@ -51,8 +51,24 @@ export function ServicesBentoGrid() {
             service.span
           )}
         >
+          {/* Background Images for specific cards */}
+          {i === 0 && (
+            <img 
+               src="/images/cold-chain-tech.png" 
+               className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+               alt=""
+            />
+          )}
+          {i === 3 && (
+            <img 
+               src="/images/auto-logistics.png" 
+               className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+               alt=""
+            />
+          )}
+
           {/* Kinetic Corner Decor */}
-          <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-700">
+          <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-700 z-20">
              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className={service.textColor}><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </div>
 

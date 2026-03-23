@@ -74,6 +74,11 @@ export default function AboutPage() {
             </div>
          </div>
          {/* Kinetic Decor */}
+         <img 
+            src="/images/hero-reefer.png" 
+            className="absolute bottom-0 right-0 w-1/2 h-full object-cover opacity-10 grayscale hover:grayscale-0 transition-all duration-1000 pointer-events-none"
+            alt=""
+         />
          <div className="absolute -bottom-20 -right-20 text-[20rem] font-black text-white/[0.02] select-none uppercase -rotate-12 translate-y-20">JSB</div>
       </section>
     </main>

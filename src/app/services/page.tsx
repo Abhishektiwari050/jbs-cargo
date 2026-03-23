@@ -79,10 +79,15 @@ export default function ServicesPage() {
                      ))}
                   </div>
                </div>
-               <div className="flex-1 aspect-video bg-[var(--color-surface-light)] rounded-[3rem] relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-blue)]/10 to-transparent group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                     <span className="text-[6rem] font-black text-[var(--color-brand-blue)]/5 font-display uppercase -rotate-12 italic">{service.title.split(" ")[0]}</span>
+               <div className="flex-1 aspect-video bg-[var(--color-surface-light)] rounded-[3rem] relative overflow-hidden group shadow-xl">
+                  <img 
+                    src={i === 0 ? "/images/cold-chain-tech.png" : i === 3 ? "/images/auto-logistics.png" : "/images/dadri-hub.png"} 
+                    alt={service.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-blue)]/20 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                     <span className="text-[6rem] font-black text-white/10 font-display uppercase -rotate-12 italic">{service.title.split(" ")[0]}</span>
                   </div>
                </div>
             </motion.div>

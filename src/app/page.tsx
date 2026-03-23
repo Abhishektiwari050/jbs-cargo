@@ -15,7 +15,12 @@ export default function Home() {
       */}
       <section id="hero" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--background)]">
         {/* Subtle Architectural Blueprint Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0a192f08_1px,transparent_1px),linear-gradient(to_bottom,#0a192f08_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0a192f08_1px,transparent_1px),linear-gradient(to_bottom,#0a192f08_1px,transparent_1px)] bg-[size:64px_64px] z-10" />
+        <img 
+          src="/images/hero-reefer.png" 
+          alt="Hero Reefer"
+          className="absolute inset-0 w-full h-full object-cover brightness-110 opacity-10"
+        />
         
         <div className="z-10 text-center max-w-7xl mx-auto px-6">
           <motion.div
@@ -135,11 +140,15 @@ export default function Home() {
                 The Full Story
              </button>
           </div>
-          <div className="aspect-square bg-[var(--color-surface-light)] rounded-[3rem] relative overflow-hidden group">
-             {/* Industrial Image Placeholder via Pattern/Grad */}
-             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-blue)]/20 to-transparent group-hover:scale-110 transition-transform duration-1000" />
-             <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-xs font-black tracking-[1em] text-[var(--color-brand-blue)] opacity-20 uppercase -rotate-90">Architectural Engine</span>
+          <div className="aspect-square bg-[var(--color-surface-light)] rounded-[3rem] relative overflow-hidden group shadow-2xl">
+             <img 
+               src="/images/dadri-hub.png" 
+               alt="ICD Dadri Hub" 
+               className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-blue)]/40 to-transparent" />
+             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="text-xs font-black tracking-[1em] text-white opacity-40 uppercase -rotate-90">Architectural Engine</span>
              </div>
           </div>
         </div>
