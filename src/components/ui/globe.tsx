@@ -1,133 +1,238 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { Color, Scene, Fog, PerspectiveCamera, AmbientLight, DirectionalLight, PointLight } from "three";
+import ThreeGlobe from "three-globe";
+import { useThree, Canvas, extend } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
-interface GlobeRoute {
-  from: string;
-  to: string;
-  fromLat: number;
-  fromLng: number;
-  toLat: number;
-  toLng: number;
+declare module "@react-three/fiber" {
+  interface ThreeElements {
+    threeGlobe: any;
+  }
 }
 
-interface AnimatedGlobeProps {
-  routes?: GlobeRoute[];
-  className?: string;
+extend({ ThreeGlobe });
+
+const RING_PROPAGATION_SPEED = 3;
+
+type Position = {
+  order: number;
+  startLat: number;
+  startLng: number;
+  endLat: number;
+  endLng: number;
+  arcAlt: number;
+  color: string;
+};
+
+export type GlobeConfig = {
+  pointSize?: number;
+  globeColor?: string;
+  showAtmosphere?: boolean;
+  atmosphereColor?: string;
+  atmosphereAltitude?: number;
+  emissive?: string;
+  emissiveIntensity?: number;
+  shininess?: number;
+  polygonColor?: string;
+  ambientLight?: string;
+  directionalLeftLight?: string;
+  directionalTopLight?: string;
+  pointLight?: string;
+  arcTime?: number;
+  arcLength?: number;
+  rings?: number;
+  maxRings?: number;
+  initialPosition?: { lat: number; lng: number };
+  autoRotate?: boolean;
+  autoRotateSpeed?: number;
+};
+
+interface WorldProps {
+  globeConfig: GlobeConfig;
+  data: Position[];
 }
 
-// Project lat/lng onto a circular view
-function projectToSphere(lat: number, lng: number, cx: number, cy: number, r: number) {
-  const phi = (90 - lat) * (Math.PI / 180);
-  const theta = (lng + 180) * (Math.PI / 180);
-  const x = cx + r * Math.sin(phi) * Math.cos(theta);
-  const y = cy - r * Math.cos(phi);
-  return { x, y, visible: Math.sin(phi) * Math.sin(theta) > -0.2 };
+function genRandomNumbers(min: number, max: number, count: number) {
+  const arr: number[] = [];
+  while (arr.length < count) {
+    const r = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!arr.includes(r)) arr.push(r);
+  }
+  return arr;
 }
 
-const DEFAULT_ROUTES: GlobeRoute[] = [
-  { from: "Delhi", to: "Kathmandu", fromLat: 28.6, fromLng: 77.2, toLat: 27.7, toLng: 85.3 },
-  { from: "Delhi", to: "Thimphu", fromLat: 28.6, fromLng: 77.2, toLat: 27.5, toLng: 89.6 },
-  { from: "Delhi", to: "Dhaka", fromLat: 28.6, fromLng: 77.2, toLat: 23.8, toLng: 90.4 },
-  { from: "Delhi", to: "Mumbai", fromLat: 28.6, fromLng: 77.2, toLat: 19.1, toLng: 72.9 },
-  { from: "Delhi", to: "Dubai", fromLat: 28.6, fromLng: 77.2, toLat: 25.3, toLng: 55.3 },
-  { from: "Delhi", to: "Singapore", fromLat: 28.6, fromLng: 77.2, toLat: 1.3, toLng: 103.8 },
-  { from: "Mumbai", to: "Dubai", fromLat: 19.1, fromLng: 72.9, toLat: 25.3, toLng: 55.3 },
-];
+let numbersOfRings = [0];
 
-export function AnimatedGlobe({ routes = DEFAULT_ROUTES, className }: AnimatedGlobeProps) {
-  const cx = 250, cy = 250, r = 200;
+function GlobeComponent({ globeConfig, data }: WorldProps) {
+  const globeRef = useRef<ThreeGlobe | null>(null);
+  const groupRef = useRef<any>(null);
+  const { scene } = useThree();
+
+  const defaultProps = {
+    pointSize: 1,
+    atmosphereColor: "#ffffff",
+    showAtmosphere: true,
+    atmosphereAltitude: 0.1,
+    polygonColor: "rgba(255,255,255,0.7)",
+    globeColor: "#1d072e",
+    emissive: "#000000",
+    emissiveIntensity: 0.1,
+    shininess: 0.9,
+    arcTime: 2000,
+    arcLength: 0.9,
+    rings: 1,
+    maxRings: 3,
+    ...globeConfig,
+  };
+
+  useEffect(() => {
+    if (!globeRef.current) {
+      globeRef.current = new ThreeGlobe({
+        waitForGlobeReady: true,
+        animateIn: true,
+      });
+    }
+
+    const globe = globeRef.current;
+
+    globe
+      .hexPolygonsData([])
+      .hexPolygonResolution(3)
+      .hexPolygonMargin(0.7)
+      .showAtmosphere(defaultProps.showAtmosphere)
+      .atmosphereColor(defaultProps.atmosphereColor)
+      .atmosphereAltitude(defaultProps.atmosphereAltitude)
+      .hexPolygonColor(() => defaultProps.polygonColor);
+
+    const globeMaterial = globe.globeMaterial() as any;
+    globeMaterial.color = new Color(defaultProps.globeColor);
+    globeMaterial.emissive = new Color(defaultProps.emissive);
+    globeMaterial.emissiveIntensity = defaultProps.emissiveIntensity;
+    globeMaterial.shininess = defaultProps.shininess;
+
+    scene.fog = new Fog(0x000000, 400, 2000);
+
+    if (groupRef.current) {
+      groupRef.current.add(globe);
+    }
+
+    return () => {
+      if (groupRef.current && globe) {
+        groupRef.current.remove(globe);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!globeRef.current || !data) return;
+    const globe = globeRef.current;
+
+    globe
+      .arcsData(data)
+      .arcStartLat((d: any) => d.startLat)
+      .arcStartLng((d: any) => d.startLng)
+      .arcEndLat((d: any) => d.endLat)
+      .arcEndLng((d: any) => d.endLng)
+      .arcColor((d: any) => d.color)
+      .arcAltitude((d: any) => d.arcAlt)
+      .arcStroke(() => [0.32, 0.28, 0.3][Math.floor(Math.random() * 3)])
+      .arcDashLength(defaultProps.arcLength)
+      .arcDashInitialGap((d: any) => d.order)
+      .arcDashGap(15)
+      .arcDashAnimateTime(defaultProps.arcTime);
+
+    globe
+      .pointsData(data)
+      .pointColor((d: any) => d.color)
+      .pointsMerge(true)
+      .pointAltitude(0.07)
+      .pointRadius(0.05);
+
+    globe
+      .ringsData([])
+      .ringColor(() => (t: number) => `rgba(255,100,50,${1 - t})`)
+      .ringMaxRadius(defaultProps.maxRings)
+      .ringPropagationSpeed(RING_PROPAGATION_SPEED)
+      .ringRepeatPeriod(
+        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
+
+  useEffect(() => {
+    if (!globeRef.current || !data) return;
+    const globe = globeRef.current;
+
+    const interval = setInterval(() => {
+      if (!data || data.length === 0) return;
+      numbersOfRings = genRandomNumbers(
+        0,
+        data.length - 1,
+        Math.floor((data.length * 4) / 5)
+      );
+      globe.ringsData(
+        data
+          .filter((_, i) => numbersOfRings.includes(i))
+          .map((d) => ({
+            lat: d.endLat,
+            lng: d.endLng,
+          }))
+      );
+    }, 2000);
+
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
-    <div className={`relative ${className}`}>
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="w-full aspect-square max-w-[500px] mx-auto"
-      >
-        <svg viewBox="0 0 500 500" className="w-full h-full">
-          {/* Globe sphere */}
-          <defs>
-            <radialGradient id="globeGrad" cx="35%" cy="35%">
-              <stop offset="0%" stopColor="#1a3a5c" />
-              <stop offset="50%" stopColor="#0a192f" />
-              <stop offset="100%" stopColor="#040d1a" />
-            </radialGradient>
-            <radialGradient id="glowGrad" cx="50%" cy="50%">
-              <stop offset="0%" stopColor="#F97316" stopOpacity="0.1" />
-              <stop offset="100%" stopColor="transparent" />
-            </radialGradient>
-          </defs>
-          
-          {/* Outer glow */}
-          <circle cx={cx} cy={cy} r={r + 20} fill="url(#glowGrad)" />
-          
-          {/* Globe body */}
-          <circle cx={cx} cy={cy} r={r} fill="url(#globeGrad)" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
-          
-          {/* Grid lines */}
-          {[-60, -30, 0, 30, 60].map(lat => {
-            const yOffset = (lat / 90) * r;
-            const lineR = Math.cos((lat * Math.PI) / 180) * r;
-            return (
-              <ellipse key={`lat-${lat}`} cx={cx} cy={cy - yOffset} rx={lineR} ry={lineR * 0.3} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-            );
-          })}
-          {[0, 30, 60, 90, 120, 150].map(lng => (
-            <ellipse key={`lng-${lng}`} cx={cx} cy={cy} rx={r * Math.abs(Math.cos((lng * Math.PI) / 180))} ry={r} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" transform={`rotate(${lng}, ${cx}, ${cy})`} />
-          ))}
+    <>
+      <ambientLight
+        color={new Color(defaultProps.ambientLight)}
+        intensity={0.6}
+      />
+      <directionalLight
+        color={new Color(defaultProps.directionalLeftLight)}
+        position={[-400, 100, 400]}
+      />
+      <directionalLight
+        color={new Color(defaultProps.directionalTopLight)}
+        position={[-200, 500, 200]}
+      />
+      <pointLight
+        color={new Color(defaultProps.pointLight)}
+        position={[-200, 500, 200]}
+        intensity={0.8}
+      />
+      <group ref={groupRef}>
+        <OrbitControls
+          enablePan={false}
+          enableZoom={false}
+          minDistance={200}
+          maxDistance={500}
+          autoRotateSpeed={defaultProps.autoRotateSpeed || 0.5}
+          autoRotate={defaultProps.autoRotate !== false}
+          minPolarAngle={Math.PI / 3.5}
+          maxPolarAngle={Math.PI - Math.PI / 3}
+        />
+      </group>
+    </>
+  );
+}
 
-          {/* Land mass dots */}
-          {Array.from({ length: 150 }, (_, i) => {
-            const lat = 60 - Math.random() * 100;
-            const lng = -20 + Math.random() * 160;
-            const pos = projectToSphere(lat, lng, cx, cy, r);
-            if (!pos.visible) return null;
-            return <circle key={i} cx={pos.x} cy={pos.y} r="1.5" fill="rgba(255,255,255,0.15)" />;
-          })}
+export function World({ data, globeConfig }: WorldProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
-          {/* Route arcs */}
-          {routes.map((route, i) => {
-            const from = projectToSphere(route.fromLat, route.fromLng, cx, cy, r);
-            const to = projectToSphere(route.toLat, route.toLng, cx, cy, r);
-            if (!from.visible || !to.visible) return null;
-            const midX = (from.x + to.x) / 2;
-            const midY = Math.min(from.y, to.y) - 30;
-            return (
-              <g key={i}>
-                <motion.path
-                  d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
-                  fill="none"
-                  stroke="#F97316"
-                  strokeWidth="1.5"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.6 }}
-                  transition={{ duration: 2, delay: i * 0.4, repeat: Infinity, repeatDelay: 5 }}
-                />
-                {/* Start pulse */}
-                <circle cx={from.x} cy={from.y} r="3" fill="#F97316" opacity="0.8" />
-                <circle cx={from.x} cy={from.y} r="6" fill="none" stroke="#F97316" strokeWidth="1" opacity="0.3">
-                  <animate attributeName="r" values="3;10;3" dur="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite" />
-                </circle>
-                {/* End dot */}
-                <circle cx={to.x} cy={to.y} r="2" fill="#3b82f6" opacity="0.8" />
-              </g>
-            );
-          })}
-        </svg>
-      </motion.div>
-
-      {/* Hub Labels */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="relative w-full max-w-[500px] aspect-square">
-          <div className="absolute top-[30%] left-[55%] text-[9px] font-black text-[var(--color-brand-orange)] uppercase tracking-widest">Delhi HQ</div>
-          <div className="absolute top-[40%] left-[35%] text-[9px] font-black text-white/40 uppercase tracking-widest">Dubai</div>
-          <div className="absolute top-[35%] left-[65%] text-[9px] font-black text-white/40 uppercase tracking-widest">KTM</div>
-          <div className="absolute top-[55%] left-[50%] text-[9px] font-black text-white/40 uppercase tracking-widest">Mumbai</div>
-        </div>
-      </div>
-    </div>
+  return (
+    <Canvas
+      camera={new PerspectiveCamera(50, 1, 180, 1800)}
+      style={{ width: "100%", height: "100%" }}
+    >
+      <GlobeComponent globeConfig={globeConfig} data={data} />
+    </Canvas>
   );
 }
