@@ -63,8 +63,12 @@ export function LeadForm() {
             <input id="phone" placeholder="+91 XXXX-XXXXXX" title="Phone Number" required type="tel" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium" />
           </div>
           <div className="space-y-2">
-            <label htmlFor="volume" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Shipment Volume (Monthly)</label>
+            <label htmlFor="volume" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Shipment Volume</label>
             <input id="volume" placeholder="e.g. 50+ Containers" title="Shipment Volume" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium" />
+          </div>
+          <div className="space-y-2">
+            <label htmlFor="shipDate" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Est. Shipment Date</label>
+            <input id="shipDate" title="Shipment Date" required type="date" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all font-medium text-[var(--color-text-secondary)]" />
           </div>
         </div>
 
@@ -80,13 +84,14 @@ export function LeadForm() {
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="logisticsService" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Requirement</label>
+          <label htmlFor="logisticsService" className="text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Service Division</label>
           <select id="logisticsService" title="Select Service" required className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all appearance-none cursor-pointer font-medium text-[var(--color-text-secondary)]">
-            <option value="">Select Infrastructure...</option>
-            <option value="cold_chain">Commercial Cold Chain</option>
-            <option value="freight">International Freight Forwarding</option>
-            <option value="relocation">Corporate Relocation</option>
-            <option value="cross_border">Cross-Border Transport</option>
+            <option value="">Select Service Division...</option>
+            <option value="cold_chain">Cold Chain Operations</option>
+            <option value="freight">Freight Forwarding (Ocean/Air)</option>
+            <option value="cha">Customs & Compliance</option>
+            <option value="cross_border">Cross-Border (Nepal/Bhutan)</option>
+            <option value="auto">Automobile Logistics</option>
           </select>
         </div>
 
@@ -95,7 +100,7 @@ export function LeadForm() {
           disabled={submitting}
           className="w-full py-5 bg-[var(--color-brand-blue)] text-white rounded-xl font-black text-xl hover:bg-[var(--color-brand-orange)] transition-all duration-500 disabled:opacity-70 mt-4 shadow-2xl hover:shadow-[var(--color-brand-orange)]/30 uppercase tracking-tighter"
         >
-          {submitting ? "Processing..." : "Submit Logistics Request"}
+          {submitting ? "PROCESSING..." : "SUBMIT LOGISTICS REQUEST"}
         </button>
       </form>
     </div>

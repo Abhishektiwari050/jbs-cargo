@@ -36,11 +36,12 @@ export function FlipWords({ words, duration = 3000, className }: FlipWordsProps)
     >
       <motion.span
         key={words[currentIndex]}
-        initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        exit={{ opacity: 0, y: -10, filter: "blur(8px)" }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
         transition={{ type: "spring", stiffness: 100, damping: 10 }}
         className={cn("inline-block", className)}
+        style={{ willChange: "transform, opacity", backfaceVisibility: "hidden", WebkitFontSmoothing: "antialiased" }}
       >
         {words[currentIndex]}
       </motion.span>

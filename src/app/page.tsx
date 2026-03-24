@@ -21,15 +21,15 @@ const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World)
 
 const globeConfig = {
   pointSize: 4,
-  globeColor: "#062056",
+  globeColor: "#f8fafc",
   showAtmosphere: true,
-  atmosphereColor: "#FFFFFF",
+  atmosphereColor: "#3b82f6",
   atmosphereAltitude: 0.1,
-  emissive: "#062056",
+  emissive: "#ffffff",
   emissiveIntensity: 0.1,
   shininess: 0.9,
-  polygonColor: "rgba(255,255,255,0.7)",
-  ambientLight: "#38bdf8",
+  polygonColor: "rgba(10, 25, 47, 0.05)",
+  ambientLight: "#ffffff",
   directionalLeftLight: "#ffffff",
   directionalTopLight: "#ffffff",
   pointLight: "#ffffff",
@@ -112,10 +112,11 @@ export default function Home() {
               <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.5em] mb-8 block">
                 Since 2005 · Delhi Infrastructure Hub
               </span>
-              <TextGenerateEffect 
-                words="Infrastructure Logic." 
-                className="text-5xl md:text-[clamp(5rem,11vw,10rem)] font-black leading-[0.85] text-[var(--color-brand-blue)] mb-6 tracking-tighter uppercase font-display text-left"
-              />
+              <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase font-display text-left mb-6">
+                <span className="text-[var(--color-brand-blue)]">Infrastructure</span>
+                <br />
+                <span className="text-[var(--color-brand-orange)]">Logic.</span>
+              </h1>
             </motion.div>
 
             <motion.p 
@@ -142,14 +143,14 @@ export default function Home() {
                 onClick={() => { const el = document.getElementById('contact'); el?.scrollIntoView({ behavior: 'smooth' }); }}
                 className="group relative px-10 py-4 bg-[var(--color-brand-orange)] text-white rounded-xl font-black text-sm uppercase tracking-widest hover:bg-orange-600 transition-all shadow-2xl shadow-orange-500/20"
               >
-                Enterprise Inquiry
+                ENTERPRISE INQUIRY
                 <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
               </button>
               <button 
                 onClick={() => { const el = document.getElementById('track'); el?.scrollIntoView({ behavior: 'smooth' }); }}
                 className="group px-10 py-4 border-2 border-[var(--color-brand-blue)]/10 text-[var(--color-brand-blue)] rounded-xl font-black text-sm uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
               >
-                Live Tracking
+                LIVE TRACKING
                 <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
               </button>
             </motion.div>
@@ -159,12 +160,13 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.5, duration: 1 }}
-              className="flex gap-12 mt-16 pt-8 border-t border-black/5"
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-8 border-t border-black/5"
             >
               {[
                 { num: "6,000+", label: "Reefer Shipments / Year" },
                 { num: "70+", label: "Fleet Vehicles" },
                 { num: "20+", label: "Years of Legacy" },
+                { num: "24/7", label: "Infrastructure Ops" },
               ].map((s, i) => (
                 <div key={i} className="text-left">
                   <span className="text-2xl md:text-3xl font-black text-[var(--color-brand-blue)] font-display tracking-tighter">{s.num}</span>
@@ -249,7 +251,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-5xl md:text-[6rem] font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display leading-[0.85] mb-4"
             >
-              Logistics <br /><span className="text-[var(--color-brand-orange)]">Modularized.</span>
+              Services <br /><span className="text-[var(--color-brand-orange)]">Modularized.</span>
             </motion.h2>
             <p className="text-lg text-gray-400 font-medium max-w-2xl mx-auto">
               From temperature-critical pharma to massive automobile infrastructure.
@@ -258,10 +260,10 @@ export default function Home() {
 
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { title: "Cold Chain Precision", desc: "GDP-compliant temperature management across 70+ reefer trailers.", colors: [[6, 182, 212], [59, 130, 246]] as [number, number, number][], bg: "bg-emerald-900", tags: ["GDP COMPLIANT", "PHARMA", "-18°C TO +25°C"] },
-              { title: "Freight Forwarding", desc: "Seamless integration across Air, Sea, and Rail.", colors: [[249, 115, 22], [234, 88, 12]] as [number, number, number][], bg: "bg-black", tags: ["GLOBAL NETWORK", "MULTIMODAL", "IN-HOUSE CHA"] },
-              { title: "Cross-Border Ops", desc: "Strategic SAARC corridor — Nepal, Bhutan, Bangladesh.", colors: [[99, 102, 241], [139, 92, 246]] as [number, number, number][], bg: "bg-sky-600", tags: ["SAARC", "PRIORITY CLEARANCE", "BONDED"] },
-              { title: "Automobile Logistics", desc: "OEM-grade transit logic for automotive components.", colors: [[34, 197, 94], [22, 163, 74]] as [number, number, number][], bg: "bg-emerald-800", tags: ["OEM STANDARDS", "ZERO-DAMAGE", "DEDICATED"] },
+              { title: "Cold Chain Precision", desc: "GDP-compliant temperature management across 70+ reefer trailers.", colors: [[221, 92, 0]] as [number, number, number][], bg: "bg-white", tags: ["GDP COMPLIANT", "PHARMA", "-18°C TO +25°C"] },
+              { title: "Freight Forwarding", desc: "Seamless integration across Air, Sea, and Rail.", colors: [[10, 25, 47]] as [number, number, number][], bg: "bg-slate-50", tags: ["GLOBAL NETWORK", "MULTIMODAL", "IN-HOUSE CHA"] },
+              { title: "Cross-Border Ops", desc: "Strategic SAARC corridor — Nepal, Bhutan, Bangladesh.", colors: [[221, 92, 0]] as [number, number, number][], bg: "bg-white", tags: ["SAARC", "PRIORITY CLEARANCE", "BONDED"] },
+              { title: "Automobile Logistics", desc: "OEM-grade transit logic for automotive components.", colors: [[10, 25, 47]] as [number, number, number][], bg: "bg-slate-50", tags: ["OEM STANDARDS", "ZERO-DAMAGE", "DEDICATED"] },
             ].map((service, i) => (
               <ServiceRevealCard key={i} service={service} index={i} />
             ))}
@@ -271,18 +273,19 @@ export default function Home() {
         {/* ═══════════════════════════════
             GLOBE — 3D Route Visualization 
             ═══════════════════════════════ */}
-        <section className="relative bg-[var(--color-brand-blue)] overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 py-24">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
+        <section className="relative bg-white overflow-hidden py-32">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white pointer-events-none" />
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-4">
                 Cross-Border <span className="text-[var(--color-brand-orange)]">Architecture.</span>
               </h2>
-              <p className="text-lg text-white/40 font-medium max-w-2xl mx-auto">
+              <p className="text-lg text-gray-400 font-medium max-w-2xl mx-auto">
                 Global hub coordinates and SAARC corridor telemetry.
               </p>
             </div>
-            <div className="relative w-full h-[500px] md:h-[600px]">
-              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-[var(--color-brand-blue)] z-40" />
+            <div className="relative w-full h-[500px] md:h-[700px]">
+              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-white z-40" />
               <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
                 <World data={sampleArcs} globeConfig={globeConfig} />
               </div>
@@ -357,12 +360,12 @@ function ServiceRevealCard({ service, index }: { service: { title: string; desc:
             className="absolute inset-0 z-0"
           >
             <CanvasRevealEffect
-              animationSpeed={5}
+              animationSpeed={3}
               containerClassName={service.bg}
               colors={service.colors}
-              dotSize={3}
+              dotSize={2}
             />
-            <div className="absolute inset-0 [mask-image:radial-gradient(500px_at_center,white,transparent)] bg-black/50" />
+            <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-white/30" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -370,10 +373,10 @@ function ServiceRevealCard({ service, index }: { service: { title: string; desc:
       {/* Static content */}
       <div className="relative z-10">
         <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 block">0{index + 1} / DIV</span>
-        <h3 className={`text-3xl md:text-4xl font-black uppercase font-display tracking-tighter mb-4 transition-colors duration-300 ${hovered ? 'text-white' : 'text-[var(--color-brand-blue)]'}`}>
+        <h3 className={`text-3xl md:text-4xl font-black uppercase font-display tracking-tighter mb-4 transition-colors duration-300 text-[var(--color-brand-blue)]`}>
           {service.title}
         </h3>
-        <p className={`font-medium mb-6 max-w-md transition-colors duration-300 ${hovered ? 'text-white/60' : 'text-gray-400'}`}>
+        <p className={`font-medium mb-6 max-w-md transition-colors duration-300 text-gray-500`}>
           {service.desc}
         </p>
       </div>

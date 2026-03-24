@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { GlowingCard } from "@/components/ui/glowing-effect";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { LeadForm } from "@/components/LeadForm";
 
 export default function ContactPage() {
@@ -25,8 +25,8 @@ export default function ContactPage() {
             </p>
             
             <div className="space-y-8">
-              {/* HQ Card with Glow */}
-              <GlowingCard className="border border-black/5 bg-[var(--color-surface-light)] p-10" glowColor="var(--color-brand-orange)">
+              {/* HQ Card with Spotlight */}
+              <CardSpotlight className="p-10 border border-black/5" color="orange">
                 <h3 className="text-xs font-black text-[var(--color-brand-orange)] uppercase tracking-widest mb-6">Corporate Headquarters</h3>
                 <p className="text-2xl font-black text-[var(--color-brand-blue)] font-display uppercase tracking-tight mb-2">JBS Cargo Movers India</p>
                 <p className="text-gray-500 font-medium leading-relaxed">
@@ -43,7 +43,7 @@ export default function ContactPage() {
                     ops@jbscargo.com
                   </p>
                 </div>
-              </GlowingCard>
+              </CardSpotlight>
 
               <div className="flex gap-12 px-2">
                 <div>

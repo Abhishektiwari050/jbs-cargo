@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { WobbleCard } from "@/components/ui/wobble-card";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const services = [
   { 
@@ -53,44 +54,54 @@ export default function ServicesPage() {
       </section>
 
       {/* Services with Wobble Cards */}
-      <section className="max-w-7xl mx-auto px-6 space-y-8">
-        {services.map((service, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <WobbleCard containerClassName="w-full" className={`${service.bg} p-10 md:p-16`}>
-              <div className="flex flex-col lg:flex-row gap-12 items-start">
-                <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-xs font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em]">0{i+1} / DIV</span>
-                    <div className="h-[1px] flex-1 bg-white/10" />
+      <TracingBeam className="px-6">
+        <div className="space-y-8">
+          {services.map((service, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <WobbleCard containerClassName="w-full" className={`${service.bg} p-10 md:p-16`}>
+                <div className="flex flex-col lg:flex-row gap-12 items-start">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-4 mb-6">
+                      <span className="text-xs font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em]">0{i+1} / DIV</span>
+                      <div className="h-[1px] flex-1 bg-white/10" />
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-black text-white uppercase font-display tracking-tighter leading-none mb-6">
+                      {service.title}
+                    </h2>
+                    <p className="text-lg text-white/50 font-medium leading-relaxed max-w-xl mb-8">
+                      {service.detail}
+                    </p>
+                    <div className="flex flex-wrap gap-3 mb-10">
+                      {service.specs.map(spec => (
+                        <span key={spec} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest text-white/60">
+                          {spec}
+                        </span>
+                      ))}
+                    </div>
+                    <button className="px-8 py-4 bg-white text-black font-black text-xs uppercase tracking-[0.2em] rounded-full hover:bg-[var(--color-brand-orange)] hover:text-white transition-all transform hover:scale-105">
+                      EXPLORE DETAILS
+                    </button>
                   </div>
-                  <h2 className="text-4xl md:text-6xl font-black text-white uppercase font-display tracking-tighter leading-none mb-6">
-                    {service.title}
-                  </h2>
-                  <p className="text-lg text-white/50 font-medium leading-relaxed max-w-xl mb-8">
-                    {service.detail}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {service.specs.map(spec => (
-                      <span key={spec} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-black uppercase tracking-widest text-white/60">
-                        {spec}
-                      </span>
-                    ))}
+                  <div className="flex-shrink-0 w-full lg:w-80 aspect-square bg-white/5 rounded-3xl flex items-center justify-center overflow-hidden relative border border-white/5">
+                    <span className="text-[8rem] font-black text-white/[0.03] font-display uppercase -rotate-12 absolute">{service.title.split(" ")[0]}</span>
+                    <div className="relative z-10 w-full h-full flex items-center justify-center p-8">
+                      <div className="w-full h-full border border-white/10 rounded-2xl flex items-center justify-center animate-pulse">
+                         <span className="text-white/20 text-xs font-black tracking-widest uppercase">Visual Unit {i+1}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex-shrink-0 w-full lg:w-80 aspect-square bg-white/5 rounded-3xl flex items-center justify-center overflow-hidden relative">
-                  <span className="text-[8rem] font-black text-white/[0.03] font-display uppercase -rotate-12">{service.title.split(" ")[0]}</span>
-                </div>
-              </div>
-            </WobbleCard>
-          </motion.div>
-        ))}
-      </section>
+              </WobbleCard>
+            </motion.div>
+          ))}
+        </div>
+      </TracingBeam>
     </main>
   );
 }

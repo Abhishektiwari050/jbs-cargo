@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 
 const TRACKING_STEPS = [
   { label: "Gateway Dispatch", location: "Delhi Infrastructure Hub", time: "10:45 AM", done: true },
@@ -42,30 +43,19 @@ export default function TrackShipment() {
           </p>
         </motion.div>
 
-        {/* Search Input */}
-        <form onSubmit={handleSearch} className="relative w-full max-w-3xl mb-16">
-          <div className="relative flex items-center bg-[var(--color-surface-light)] rounded-2xl p-2 border border-black/5 focus-within:border-[var(--color-brand-orange)]/30 transition-colors shadow-xl">
-            <input 
-              type="text"
-              placeholder="JBS-2026-X89HQ"
-              value={trackingId}
-              onChange={(e) => setTrackingId(e.target.value.toUpperCase())}
-              className="w-full px-6 py-5 text-xl font-bold bg-transparent text-[var(--color-brand-blue)] outline-none placeholder:text-gray-300 font-display uppercase tracking-widest"
-            />
-            <button 
-              type="submit"
-              disabled={status === "SEARCHING"}
-              className="px-10 py-4 bg-[var(--color-brand-blue)] text-white rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[var(--color-brand-orange)] transition-all disabled:opacity-50 shadow-xl whitespace-nowrap"
-            >
-              {status === "SEARCHING" ? (
-                <span className="flex items-center gap-2">
-                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="w-4 h-4 border-2 border-white border-t-transparent rounded-full" />
-                  Locating...
-                </span>
-              ) : "Track"}
-            </button>
-          </div>
-        </form>
+        {/* Premium Search */}
+        <div className="mb-16">
+          <PlaceholdersAndVanishInput
+            placeholders={[
+              "Enter JBS Tracking ID...",
+              "JBS-2026-X89HQ",
+              "Track your reefer cargo",
+              "Monitor gateway status",
+            ]}
+            onChange={(e) => setTrackingId(e.target.value.toUpperCase())}
+            onSubmit={handleSearch}
+          />
+        </div>
 
         {/* Results */}
         <AnimatePresence mode="wait">
@@ -75,8 +65,9 @@ export default function TrackShipment() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-[var(--color-surface-light)] border border-black/5 p-10 rounded-3xl mb-16 shadow-xl"
+              className="bg-white border border-black/5 p-10 rounded-3xl mb-16 shadow-2xl relative overflow-hidden"
             >
+              <div className="absolute top-0 right-0 p-8 text-8xl font-black text-black/[0.02] font-display uppercase select-none">VALIDATED</div>
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-black/5 pb-8 mb-10 gap-6">
                 <div>
                   <span className="text-xs font-black tracking-[0.2em] text-green-600 uppercase mb-3 flex items-center gap-2">

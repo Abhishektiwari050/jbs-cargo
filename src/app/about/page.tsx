@@ -79,7 +79,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white pt-32 pb-24 font-sans">
       {/* Inner Hero */}
       <section className="max-w-7xl mx-auto px-6 mb-20 relative">
-        <div className="absolute top-0 right-10 text-[10rem] font-black text-black/[0.02] select-none font-display uppercase tracking-tighter">HERITAGE</div>
+        <div className="absolute top-0 right-10 text-[10rem] font-black text-black/[0.015] select-none font-display uppercase tracking-tighter">HERITAGE</div>
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}

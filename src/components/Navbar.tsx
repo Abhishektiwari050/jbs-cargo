@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 import { MovingBorder } from "@/components/ui/moving-border";
 
 const NAV_LINKS = [
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Tracking", href: "/track" },
-  { name: "Contact", href: "/contact" },
+  { name: "SERVICES", href: "/services" },
+  { name: "ABOUT", href: "/about" },
+  { name: "TRACKING", href: "/track" },
+  { name: "CONTACT", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -41,10 +41,10 @@ export function Navbar() {
     >
       <div
         className={cn(
-          "max-w-7xl mx-auto flex items-center justify-between rounded-2xl px-6 md:px-8 py-3 transition-all duration-500",
+          "max-w-7xl mx-auto flex items-center justify-between rounded-full px-6 md:px-8 py-3 transition-all duration-500",
           scrolled
-            ? "bg-white/70 backdrop-blur-xl border border-black/5 shadow-2xl shadow-black/5"
-            : "bg-white/5 backdrop-blur-md border border-white/10"
+            ? "bg-white/80 backdrop-blur-md border border-gray-100 shadow-sm"
+            : "bg-white/40 backdrop-blur-md border border-white/10"
         )}
       >
         {/* Logo */}
@@ -70,8 +70,8 @@ export function Navbar() {
             >
               {link.name === "Tracking" && (
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-orange)] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-orange)]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
                 </span>
               )}
               {link.name}
