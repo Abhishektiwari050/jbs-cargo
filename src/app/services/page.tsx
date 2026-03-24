@@ -33,8 +33,8 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#060d1b] pt-32 pb-24 font-sans">
-      {/* Inner Hero */}
+    <main className="min-h-screen bg-white pt-32 pb-24 font-sans">
+      {/* Header */}
       <section className="max-w-7xl mx-auto px-6 mb-24 relative text-left">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,17 +42,17 @@ export default function ServicesPage() {
           transition={{ duration: 0.8 }}
         >
           <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-6 block">Modular Infrastructure</span>
-          <h1 className="text-6xl md:text-[9rem] font-black text-white leading-[0.8] mb-8 uppercase font-display tracking-tighter">
+          <h1 className="text-6xl md:text-[9rem] font-black text-[var(--color-brand-blue)] leading-[0.8] mb-8 uppercase font-display tracking-tighter">
             Services <br />
             <span className="text-[var(--color-brand-orange)]">Modularized.</span>
           </h1>
-          <p className="text-xl text-white/40 max-w-3xl font-medium leading-relaxed">
+          <p className="text-xl text-[var(--color-text-secondary)] max-w-3xl font-medium leading-relaxed">
             From temperature-critical pharma to massive automobile infrastructure, we deploy modular logistics logic at any scale.
           </p>
         </motion.div>
       </section>
 
-      {/* Services Breakdown with Wobble Cards */}
+      {/* Services with Wobble Cards */}
       <section className="max-w-7xl mx-auto px-6 space-y-8">
         {services.map((service, i) => (
           <motion.div 

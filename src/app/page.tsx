@@ -12,20 +12,12 @@ import { InfiniteTestimonialMarquee } from "@/components/InfiniteTestimonialMarq
 import { LeadForm } from "@/components/LeadForm";
 import { HeritageTimeline } from "@/components/HeritageTimeline";
 import { ShipmentTracker } from "@/components/ShipmentTracker";
-import { WorldMap } from "@/components/ui/world-map";
 import { CertificationsCarousel } from "@/components/CertificationsCarousel";
-
-const JBS_ROUTES = [
-  { start: { lat: 28.6, lng: 77.2, label: "Delhi HQ" }, end: { lat: 27.7, lng: 85.3, label: "Kathmandu" } },
-  { start: { lat: 28.6, lng: 77.2, label: "Delhi" }, end: { lat: 27.5, lng: 89.6, label: "Thimphu" } },
-  { start: { lat: 28.6, lng: 77.2 }, end: { lat: 23.8, lng: 90.4, label: "Dhaka" } },
-  { start: { lat: 28.6, lng: 77.2 }, end: { lat: 19.1, lng: 72.9, label: "Mumbai" } },
-  { start: { lat: 28.6, lng: 77.2 }, end: { lat: 25.3, lng: 55.3, label: "Dubai" } },
-];
+import { AnimatedGlobe } from "@/components/ui/globe";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--color-brand-orange)] selection:text-[var(--color-surface-white)] font-sans">
+    <main className="min-h-screen bg-white text-[var(--foreground)] selection:bg-[var(--color-brand-orange)] selection:text-white font-sans">
       {/* ═══════════════════════════════════════════
           HERO SECTION — Cinematic Film-Poster Layout 
           ═══════════════════════════════════════════ */}
@@ -41,16 +33,10 @@ export default function Home() {
         </div>
 
         {/* Spotlight Beams */}
-        <Spotlight 
-          className="-top-40 left-0 md:-top-20 md:left-60" 
-          fill="var(--color-brand-orange)" 
-        />
-        <Spotlight 
-          className="-top-40 -right-10 md:-top-20 md:right-20" 
-          fill="white" 
-        />
+        <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="var(--color-brand-orange)" />
+        <Spotlight className="-top-40 -right-10 md:-top-20 md:right-20" fill="white" />
 
-        {/* Left-Aligned Content — Film Poster Aesthetic */}
+        {/* Left-Aligned Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-24 md:pb-32 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -90,7 +76,6 @@ export default function Home() {
               Enterprise Inquiry
               <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
             </button>
-            
             <button 
               onClick={() => { const el = document.getElementById('track'); el?.scrollIntoView({ behavior: 'smooth' }); }}
               className="group px-10 py-4 border-2 border-white/20 text-white rounded-xl font-black text-sm uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
@@ -101,15 +86,10 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator — Vertical Pulse Line */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
-        >
+        {/* Scroll Indicator */}
+        <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
           <span className="text-[9px] font-black uppercase tracking-[0.4em] text-white/30">Scroll</span>
-          <motion.div 
-            className="w-[1px] bg-white/20 overflow-hidden"
-            style={{ height: 60 }}
-          >
+          <motion.div className="w-[1px] bg-white/20 overflow-hidden" style={{ height: 60 }}>
             <motion.div 
               className="w-full bg-[var(--color-brand-orange)]"
               animate={{ height: [0, 60, 0] }}
@@ -120,9 +100,9 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════
-          TRUST TICKER — Infinite Client Badges 
+          TRUST TICKER — Compact Dark Strip 
           ═══════════════════════════════════ */}
-      <section className="py-6 bg-[var(--color-brand-blue)] border-t border-white/5 overflow-hidden">
+      <section className="py-4 bg-[var(--color-brand-blue)] overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(3)].map((_, set) => (
             <div key={set} className="flex items-center gap-16 mx-8">
@@ -138,16 +118,15 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════
-          STATS STRIP — Glowing Effect Cards
+          STATS STRIP — Light Background
           ═══════════════════════════════ */}
-      <section className="py-24 bg-[#060d1b] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTSAwIDAgTCA0MCAwIiByeD0iMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIwLjIiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=')] opacity-30" />
+      <section className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { label: "Annual Reefers", value: "6,000+", icon: "❄️" },
-            { label: "Precision Fleet", value: "70+", icon: "🚛" },
-            { label: "Years of Heritage", value: "20+", icon: "🏛️" },
-            { label: "Infrastructure Ops", value: "24/7", icon: "⚡" },
+            { label: "Annual Reefers", value: "6,000+" },
+            { label: "Precision Fleet", value: "70+" },
+            { label: "Years of Heritage", value: "20+" },
+            { label: "Infrastructure Ops", value: "24/7" },
           ].map((stat, i) => (
             <motion.div 
               key={i}
@@ -156,13 +135,13 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <GlowingCard className="bg-white/[0.03] border border-white/5 p-8">
+              <GlowingCard className="bg-[var(--color-surface-light)] border border-black/5 p-8 rounded-3xl">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-[40px] h-[1px] bg-[var(--color-brand-orange)] mb-6 transition-all duration-500" />
-                  <span className="text-4xl md:text-5xl font-black text-white mb-2 font-display tracking-tighter">
+                  <div className="w-[40px] h-[1px] bg-[var(--color-brand-orange)] mb-6" />
+                  <span className="text-4xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 font-display tracking-tighter">
                     <CountUpStats value={stat.value} />
                   </span>
-                  <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">
+                  <span className="text-[10px] font-black text-[var(--color-text-secondary)] uppercase tracking-[0.2em]">
                     {stat.label}
                   </span>
                 </div>
@@ -173,36 +152,36 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════
-          HERITAGE TIMELINE — Scroll Beam 
+          HERITAGE TIMELINE 
           ════════════════════════════════ */}
-      <section id="heritage" className="bg-white">
+      <section id="heritage" className="bg-[var(--color-surface-light)]">
         <HeritageTimeline />
       </section>
 
       {/* ═══════════════════════════════════
-          SERVICES — Wobble Cards with Depth 
+          SERVICES — Light bg with Dark Cards
           ═══════════════════════════════════ */}
-      <section id="services" className="py-32 bg-[#060d1b] relative overflow-hidden">
+      <section id="services" className="py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-[6rem] font-black tracking-tighter text-white uppercase font-display leading-[0.85] mb-4"
+            className="text-5xl md:text-[6rem] font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display leading-[0.85] mb-4"
           >
             Logistics <br /><span className="text-[var(--color-brand-orange)]">Modularized.</span>
           </motion.h2>
-          <p className="text-lg text-white/40 font-medium max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--color-text-secondary)] font-medium max-w-2xl mx-auto">
             From temperature-critical pharma to massive automobile infrastructure.
           </p>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { title: "Cold Chain Precision", desc: "GDP-compliant temperature management across 70+ reefer trailers with real-time telemetry.", bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a2744]", tags: ["GDP COMPLIANT", "PHARMA CERTIFIED", "-18°C TO +25°C"] },
+            { title: "Cold Chain Precision", desc: "GDP-compliant temperature management across 70+ reefer trailers with real-time telemetry.", bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a2744]", tags: ["GDP COMPLIANT", "PHARMA", "-18°C TO +25°C"] },
             { title: "Freight Forwarding", desc: "Seamless integration across Air, Sea, and Rail with 20+ years of carrier relationships.", bg: "bg-gradient-to-br from-[#1a0a00] to-[#2a1500]", tags: ["GLOBAL NETWORK", "MULTIMODAL", "IN-HOUSE CHA"] },
-            { title: "Cross-Border Ops", desc: "Strategic SAARC corridor management — Nepal, Bhutan, Bangladesh with priority clearance.", bg: "bg-gradient-to-br from-[#1a0d1a] to-[#2a1529]", tags: ["SAARC CORRIDOR", "PRIORITY CLEARANCE", "BONDED TRANSIT"] },
-            { title: "Automobile Logistics", desc: "OEM-grade transit logic for automotive components and finished vehicles.", bg: "bg-gradient-to-br from-[#0a1a0d] to-[#142a19]", tags: ["OEM STANDARDS", "ZERO-DAMAGE", "DEDICATED FLEET"] },
+            { title: "Cross-Border Ops", desc: "Strategic SAARC corridor — Nepal, Bhutan, Bangladesh with priority clearance.", bg: "bg-gradient-to-br from-[#0a0d1a] to-[#141829]", tags: ["SAARC", "PRIORITY CLEARANCE", "BONDED"] },
+            { title: "Automobile Logistics", desc: "OEM-grade transit logic for automotive components and finished vehicles.", bg: "bg-gradient-to-br from-[#0a1a0d] to-[#142a19]", tags: ["OEM STANDARDS", "ZERO-DAMAGE", "DEDICATED"] },
           ].map((service, i) => (
             <motion.div 
               key={i}
@@ -229,11 +208,11 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════
-          WORLD MAP — Route Architecture 
+          GLOBE — Route Visualization 
           ═══════════════════════════════ */}
-      <section className="py-24 bg-[#060d1b]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+      <section className="relative bg-[var(--color-brand-blue)] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 py-24">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
               Cross-Border <span className="text-[var(--color-brand-orange)]">Architecture.</span>
             </h2>
@@ -241,12 +220,12 @@ export default function Home() {
               Global hub coordinates and SAARC corridor telemetry.
             </p>
           </div>
-          <WorldMap dots={JBS_ROUTES} />
+          <AnimatedGlobe className="max-w-xl mx-auto" />
         </div>
       </section>
 
       {/* ═══════════════════════════════
-          SHIPMENT TRACKING — Terminal UI
+          SHIPMENT TRACKING
           ═══════════════════════════════ */}
       <section id="track" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
@@ -263,10 +242,8 @@ export default function Home() {
       {/* Certifications */}
       <CertificationsCarousel />
 
-      {/* ═══════════════════════
-          TESTIMONIALS 
-          ═══════════════════════ */}
-      <section className="bg-white py-32 border-t border-black/5">
+      {/* TESTIMONIALS */}
+      <section className="bg-[var(--color-surface-light)] py-32">
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display">
             The Industry <span className="text-[var(--color-brand-orange)]">Voice.</span>
@@ -275,11 +252,11 @@ export default function Home() {
         <InfiniteTestimonialMarquee />
       </section>
 
-      {/* ═══════════════════
-          CONTACT / LEAD GEN
-          ═══════════════════ */}
-      <section id="contact" className="py-32 bg-[var(--color-surface-light)] px-6 mb-12 rounded-[4rem] mx-4">
-        <div className="max-w-4xl mx-auto">
+      {/* CONTACT / LEAD GEN */}
+      <section id="contact" className="py-32 bg-white px-6">
+        <div className="max-w-4xl mx-auto bg-[var(--color-surface-light)] p-8 md:p-16 rounded-[3rem] border border-black/5 shadow-xl">
+          <h2 className="text-3xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 uppercase font-display tracking-tighter text-center">Filing Logistics Inquiry</h2>
+          <p className="text-sm text-gray-500 mb-10 font-medium text-center">Enterprise-grade response within 4 business hours.</p>
           <LeadForm />
         </div>
       </section>
