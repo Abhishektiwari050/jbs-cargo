@@ -2,84 +2,127 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { GlowingCard } from "@/components/ui/glowing-effect";
+import { Timeline } from "@/components/ui/timeline";
 
-const timeline = [
-  { year: "2004", event: "JSB Cargo Movers Foundation", detail: "Inception by J.S. Bisht specializing in cold-chain reefer logistics." },
-  { year: "2007", event: "ICD Dadri Rank #1", detail: "Consistently ranked as the leading logistics partner at ICD Dadri." },
-  { year: "2015", event: "Fleet Modernization", detail: "Transitioned to a self-owned fleet of 70 trailers with dedicated gensets." },
-  { year: "2020+", event: "Infrastructure Logic", detail: "Managing 8,000+ annual reefer units for global pharma and FMCG giants." },
+const timelineData = [
+  {
+    title: "2005",
+    content: (
+      <div>
+        <h3 className="text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">JBS Cargo Movers Founded</h3>
+        <p className="text-gray-500 font-medium leading-relaxed mb-4">Inception by J.S. Bisht in Delhi NCR, specializing in cold-chain reefer logistics for the pharmaceutical sector.</p>
+        <div className="flex gap-3">
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Cold Chain</span>
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Delhi NCR</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "2007",
+    content: (
+      <div>
+        <h3 className="text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">ICD Dadri Rank #1</h3>
+        <p className="text-gray-500 font-medium leading-relaxed mb-4">Consistently ranked as the leading logistics partner at North India&apos;s primary dry port. Established strategic hub positioning for fast-track customs clearance.</p>
+        <div className="flex gap-3">
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">ICD Dadri</span>
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Customs</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "2016",
+    content: (
+      <div>
+        <h3 className="text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">Fleet Modernization</h3>
+        <p className="text-gray-500 font-medium leading-relaxed mb-4">Transitioned to a fully self-owned fleet of 70+ trailers with dedicated gensets and mobile power backups. Zero dependency on third-party transport.</p>
+        <div className="flex gap-3">
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">70+ Fleet</span>
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Gensets</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "2020",
+    content: (
+      <div>
+        <h3 className="text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">Cross-Border Expansion</h3>
+        <p className="text-gray-500 font-medium leading-relaxed mb-4">Opened strategic SAARC corridors: Nepal, Bhutan, and Bangladesh. Priority clearance protocols for bonded transit cargo across 3 international borders.</p>
+        <div className="flex gap-3">
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Nepal</span>
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Bhutan</span>
+          <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Bangladesh</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "2026",
+    content: (
+      <div>
+        <h3 className="text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">Infrastructure Logic</h3>
+        <p className="text-gray-500 font-medium leading-relaxed mb-4">Managing 6,000+ annual reefer units for global pharma and FMCG enterprises. Multi-division logistics powerhouse with 24/7 infrastructure operations.</p>
+        <div className="flex gap-3">
+          <span className="px-3 py-1.5 bg-[var(--color-brand-orange)]/10 rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-orange)]">6,000+ Reefers</span>
+          <span className="px-3 py-1.5 bg-[var(--color-brand-orange)]/10 rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-orange)]">24/7 Ops</span>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white pt-32 pb-24 font-sans">
       {/* Inner Hero */}
-      <section className="max-w-7xl mx-auto px-6 mb-32 relative">
-         <div className="absolute top-0 right-10 text-[10rem] font-black text-black/[0.02] select-none font-display uppercase tracking-tighter">HERITAGE</div>
-         <motion.div
-           initial={{ opacity: 0, x: -30 }}
-           animate={{ opacity: 1, x: 0 }}
-           transition={{ duration: 0.8 }}
-           className="relative z-10"
-         >
-           <h1 className="text-6xl md:text-[8rem] font-black text-[var(--color-brand-blue)] leading-[0.8] mb-8 uppercase font-display tracking-tighter">
-             The JSB <br />
-             <span className="text-[var(--color-brand-orange)]">Infrastructure.</span>
-           </h1>
-           <p className="text-2xl text-[var(--color-text-secondary)] max-w-2xl font-medium leading-relaxed">
-             Two decades of engineering the primary transit routes for global trade. We don't just move cargo; we manage infrastructure.
-           </p>
-         </motion.div>
+      <section className="max-w-7xl mx-auto px-6 mb-20 relative">
+        <div className="absolute top-0 right-10 text-[10rem] font-black text-black/[0.02] select-none font-display uppercase tracking-tighter">HERITAGE</div>
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10"
+        >
+          <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-6 block">Est. 2005</span>
+          <h1 className="text-6xl md:text-[8rem] font-black text-[var(--color-brand-blue)] leading-[0.8] mb-8 uppercase font-display tracking-tighter">
+            The JBS <br />
+            <span className="text-[var(--color-brand-orange)]">Infrastructure.</span>
+          </h1>
+          <p className="text-2xl text-[var(--color-text-secondary)] max-w-2xl font-medium leading-relaxed">
+            Two decades of engineering the primary transit routes for global trade. We don&apos;t just move cargo; we manage infrastructure.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Grid Specs */}
-      <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
-         {[
-            { label: "Fleet Size", value: "70 Units", detail: "Self-owned trailers with built-in gensets." },
-            { label: "Operation", value: "24/7/365", detail: "Continuous monitoring for sensitive cargo." },
-            { label: "Legacy", value: "20+ Years", detail: "Established in 2004, scaling global logistics." },
-         ].map((spec, i) => (
-            <div key={i} className="p-10 border border-black/5 rounded-[2.5rem] bg-[var(--color-surface-light)] group hover:bg-[var(--color-brand-blue)] transition-all duration-500">
-               <p className="text-xs font-black uppercase tracking-widest text-[var(--color-brand-blue)] group-hover:text-[var(--color-brand-orange)] mb-4">{spec.label}</p>
-               <p className="text-4xl font-black text-[var(--color-brand-blue)] group-hover:text-white mb-4 font-display">{spec.value}</p>
-               <p className="text-sm text-gray-500 group-hover:text-gray-300 font-medium">{spec.detail}</p>
-            </div>
-         ))}
+      {/* Stats Cards with Glowing Effect */}
+      <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        {[
+          { label: "Fleet Size", value: "70 Units", detail: "Self-owned trailers with built-in gensets." },
+          { label: "Operation", value: "24/7/365", detail: "Continuous monitoring for sensitive cargo." },
+          { label: "Legacy", value: "20+ Years", detail: "Established in 2005, scaling global logistics." },
+        ].map((spec, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+          >
+            <GlowingCard className="border border-black/5 bg-[var(--color-surface-light)] p-10 group hover:bg-[var(--color-brand-blue)] transition-all duration-500" glowColor="var(--color-brand-orange)">
+              <p className="text-xs font-black uppercase tracking-widest text-[var(--color-brand-blue)] group-hover:text-[var(--color-brand-orange)] mb-4 transition-colors">{spec.label}</p>
+              <p className="text-4xl font-black text-[var(--color-brand-blue)] group-hover:text-white mb-4 font-display transition-colors">{spec.value}</p>
+              <p className="text-sm text-gray-500 group-hover:text-gray-300 font-medium transition-colors">{spec.detail}</p>
+            </GlowingCard>
+          </motion.div>
+        ))}
       </section>
 
-      {/* Timeline */}
-      <section className="bg-[var(--color-brand-blue)] py-40 rounded-[4rem] mx-4 relative overflow-hidden">
-         <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-5xl font-black text-white mb-24 uppercase font-display tracking-tighter">The Milestone Engine</h2>
-            <div className="space-y-24 relative">
-               <div className="absolute left-8 top-0 bottom-0 w-[1px] bg-white/10" />
-               {timeline.map((item, i) => (
-                  <motion.div 
-                    key={i} 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="flex gap-16 items-start"
-                  >
-                     <div className="w-16 h-16 shrink-0 rounded-2xl bg-[var(--color-brand-orange)] flex items-center justify-center text-white font-black z-10 shadow-xl shadow-orange-500/20">
-                        {item.year.slice(0,4)}
-                     </div>
-                     <div>
-                        <h3 className="text-3xl font-black text-white mb-2 uppercase font-display tracking-tight">{item.event}</h3>
-                        <p className="text-xl text-gray-400 max-w-2xl font-medium">{item.detail}</p>
-                     </div>
-                  </motion.div>
-               ))}
-            </div>
-         </div>
-         {/* Kinetic Decor */}
-         <img 
-            src="/images/hero-reefer.png" 
-            className="absolute bottom-0 right-0 w-1/2 h-full object-cover opacity-10 grayscale hover:grayscale-0 transition-all duration-1000 pointer-events-none"
-            alt=""
-         />
-         <div className="absolute -bottom-20 -right-20 text-[20rem] font-black text-white/[0.02] select-none uppercase -rotate-12 translate-y-20">JSB</div>
+      {/* Heritage Timeline */}
+      <section className="bg-white">
+        <Timeline data={timelineData} />
       </section>
     </main>
   );

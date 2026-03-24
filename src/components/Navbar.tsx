@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { MovingBorder } from "@/components/ui/moving-border";
 
 const NAV_LINKS = [
   { name: "Services", href: "/services" },
@@ -14,26 +15,39 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 20);
+      setHidden(currentScrollY > lastScrollY && currentScrollY > 200);
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <motion.header
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ y: hidden ? -120 : 0 }}
+      transition={{ duration: 0.3 }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4",
-        scrolled ? "bg-white/80 backdrop-blur-xl border-b border-black/5 py-3" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 md:px-6",
+        scrolled ? "py-2" : "py-4"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between bg-white/5 backdrop-blur-md rounded-2xl px-8 py-3 border border-white/10">
-        {/* Logo Lockup */}
+      <div
+        className={cn(
+          "max-w-7xl mx-auto flex items-center justify-between rounded-2xl px-6 md:px-8 py-3 transition-all duration-500",
+          scrolled
+            ? "bg-white/70 backdrop-blur-xl border border-black/5 shadow-2xl shadow-black/5"
+            : "bg-white/5 backdrop-blur-md border border-white/10"
+        )}
+      >
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 bg-[var(--color-brand-blue)] rounded-lg flex items-center justify-center group-hover:bg-[var(--color-brand-orange)] transition-colors duration-500 shadow-xl shadow-black/20">
              <span className="text-white font-black text-xl">J</span>
@@ -64,15 +78,21 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--color-brand-orange)] transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
-          <button 
+
+          {/* Moving Border CTA */}
+          <MovingBorder
             onClick={() => window.location.href = '/contact'}
-            className="px-6 py-2.5 bg-[var(--color-brand-blue)] text-white rounded-xl font-black text-xs hover:bg-[var(--color-brand-orange)] transition-all shadow-2xl hover:shadow-[var(--color-brand-orange)]/30 uppercase tracking-tighter"
+            borderRadius="0.75rem"
+            containerClassName="h-10"
+            className="px-6 py-2"
           >
-            Terminal Login
-          </button>
+            <span className="text-white font-black text-xs uppercase tracking-widest whitespace-nowrap">
+              Terminal Login
+            </span>
+          </MovingBorder>
         </nav>
 
-        {/* Mobile Toggle (Placeholder for now) */}
+        {/* Mobile Toggle */}
         <div className="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5 cursor-pointer">
           <div className="w-full h-0.5 bg-[var(--color-brand-blue)]" />
           <div className="w-full h-0.5 bg-[var(--color-brand-blue)]" />
