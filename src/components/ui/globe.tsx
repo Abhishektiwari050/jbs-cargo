@@ -73,11 +73,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
     atmosphereColor: "#ffffff",
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
-    polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
-    emissive: "#000000",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
+    polygonColor: "rgba(10, 25, 47, 0.08)", // Subtle navy for light theme landmasses
+    globeColor: "#ffffff",
+    emissive: "#ffffff",
+    emissiveIntensity: 0.2, // Boosted for sharpness
+    shininess: 0.95,
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
@@ -152,11 +152,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     globeRef.current
       .hexPolygonsData(countries.features)
-      .hexPolygonResolution(3)
+      .hexPolygonResolution(4) // Increased resolution for "sharper" landmasses
       .hexPolygonMargin(0.7)
       .showAtmosphere(defaultProps.showAtmosphere)
       .atmosphereColor(defaultProps.atmosphereColor)
-      .atmosphereAltitude(defaultProps.atmosphereAltitude)
+      .atmosphereAltitude(0.15) // Slightly increased for a cleaner glow
       .hexPolygonColor(() => defaultProps.polygonColor);
 
     globeRef.current

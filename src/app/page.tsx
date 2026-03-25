@@ -97,10 +97,10 @@ export default function Home() {
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="flex flex-col items-center"
             >
-              <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.5em] mb-8 block text-center">
+              <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.3em] mb-4 block text-center">
                 Since 2005 · Delhi Infrastructure Hub
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase font-display text-center mb-6">
+              <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-[0.9] tracking-tighter uppercase font-display text-center mb-4">
                 <span className="text-[var(--color-brand-blue)]">Infrastructure</span>
                 <br />
                 <span className="text-[var(--color-brand-orange)]">Logic.</span>
@@ -111,7 +111,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-lg md:text-2xl text-gray-400 mb-10 max-w-3xl font-medium leading-relaxed text-center"
+              className="text-lg md:text-2xl text-gray-500 mb-8 max-w-3xl font-medium leading-relaxed text-center"
             >
               Precision freight forwarding for{" "}
               <FlipWords 

@@ -17,8 +17,8 @@ export const BackgroundLines: React.FC<BackgroundLinesProps> = ({
   className,
   svgOptions,
 }) => {
-  const numLines = svgOptions?.numLines || 100;
-  const duration = svgOptions?.duration || 10;
+  const numLines = svgOptions?.numLines || 40;
+  const duration = svgOptions?.duration || 12;
 
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
@@ -37,9 +37,9 @@ export const BackgroundLines: React.FC<BackgroundLinesProps> = ({
           const speed = duration + Math.random() * duration;
           const opacity = 0.02 + Math.random() * 0.06;
 
-          // Generate a wavy path
+          // Generate a simpler wavy path
           const points: string[] = [];
-          for (let y = 0; y <= 1000; y += 20) {
+          for (let y = 0; y <= 1000; y += 50) {
             const x = startX + Math.sin((y / 1000) * Math.PI * frequency + offset) * amplitude;
             points.push(`${y === 0 ? "M" : "L"} ${x} ${y}`);
           }
