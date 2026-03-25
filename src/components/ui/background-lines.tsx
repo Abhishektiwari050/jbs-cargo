@@ -17,8 +17,8 @@ export const BackgroundLines: React.FC<BackgroundLinesProps> = ({
   className,
   svgOptions,
 }) => {
-  const numLines = svgOptions?.numLines || 40;
-  const duration = svgOptions?.duration || 12;
+  const numLines = svgOptions?.numLines || 12; // Far fewer lines for performance
+  const duration = svgOptions?.duration || 15;
 
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
@@ -30,44 +30,30 @@ export const BackgroundLines: React.FC<BackgroundLinesProps> = ({
         viewBox="0 0 1000 1000"
       >
         {Array.from({ length: numLines }).map((_, i) => {
-          const startX = Math.random() * 1000;
-          const amplitude = 50 + Math.random() * 200;
-          const frequency = 1 + Math.random() * 3;
+          const startX = (i * (1000 / numLines)) + (Math.random() * 50); // Spread lines evenly
+          const amplitude = 30 + Math.random() * 70;
+          const frequency = 0.5 + Math.random() * 1.5;
           const offset = Math.random() * 1000;
-          const speed = duration + Math.random() * duration;
-          const opacity = 0.02 + Math.random() * 0.06;
+          const speed = duration + Math.random() * 5;
+          const opacity = 0.03 + Math.random() * 0.05;
 
-          // Generate a simpler wavy path
+          // Generate a much simpler path (only 5 points instead of 20)
           const points: string[] = [];
-          for (let y = 0; y <= 1000; y += 50) {
+          for (let y = 0; y <= 1000; y += 250) { 
             const x = startX + Math.sin((y / 1000) * Math.PI * frequency + offset) * amplitude;
             points.push(`${y === 0 ? "M" : "L"} ${x} ${y}`);
           }
 
           return (
-            <g key={i}>
-              <path
-                d={points.join(" ")}
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                opacity={opacity}
-                className="text-neutral-400"
-              >
-                <animate
-                  attributeName="d"
-                  values={`${points.join(" ")};${points.map((p, idx) => {
-                    const parts = p.split(" ");
-                    const prefix = parts[0];
-                    const x = parseFloat(parts[1]) + Math.sin(idx * 0.3) * 30;
-                    const y = parts[2];
-                    return `${prefix} ${x} ${y}`;
-                  }).join(" ")};${points.join(" ")}`}
-                  dur={`${speed}s`}
-                  repeatCount="indefinite"
-                />
-              </path>
-            </g>
+            <path
+              key={i}
+              d={points.join(" ")}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              opacity={opacity}
+              className="text-neutral-300"
+            />
           );
         })}
       </svg>

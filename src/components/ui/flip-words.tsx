@@ -29,22 +29,25 @@ export function FlipWords({ words, duration = 3000, className }: FlipWordsProps)
   }, [isAnimating, duration, startAnimation]);
 
   return (
-    <AnimatePresence
-      onExitComplete={() => {
-        setIsAnimating(false);
-      }}
-    >
-      <motion.span
-        key={words[currentIndex]}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ type: "spring", stiffness: 100, damping: 10 }}
-        className={cn("inline-block", className)}
-        style={{ willChange: "transform, opacity", backfaceVisibility: "hidden", WebkitFontSmoothing: "antialiased" }}
+    <div className="inline-flex relative items-center justify-center overflow-hidden h-[1.2em]">
+      <AnimatePresence
+        mode="wait"
+        onExitComplete={() => {
+          setIsAnimating(false);
+        }}
       >
-        {words[currentIndex]}
-      </motion.span>
-    </AnimatePresence>
+        <motion.span
+          key={words[currentIndex]}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className={cn("inline-block whitespace-nowrap text-center", className)}
+          style={{ willChange: "transform, opacity", backfaceVisibility: "hidden", WebkitFontSmoothing: "antialiased" }}
+        >
+          {words[currentIndex]}
+        </motion.span>
+      </AnimatePresence>
+    </div>
   );
 }

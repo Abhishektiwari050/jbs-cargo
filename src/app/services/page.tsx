@@ -10,25 +10,36 @@ const services = [
     title: "Cold Chain Precision", 
     specs: ["GDP Compliant", "Pharma Certified", "Real-time Telemetry", "-18°C to +25°C"],
     detail: "Management of sensitive cargo requires infrastructure, not just transport. Our 70-trailer reefer fleet features dedicated gensets and mobile power backups.",
-    bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a2744]"
+    bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a2744]",
+    image: "/assets/images/cold-chain.png"
   },
   { 
     title: "Customs Solutions", 
     specs: ["ICD Dadri Rank #1", "EDI Integrated", "Project Cargo", "Priority Clearance"],
     detail: "Fast-track clearances through strategic hub positioning. Consistently ranked the top partner at North India's primary dry ports since 2007.",
-    bg: "bg-gradient-to-br from-[#1a0d1a] to-[#2a1529]"
+    bg: "bg-gradient-to-br from-[#1a0d1a] to-[#2a1529]",
+    image: "/assets/images/hub-dadri.png"
   },
   { 
     title: "Freight Forwarding", 
     specs: ["Global Network", "Multimodal Ops", "In-house CHA", "Air · Sea · Rail"],
     detail: "Seamless integration across Air, Sea, and Rail. We leverage two decades of carrier relationships to optimize your global supply chain logic.",
-    bg: "bg-gradient-to-br from-[#1a0a00] to-[#2a1500]"
+    bg: "bg-gradient-to-br from-[#1a0a00] to-[#2a1500]",
+    image: "/assets/images/freight.png"
   },
   { 
     title: "Automobile Logistics", 
     specs: ["OEM Standards", "Zero-Damage Transit", "Dedicated Fleet", "Subcontinent Coverage"],
     detail: "Specialized transit logic for the automotive sector, including OEM components and finished vehicles across the subcontinent.",
-    bg: "bg-gradient-to-br from-[#0a1a0d] to-[#142a19]"
+    bg: "bg-gradient-to-br from-[#0a1a0d] to-[#142a19]",
+    image: "/assets/images/automobile.png"
+  },
+  { 
+    title: "Corporate Relocation", 
+    specs: ["IT Asset Transit", "White Glove Service", "Secure Chain of Custody", "Industrial Rigging"],
+    detail: "Specialized relocation logic for sensitive corporate infrastructure, high-value labs, and mission-critical server environments.",
+    bg: "bg-gradient-to-br from-[#2a1500] to-[#3a2510]",
+    image: "/assets/images/relocation.png"
   }
 ];
 
@@ -88,11 +99,18 @@ export default function ServicesPage() {
                       EXPLORE DETAILS
                     </button>
                   </div>
-                  <div className="flex-shrink-0 w-full lg:w-80 aspect-square bg-white/5 rounded-3xl flex items-center justify-center overflow-hidden relative border border-white/5">
+                  <div className="flex-shrink-0 w-full lg:w-[32rem] aspect-video lg:aspect-square bg-white/5 rounded-3xl flex items-center justify-center overflow-hidden relative border border-white/5">
                     <span className="text-[8rem] font-black text-white/[0.03] font-display uppercase -rotate-12 absolute">{service.title.split(" ")[0]}</span>
-                    <div className="relative z-10 w-full h-full flex items-center justify-center p-8">
-                      <div className="w-full h-full border border-white/10 rounded-2xl flex items-center justify-center animate-pulse">
-                         <span className="text-white/20 text-xs font-black tracking-widest uppercase">Visual Unit {i+1}</span>
+                    <picture className="absolute inset-0 z-0">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+                      />
+                    </picture>
+                    <div className="relative z-10 w-full h-full flex items-center justify-center p-8 bg-gradient-to-t from-black/60 to-transparent">
+                      <div className="w-full h-full border border-white/10 rounded-2xl flex items-center justify-center bg-black/5">
+                         <span className="text-white/40 text-[10px] font-black tracking-[0.4em] uppercase">Visual Node 0{i+1}</span>
                       </div>
                     </div>
                   </div>

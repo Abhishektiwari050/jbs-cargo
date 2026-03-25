@@ -45,13 +45,19 @@ export default function ContactPage() {
                 </div>
               </CardSpotlight>
 
-              <div className="flex gap-12 px-2">
-                <div>
-                  <p className="text-xs font-black text-[var(--color-brand-orange)] uppercase tracking-widest mb-3">Operations Hub</p>
+              <div className="grid grid-cols-2 gap-8 px-2">
+                <div className="group cursor-crosshair">
+                  <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-4 border border-black/5">
+                    <img src="/assets/images/hub-dadri.png" alt="ICD Dadri" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  </div>
+                  <p className="text-xs font-black text-[var(--color-brand-orange)] uppercase tracking-widest mb-1 font-sans">Operations Hub</p>
                   <p className="text-xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tight">ICD Dadri</p>
                 </div>
-                <div>
-                  <p className="text-xs font-black text-[var(--color-brand-orange)] uppercase tracking-widest mb-3">Regional Hub</p>
+                <div className="group cursor-crosshair">
+                  <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-4 border border-black/5">
+                    <img src="/assets/images/hub-loni.png" alt="ICD Loni" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  </div>
+                  <p className="text-xs font-black text-[var(--color-brand-orange)] uppercase tracking-widest mb-1 font-sans">Regional Hub</p>
                   <p className="text-xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tight">ICD Loni</p>
                 </div>
               </div>

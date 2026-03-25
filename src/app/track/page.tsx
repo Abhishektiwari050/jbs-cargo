@@ -27,6 +27,9 @@ export default function TrackShipment() {
 
   return (
     <main className="min-h-screen pt-28 pb-24 bg-white relative overflow-hidden font-sans">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 opacity-50 z-0 select-none pointer-events-none">
+        <img src="/assets/images/timeline-2026.png" alt="Tracking Background" className="w-full h-full object-cover grayscale opacity-10" />
+      </div>
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div

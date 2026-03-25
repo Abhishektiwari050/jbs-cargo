@@ -27,7 +27,7 @@ const globeConfig = {
   emissive: "#ffffff",
   emissiveIntensity: 0.1,
   shininess: 0.9,
-  polygonColor: "rgba(10, 25, 47, 0.05)",
+  polygonColor: "rgba(255, 255, 255, 0.15)",
   ambientLight: "#ffffff",
   directionalLeftLight: "#ffffff",
   directionalTopLight: "#ffffff",
@@ -85,7 +85,7 @@ export default function Home() {
         {/* ═══════════════════════════════════════════
             HERO SECTION — Light Theme with BackgroundLines 
             ═══════════════════════════════════════════ */}
-        <BackgroundLines className="relative min-h-screen flex items-center bg-white overflow-hidden">
+        <BackgroundLines className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden w-full">
           {/* Subtle gradient accent at top */}
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[var(--color-brand-orange)] to-transparent" />
 
@@ -95,12 +95,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center justify-center w-full"
             >
               <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.3em] mb-4 block text-center">
                 Since 2005 · Delhi Infrastructure Hub
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-[0.9] tracking-tighter uppercase font-display text-center mb-4">
+              <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.8] tracking-tighter uppercase font-display text-center mb-8">
                 <span className="text-[var(--color-brand-blue)]">Infrastructure</span>
                 <br />
                 <span className="text-[var(--color-brand-orange)]">Logic.</span>
