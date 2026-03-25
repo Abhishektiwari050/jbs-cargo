@@ -100,7 +100,7 @@ export default function Home() {
               <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.3em] mb-4 block text-center">
                 Since 2005 · Delhi Infrastructure Hub
               </span>
-              <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.8] tracking-tighter uppercase font-display text-center mb-8">
+              <h1 className="text-4xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.9] md:leading-[0.8] tracking-tighter uppercase font-display text-center mb-8">
                 <span className="text-[var(--color-brand-blue)]">Infrastructure</span>
                 <br />
                 <span className="text-[var(--color-brand-orange)]">Logic.</span>
@@ -111,9 +111,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-lg md:text-2xl text-gray-500 mb-8 max-w-3xl font-medium leading-relaxed text-center"
+              className="text-lg md:text-2xl text-gray-500 mb-8 max-w-3xl font-medium leading-relaxed text-center px-4"
             >
               Precision freight forwarding for{" "}
+              <br className="block sm:hidden" />
               <FlipWords 
                 words={["Pharma.", "FMCG.", "Government.", "Enterprise."]} 
                 className="text-[var(--color-brand-orange)] font-black"
@@ -125,18 +126,18 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-6"
             >
               <button 
                 onClick={() => { const el = document.getElementById('contact'); el?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="group relative px-10 py-4 bg-[var(--color-brand-orange)] text-white rounded-xl font-black text-sm uppercase tracking-widest hover:bg-orange-600 transition-all shadow-2xl shadow-orange-500/20"
+                className="w-full sm:w-auto group relative px-10 py-4 bg-[var(--color-brand-orange)] text-white rounded-xl font-black text-sm uppercase tracking-widest hover:bg-orange-600 transition-all shadow-2xl shadow-orange-500/20"
               >
                 ENTERPRISE INQUIRY
                 <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
               </button>
               <button 
                 onClick={() => { const el = document.getElementById('track'); el?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="group px-10 py-4 border-2 border-[var(--color-brand-blue)]/10 text-[var(--color-brand-blue)] rounded-xl font-black text-sm uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
+                className="w-full sm:w-auto group px-10 py-4 border-2 border-[var(--color-brand-blue)]/10 text-[var(--color-brand-blue)] rounded-xl font-black text-sm uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
               >
                 LIVE TRACKING
                 <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -237,7 +238,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-[6rem] font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display leading-[0.85] mb-4"
+              className="text-4xl md:text-[6rem] font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display leading-[0.9] md:leading-[0.85] mb-4"
             >
               Services <br /><span className="text-[var(--color-brand-orange)]">Modularized.</span>
             </motion.h2>
@@ -264,23 +265,24 @@ export default function Home() {
         <section className="relative bg-[#050505] overflow-hidden py-32">
           {/* Background Watermark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-            <span className="text-[15vw] md:text-[20vw] font-black text-white/[0.03] uppercase tracking-tighter leading-none whitespace-nowrap">
+            <span className="text-[20vw] md:text-[20vw] opacity-[0.03] font-black text-white uppercase tracking-tighter leading-none whitespace-nowrap">
               GLOBAL INFRASTRUCTURE
             </span>
           </div>
 
           <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
-                Cross-Border <span className="text-[var(--color-brand-orange)]">Architecture.</span>
+            <div className="text-center mb-12 md:mb-20">
+              <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
+                Cross-Border <br className="block md:hidden" />
+                <span className="text-[var(--color-brand-orange)]">Architecture.</span>
               </h2>
-              <p className="text-lg text-gray-500 font-medium max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-gray-500 font-medium max-w-2xl mx-auto px-4">
                 Global hub coordinates and SAARC corridor telemetry.
               </p>
             </div>
-            <div className="relative w-full h-[500px] md:h-[700px]">
+            <div className="relative w-full h-[350px] md:h-[700px]">
               <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-[#050505] z-40" />
-              <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
+              <div className="absolute w-full -bottom-10 md:-bottom-20 h-72 md:h-full z-10">
                 <World data={sampleArcs} globeConfig={globeConfig} />
               </div>
             </div>
@@ -292,10 +294,10 @@ export default function Home() {
             ═══════════════════════════════ */}
         <section id="track" className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-4">
-              Live <span className="text-[var(--color-brand-orange)]">Transit</span> Monitoring.
+            <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-4">
+              Live <span className="text-[var(--color-brand-orange)]">Transit</span> <br className="block md:hidden" /> Monitoring.
             </h2>
-            <p className="text-lg font-medium text-gray-400 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg font-medium text-gray-400 max-w-2xl mx-auto px-4">
               Real-time hub coordinates, border clearance status, and precise temperature telemetry.
             </p>
           </div>
@@ -317,9 +319,9 @@ export default function Home() {
 
         {/* CONTACT */}
         <section id="contact" className="py-32 bg-white px-6">
-          <div className="max-w-4xl mx-auto bg-[var(--color-surface-light)] p-8 md:p-16 rounded-[3rem] border border-black/5 shadow-xl">
-            <h2 className="text-3xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 uppercase font-display tracking-tighter text-center">Filing Logistics Inquiry</h2>
-            <p className="text-sm text-gray-400 mb-10 font-medium text-center">Enterprise-grade response within 4 business hours.</p>
+          <div className="max-w-4xl mx-auto bg-[var(--color-surface-light)] p-8 md:p-16 rounded-[2.5rem] md:rounded-[3rem] border border-black/5 shadow-xl">
+            <h2 className="text-2xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 uppercase font-display tracking-tighter text-center leading-tight">Filing Logistics Inquiry</h2>
+            <p className="text-xs md:text-sm text-gray-400 mb-10 font-medium text-center">Enterprise-grade response within 4 business hours.</p>
             <LeadForm />
           </div>
         </section>
@@ -342,7 +344,7 @@ function ServiceRevealCard({ service, index }: { service: { title: string; desc:
       transition={{ delay: index * 0.1 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative group border border-black/[0.08] rounded-3xl flex flex-col justify-between min-h-[320px] p-8 md:p-10 overflow-hidden cursor-pointer bg-white hover:shadow-xl transition-shadow duration-300"
+      className="relative group border border-black/[0.08] rounded-3xl flex flex-col justify-between min-h-[280px] md:min-h-[320px] p-6 md:p-10 overflow-hidden cursor-pointer bg-white hover:shadow-xl transition-shadow duration-300"
     >
       {/* Canvas Reveal on Hover */}
       <AnimatePresence>
@@ -367,10 +369,10 @@ function ServiceRevealCard({ service, index }: { service: { title: string; desc:
       {/* Static content */}
       <div className="relative z-10">
         <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 block">0{index + 1} / DIV</span>
-        <h3 className={`text-3xl md:text-4xl font-black uppercase font-display tracking-tighter mb-4 transition-colors duration-300 text-[var(--color-brand-blue)]`}>
+        <h3 className="text-2xl md:text-4xl font-black uppercase font-display tracking-tighter mb-4 transition-colors duration-300 text-[var(--color-brand-blue)]">
           {service.title}
         </h3>
-        <p className={`font-medium mb-6 max-w-md transition-colors duration-300 text-gray-500`}>
+        <p className="font-medium mb-6 max-w-md transition-colors duration-300 text-gray-500 text-sm md:text-base">
           {service.desc}
         </p>
       </div>
