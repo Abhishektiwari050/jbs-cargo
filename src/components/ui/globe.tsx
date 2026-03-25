@@ -73,11 +73,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
     atmosphereColor: "#ffffff",
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
-    polygonColor: "rgba(10, 25, 47, 0.08)", // Subtle navy for light theme landmasses
-    globeColor: "#ffffff",
-    emissive: "#ffffff",
-    emissiveIntensity: 0.2, // Boosted for sharpness
-    shininess: 0.95,
+    polygonColor: "#4a4a4a", // Solid grey landmasses like Jesko Jets
+    globeColor: "#000000",   // Pure black sphere
+    emissive: "#000000",
+    emissiveIntensity: 0.1,
+    shininess: 0.9,
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
@@ -151,13 +151,14 @@ export function Globe({ globeConfig, data }: WorldProps) {
     );
 
     globeRef.current
-      .hexPolygonsData(countries.features)
-      .hexPolygonResolution(4) // Increased resolution for "sharper" landmasses
-      .hexPolygonMargin(0.7)
+      .polygonsData(countries.features)
+      .polygonCapColor(() => defaultProps.polygonColor)
+      .polygonSideColor(() => "rgba(0, 0, 0, 0)")
+      .polygonStrokeColor(() => "#ffffff")
+      .polygonAltitude(0.01)
       .showAtmosphere(defaultProps.showAtmosphere)
       .atmosphereColor(defaultProps.atmosphereColor)
-      .atmosphereAltitude(0.15) // Slightly increased for a cleaner glow
-      .hexPolygonColor(() => defaultProps.polygonColor);
+      .atmosphereAltitude(0.1);
 
     globeRef.current
       .arcsData(data)
@@ -167,7 +168,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
       .arcColor((e: any) => (e as { color: string }).color)
       .arcAltitude((e) => (e as { arcAlt: number }).arcAlt * 1)
-      .arcStroke(() => [0.32, 0.28, 0.3][Math.round(Math.random() * 2)])
+      .arcStroke(() => 0.5) // Sleeker, thinner arcs
       .arcDashLength(defaultProps.arcLength)
       .arcDashInitialGap((e) => (e as { order: number }).order * 1)
       .arcDashGap(15)
@@ -270,9 +271,9 @@ export function World(props: WorldProps) {
       <Globe {...props} />
       <OrbitControls
         enablePan={false}
-        enableZoom={false}
+        enableZoom={true} // Enabled zoom for premium exploration
         minDistance={cameraZ}
-        maxDistance={cameraZ}
+        maxDistance={cameraZ * 2}
         autoRotateSpeed={1}
         autoRotate={true}
         minPolarAngle={Math.PI / 3.5}

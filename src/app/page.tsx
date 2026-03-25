@@ -261,19 +261,25 @@ export default function Home() {
         {/* ═══════════════════════════════
             GLOBE — 3D Route Visualization 
             ═══════════════════════════════ */}
-        <section className="relative bg-white overflow-hidden py-32">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white pointer-events-none" />
+        <section className="relative bg-[#050505] overflow-hidden py-32">
+          {/* Background Watermark */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+            <span className="text-[15vw] md:text-[20vw] font-black text-white/[0.03] uppercase tracking-tighter leading-none whitespace-nowrap">
+              GLOBAL INFRASTRUCTURE
+            </span>
+          </div>
+
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-4">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
                 Cross-Border <span className="text-[var(--color-brand-orange)]">Architecture.</span>
               </h2>
-              <p className="text-lg text-gray-400 font-medium max-w-2xl mx-auto">
+              <p className="text-lg text-gray-500 font-medium max-w-2xl mx-auto">
                 Global hub coordinates and SAARC corridor telemetry.
               </p>
             </div>
             <div className="relative w-full h-[500px] md:h-[700px]">
-              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-white z-40" />
+              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-[#050505] z-40" />
               <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
                 <World data={sampleArcs} globeConfig={globeConfig} />
               </div>
