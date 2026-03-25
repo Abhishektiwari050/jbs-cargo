@@ -8,7 +8,6 @@ import { GlowingCard } from "@/components/ui/glowing-effect";
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
-import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { CountUpStats } from "@/components/CountUpStats";
 import { InfiniteTestimonialMarquee } from "@/components/InfiniteTestimonialMarquee";
 import { LeadForm } from "@/components/LeadForm";
@@ -73,26 +72,14 @@ const sampleArcs = [
   { order: 14, startLat: -33.936138, startLng: 18.436529, endLat: 21.395643, endLng: 39.883798, arcAlt: 0.3, color: colors[Math.floor(Math.random() * colors.length)] },
 ];
 
-const LOADER_STATES = [
-  { text: "Connecting to Infrastructure..." },
-  { text: "Loading Fleet Telemetry..." },
-  { text: "Fetching Route Network..." },
-  { text: "Initializing Temperature Sensors..." },
-  { text: "Ready." },
-];
+
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 8000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <>
-      {/* Site Loader */}
-      <MultiStepLoader loadingStates={LOADER_STATES} loading={loading} duration={1500} loop={false} />
+
 
       <main className="min-h-screen bg-white text-[var(--foreground)] selection:bg-[var(--color-brand-orange)] selection:text-white font-sans">
         {/* ═══════════════════════════════════════════
@@ -103,16 +90,17 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[var(--color-brand-orange)] to-transparent" />
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full flex flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
+              className="flex flex-col items-center"
             >
-              <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.5em] mb-8 block">
+              <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.5em] mb-8 block text-center">
                 Since 2005 · Delhi Infrastructure Hub
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase font-display text-left mb-6">
+              <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase font-display text-center mb-6">
                 <span className="text-[var(--color-brand-blue)]">Infrastructure</span>
                 <br />
                 <span className="text-[var(--color-brand-orange)]">Logic.</span>
@@ -123,7 +111,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-lg md:text-2xl text-gray-400 mb-10 max-w-3xl font-medium leading-relaxed text-left"
+              className="text-lg md:text-2xl text-gray-400 mb-10 max-w-3xl font-medium leading-relaxed text-center"
             >
               Precision freight forwarding for{" "}
               <FlipWords 
@@ -137,7 +125,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <button 
                 onClick={() => { const el = document.getElementById('contact'); el?.scrollIntoView({ behavior: 'smooth' }); }}
@@ -168,7 +156,7 @@ export default function Home() {
                 { num: "20+", label: "Years of Legacy" },
                 { num: "24/7", label: "Infrastructure Ops" },
               ].map((s, i) => (
-                <div key={i} className="text-left">
+                <div key={i} className="text-center">
                   <span className="text-2xl md:text-3xl font-black text-[var(--color-brand-blue)] font-display tracking-tighter">{s.num}</span>
                   <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">{s.label}</span>
                 </div>
