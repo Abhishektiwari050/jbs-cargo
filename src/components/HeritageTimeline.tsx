@@ -4,38 +4,38 @@ import { Timeline } from "@/components/ui/timeline";
 export function HeritageTimeline() {
   const data = [
     {
-      title: "2005",
+      title: "2023",
       content: (
         <div>
           <p className="text-neutral-800 text-xs md:text-sm font-black uppercase mb-4 tracking-widest">
-            Founding & Core Operations
+            Foundation & Vision
           </p>
           <div className="grid grid-cols-2 gap-4">
-             <div className="bg-neutral-100 rounded-3xl p-6 border border-black/5">
-                <p className="text-2xl font-black text-[var(--color-brand-blue)]">Initial Fleet</p>
-                <p className="text-sm font-medium text-neutral-600">Established core reefer operations in North India.</p>
-             </div>
-             <div className="bg-neutral-100 rounded-3xl p-6 border border-black/5">
-                <p className="text-2xl font-black text-[var(--color-brand-blue)]">SAARC Expansion</p>
-                <p className="text-sm font-medium text-neutral-600">Launched dedicated routes to Nepal and Bhutan.</p>
-             </div>
+              <div className="bg-neutral-100 rounded-3xl p-6 border border-black/5">
+                <p className="text-2xl font-black text-[var(--color-brand-blue)]">Strategic Launch</p>
+                <p className="text-sm font-medium text-neutral-600">Established JBS Cargo Movers in New Delhi with a focus on premium logistics.</p>
+              </div>
+              <div className="bg-neutral-100 rounded-3xl p-6 border border-black/5">
+                <p className="text-2xl font-black text-[var(--color-brand-blue)]">Pan-India Network</p>
+                <p className="text-sm font-medium text-neutral-600">Rapidly scaled to cover 28 states with 24/7 domestic operations.</p>
+              </div>
           </div>
         </div>
       ),
     },
     {
-      title: "2015",
+      title: "2024",
       content: (
         <div>
           <p className="text-neutral-800 text-xs md:text-sm font-black uppercase mb-4 tracking-widest">
-            Technical Precision Era
+            Operations & Scale
           </p>
           <p className="text-neutral-700 text-sm md:text-base font-medium mb-8">
-            Integrated real-time IoT monitoring across the entire cold chain fleet. Achieved 99.9% temperature compliance for global pharma giants.
+            Under the leadership of Lalit and Preet Saini, we optimized our hub-and-spoke model to achieve a 5.0-star service rating on Justdial.
           </p>
           <div className="bg-[var(--color-brand-blue)] text-white p-8 rounded-[3rem] shadow-2xl">
-             <h4 className="text-3xl font-black uppercase tracking-tighter mb-2">ICD Dadri Hub</h4>
-             <p className="opacity-80 font-medium">Strategic partnership launched at the Dadri Inland Container Depot, revolutionizing custom clearance speeds.</p>
+             <h4 className="text-3xl font-black uppercase tracking-tighter mb-2">Service Excellence</h4>
+             <p className="opacity-80 font-medium">Achieved industry-leading delivery speeds through dedicated air and surface channels.</p>
           </div>
         </div>
       ),
@@ -45,14 +45,14 @@ export function HeritageTimeline() {
       content: (
         <div>
           <p className="text-neutral-800 text-xs md:text-sm font-black uppercase mb-4 tracking-widest">
-            The Digital Nexus
+            JBS Cargo Movers Today
           </p>
           <p className="text-neutral-700 text-sm md:text-base font-medium mb-4">
-            Today, JBS Cargo operates as a technical logistics architectural firm, blending heritage reliability with AI-driven route optimization.
+            Today, we operate as a unified entity, providing seamless logistics and workforce solutions for modern enterprises across India.
           </p>
           <div className="bg-[var(--color-brand-orange)] text-white p-8 rounded-[3rem] shadow-2xl">
-             <h4 className="text-3xl font-black uppercase tracking-tighter mb-2">The 20-Year Milestone</h4>
-             <p className="opacity-80 font-medium">Over 5 Million Tonnages moved with zero structural failures.</p>
+             <h4 className="text-3xl font-black uppercase tracking-tighter mb-2">Integrated Future</h4>
+             <p className="opacity-80 font-medium">Delivering reliability through a balanced mix of professional logistics and expert manpower.</p>
           </div>
         </div>
       ),

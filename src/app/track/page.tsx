@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 
 const TRACKING_STEPS = [
-  { label: "Gateway Dispatch", location: "Delhi Logistics Hub", time: "10:45 AM", status: "Done", done: true },
-  { label: "ICD Dadri Processing", location: "Customs Clearance Zone", time: "02:30 PM", status: "Done", done: true },
+  { label: "Gateway Dispatch", location: "Delhi NCR Processing", time: "10:45 AM", status: "Done", done: true },
+  { label: "Regional Sorting Center", location: "North Hub Operations", time: "02:30 PM", status: "Done", done: true },
   { label: "In Transit", location: "National Highway 9 Corridor", time: "06:15 PM", status: "Active", done: true },
-  { label: "Border Checkpoint", location: "Sunauli / Bhairahawa Gate", time: "Pending", status: "Awaited", done: false },
+  { label: "Inter-state Transit", location: "State Border Checkpoint", time: "Pending", status: "Awaited", done: false },
   { label: "Final Delivery", location: "Destination Warehouse", time: "Pending", status: "Awaited", done: false },
 ];
 
@@ -42,7 +42,7 @@ export default function TrackShipment() {
             Track <span className="text-[var(--color-brand-orange)]">Cargo.</span>
           </h1>
           <p className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl font-medium">
-            Real-time visibility into the global cargo network. Enter your JBS Tracking ID below.
+            Real-time visibility into the domestic cargo network. Enter your JBS Tracking ID below.
           </p>
         </motion.div>
 
@@ -52,7 +52,7 @@ export default function TrackShipment() {
             placeholders={[
               "Enter JBS Tracking ID...",
               "JBS-2026-X89HQ",
-              "Track your reefer cargo",
+              "Track your domestic cargo",
               "Monitor gateway status",
             ]}
             onChange={(e) => setTrackingId(e.target.value.toUpperCase())}

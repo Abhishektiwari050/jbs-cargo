@@ -18,8 +18,10 @@ export const CountUpStats = ({
   const numericValue = parseInt(value.replace(/,/g, ""));
   const suffix = value.replace(/[0-9,]/g, "");
 
+  const isNumeric = !isNaN(numericValue);
+
   useEffect(() => {
-    if (isInView) {
+    if (isInView && isNumeric) {
       let start = 0;
       const end = numericValue;
       const totalFrames = duration * 60;
@@ -42,7 +44,7 @@ export const CountUpStats = ({
 
   return (
     <span ref={ref} className="tabular-nums">
-      {count.toLocaleString()}{suffix}
+      {isNumeric ? count.toLocaleString() + suffix : value}
     </span>
   );
 };

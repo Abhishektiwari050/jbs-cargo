@@ -63,3 +63,25 @@ body {
 .animate-shimmer {
   animation: shimmer var(--shimmer-duration) linear infinite;
 }
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Dynamic Interaction Utilities */
+.dynamic-spotlight {
+  background: radial-gradient(
+    var(--spotlight-radius, 350px) circle at var(--spotlight-x, 0px) var(--spotlight-y, 0px),
+    var(--spotlight-color, rgba(255, 255, 255, 0.1)),
+    transparent 80%
+  );
+}

@@ -26,6 +26,7 @@ export function ShipmentTracker() {
                onChange={(e) => setTrackingId(e.target.value)}
                placeholder="e.g. JB-99827-X"
                className="w-full bg-neutral-50 px-8 py-6 rounded-[2rem] border-2 border-transparent focus:border-[var(--color-brand-blue)] outline-none transition-all text-xl font-bold uppercase placeholder:text-neutral-300"
+               suppressHydrationWarning={true}
              />
              <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-20">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -35,6 +36,7 @@ export function ShipmentTracker() {
         <button 
           onClick={handleTrack}
           className="bg-[var(--color-brand-blue)] text-white px-12 py-6 rounded-[2rem] font-black uppercase text-sm tracking-widest hover:bg-[var(--color-brand-orange)] transition-all shadow-xl hover:shadow-[var(--color-brand-orange)]/30 disabled:opacity-50"
+          suppressHydrationWarning={true}
           disabled={!trackingId || loading}
         >
           {loading ? "querying..." : "Analyze Transit"}

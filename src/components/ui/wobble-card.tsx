@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -13,13 +13,21 @@ interface WobbleCardProps {
 export function WobbleCard({ children, containerClassName, className }: WobbleCardProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const spotlightRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    setMousePosition({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-    });
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    setMousePosition({ x, y });
+    
+    if (spotlightRef.current) {
+      spotlightRef.current.style.setProperty("--spotlight-x", `${x}px`);
+      spotlightRef.current.style.setProperty("--spotlight-y", `${y}px`);
+      spotlightRef.current.style.setProperty("--spotlight-radius", "350px");
+      spotlightRef.current.style.setProperty("--spotlight-color", "rgba(255,255,255,0.06)");
+    }
   };
 
   return (
@@ -56,13 +64,12 @@ export function WobbleCard({ children, containerClassName, className }: WobbleCa
           }}
           className="absolute inset-0 rounded-3xl pointer-events-none"
         />
-        <motion.div
-          className="pointer-events-none absolute -inset-px rounded-3xl"
-          animate={{
-            background: isHovered
-              ? `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), transparent 80%)`
-              : "rgba(255,255,255,0)",
-          }}
+        <div
+          ref={spotlightRef}
+          className={cn(
+            "pointer-events-none absolute -inset-px rounded-3xl transition-opacity duration-300 dynamic-spotlight",
+            isHovered ? "opacity-100" : "opacity-0"
+          )}
         />
         <div className={cn("relative h-full", className)}>
           {children}

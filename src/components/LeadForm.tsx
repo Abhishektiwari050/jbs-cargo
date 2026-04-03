@@ -46,7 +46,7 @@ export function LeadForm() {
       <h3 className="text-2xl md:text-3xl font-black text-[var(--color-brand-blue)] mb-2 uppercase tracking-tighter font-display">
         Enterprise Inquiry
       </h3>
-      <p className="text-xs md:text-base text-[var(--color-text-secondary)] mb-8 font-medium">Global freight forwarding and technical logistics.</p>
+      <p className="text-xs md:text-base text-[var(--color-text-secondary)] mb-8 font-medium">Premium Logistics & Storage Solutions.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -64,7 +64,7 @@ export function LeadForm() {
           </div>
           <div className="space-y-2">
             <label htmlFor="volume" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Shipment Volume</label>
-            <input id="volume" placeholder="e.g. 50+ Containers" title="Shipment Volume" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+            <input id="volume" placeholder="e.g. 50+ Tons / 10+ Personnel" title="Shipment Volume" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="shipDate" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Est. Shipment Date</label>
@@ -75,7 +75,7 @@ export function LeadForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
            <div className="space-y-2">
              <label htmlFor="origin" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Origin Hub</label>
-             <input id="origin" placeholder="e.g. ICD Dadri / Mumbai" title="Origin" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+              <input id="origin" placeholder="e.g. Delhi / Bijwasan" title="Origin" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
            </div>
            <div className="space-y-2">
              <label htmlFor="destination" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Destination Hub</label>
@@ -87,11 +87,11 @@ export function LeadForm() {
           <label htmlFor="logisticsService" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Service Division</label>
           <select id="logisticsService" title="Select Service" required suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all appearance-none cursor-pointer font-medium text-[var(--color-text-secondary)] text-sm md:text-base">
             <option value="">Select Service Division...</option>
-            <option value="cold_chain">Cold Chain Operations</option>
-            <option value="freight">Freight Forwarding (Ocean/Air)</option>
-            <option value="cha">Customs & Compliance</option>
-            <option value="cross_border">Cross-Border (Nepal/Bhutan)</option>
-            <option value="auto">Automobile Logistics</option>
+            <option value="express">Express Cargo (Air/Surface)</option>
+            <option value="storage">Self-Storage Solutions</option>
+            <option value="freight">Freight Forwarding</option>
+            <option value="consolidation">Consolidation Services</option>
+            <option value="warehousing">Managed Warehousing</option>
           </select>
         </div>
 
@@ -99,6 +99,7 @@ export function LeadForm() {
           type="submit" 
           disabled={submitting}
           className="w-full py-5 bg-[var(--color-brand-blue)] text-white rounded-xl font-black text-lg md:text-xl hover:bg-[var(--color-brand-orange)] transition-all duration-500 disabled:opacity-70 mt-4 shadow-2xl hover:shadow-[var(--color-brand-orange)]/30 uppercase tracking-tighter"
+          suppressHydrationWarning={true}
         >
           {submitting ? "PROCESSING..." : "SUBMIT REQUEST"}
         </button>

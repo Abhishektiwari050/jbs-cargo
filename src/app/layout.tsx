@@ -17,8 +17,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "JBS Cargo Movers | Premium Global Logistics & Cold Chain",
-  description: "Enterprise-grade freight forwarding, specialized cold chain logistics, and strategic cross-border cargo solutions.",
+  title: "JBS Cargo Movers | Premium Domestic Logistics & Relocation",
+  description: "Enterprise-grade freight forwarding, specialized relocation services, and domestic cargo solutions across 28+ states.",
 };
 
 export default function RootLayout({

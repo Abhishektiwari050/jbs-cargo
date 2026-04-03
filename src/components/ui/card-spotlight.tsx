@@ -18,18 +18,24 @@ export const CardSpotlight = ({
 }) => {
   const mousePosition = useMousePosition();
   const containerRef = useRef<HTMLDivElement>(null);
+  const spotlightRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [relativePos, setRelativePos] = useState({ x: 0, y: 0 });
-
+  
   useEffect(() => {
-    if (isHovered && containerRef.current) {
+    if (isHovered && containerRef.current && spotlightRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
-      setRelativePos({
-        x: mousePosition.x - rect.left,
-        y: mousePosition.y - rect.top,
-      });
+      const x = mousePosition.x - rect.left;
+      const y = mousePosition.y - rect.top;
+      
+      spotlightRef.current.style.setProperty("--spotlight-x", `${x}px`);
+      spotlightRef.current.style.setProperty("--spotlight-y", `${y}px`);
+      spotlightRef.current.style.setProperty("--spotlight-radius", `${radius}px`);
+      spotlightRef.current.style.setProperty(
+        "--spotlight-color", 
+        color === "orange" ? "rgba(221, 92, 0, 0.15)" : "rgba(10, 25, 47, 0.15)"
+      );
     }
-  }, [mousePosition, isHovered]);
+  }, [mousePosition, isHovered, radius, color]);
 
   const spotlightColor = color === "orange" ? "rgba(221, 92, 0, 0.08)" : "rgba(10, 25, 47, 0.08)";
 
@@ -43,13 +49,9 @@ export const CardSpotlight = ({
         className
       )}
     >
-      <motion.div
-        className="pointer-events-none absolute inset-0 rounded-md opacity-0 transition duration-300 group-hover:opacity-100"
-        animate={{
-          background: `radial-gradient(${radius}px circle at ${relativePos.x}px ${relativePos.y}px, ${
-            color === "orange" ? "rgba(221, 92, 0, 0.15)" : "rgba(10, 25, 47, 0.15)"
-          }, transparent 80%)`,
-        }}
+      <div
+        ref={spotlightRef}
+        className="pointer-events-none absolute inset-0 rounded-md opacity-0 transition duration-300 group-hover:opacity-100 dynamic-spotlight"
       />
       <div className="relative z-10">{children}</div>
     </div>

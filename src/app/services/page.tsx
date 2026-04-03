@@ -7,45 +7,52 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const services = [
   { 
-    title: "Cold Chain Precision", 
-    specs: ["GDP Compliant", "Pharma Certified", "Real-time Telemetry", "-18°C to +25°C"],
-    detail: "Management of sensitive cargo requires precision, not just transport. Our 70-trailer reefer fleet features dedicated gensets and mobile power backups.",
+    title: "Air & Surface Cargo", 
+    specs: ["Domestic Flights", "Road Transit", "Real-time Tracking", "Pan-India Coverage"],
+    detail: "High-speed surface and air cargo solutions tailored for mission-critical shipments across India. From document courier to bulk freight.",
     bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a2744]",
-    image: "/assets/images/cold-chain.png"
+    image: "/assets/images/express-cargo.png"
   },
   { 
-    title: "Customs Solutions", 
-    specs: ["ICD Dadri Rank #1", "EDI Integrated", "Project Cargo", "Priority Clearance"],
-    detail: "Fast-track clearances through strategic hub positioning. Consistently ranked the top partner at North India's primary dry ports since 2007.",
+    title: "Residential & Office Relocation", 
+    specs: ["Professional Packing", "Safe Transit", "Unpacking Support", "Corporate Shifting"],
+    detail: "Premium packers and movers service for seamless home and office transitions. Vetted teams ensure zero damage and minimal downtime.",
     bg: "bg-gradient-to-br from-[#1a0d1a] to-[#2a1529]",
-    image: "/assets/images/hub-dadri.png"
+    image: "/assets/images/self-storage.png"
   },
   { 
-    title: "Freight Forwarding", 
-    specs: ["Global Network", "Multimodal Ops", "In-house CHA", "Air · Sea · Rail"],
-    detail: "Seamless integration across Air, Sea, and Rail. We leverage two decades of carrier relationships to optimize your global supply chain logic.",
+    title: "Train Cargo", 
+    specs: ["Railway Networks", "Bulk Transit", "Cost-Effective", "Reliable Schedules"],
+    detail: "Leveraging India's vast railway network for reliable, cost-effective long-distance transport of heavy and commercial cargo.",
     bg: "bg-gradient-to-br from-[#1a0a00] to-[#2a1500]",
     image: "/assets/images/freight.png"
   },
   { 
-    title: "Automobile Logistics", 
-    specs: ["OEM Standards", "Zero-Damage Transit", "Dedicated Fleet", "Subcontinent Coverage"],
-    detail: "Specialized transit logic for the automotive sector, including OEM components and finished vehicles across the subcontinent.",
+    title: "Commercial Courier", 
+    specs: ["B2B Deliveries", "Bulk Courier", "Corporate Accounts", "Secure Routing"],
+    detail: "Specialized bulk and commercial courier services for corporate partners. Tailored for safe, scheduled, and documented deliveries.",
     bg: "bg-gradient-to-br from-[#0a1a0d] to-[#142a19]",
-    image: "/assets/images/automobile.png"
+    image: "/assets/images/consolidation.png"
   },
   { 
-    title: "Corporate Relocation", 
-    specs: ["IT Asset Transit", "White Glove Service", "Secure Chain of Custody", "Industrial Rigging"],
-    detail: "Specialized relocation logic for sensitive corporate assets, high-value labs, and mission-critical server environments.",
+    title: "Express Cargo", 
+    specs: ["Time-Definite", "Door-to-Door", "Expedited", "24/7 Operations"],
+    detail: "Premium expedited cargo handling for time-sensitive deliveries. Door-to-door service with zero downtime, powered by 24/7 logistics logic.",
     bg: "bg-gradient-to-br from-[#2a1500] to-[#3a2510]",
-    image: "/assets/images/relocation.png"
+    image: "/assets/images/warehousing.png"
+  },
+  { 
+    title: "Self-Storage", 
+    specs: ["Secure Units", "Flexible Terms", "Climate Controlled", "24/7 Access"],
+    detail: "New specialized self-storage solutions for businesses and individuals. Secure, scalable, and conveniently located storage nodes in South West Delhi.",
+    bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a1c2c]",
+    image: "/assets/images/heritage-hero.png"
   }
 ];
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-white pt-28 pb-24 font-sans overflow-hidden">
+    <main className="relative min-h-screen bg-white pt-28 pb-24 font-sans overflow-hidden">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 mb-16 md:mb-24 relative text-left">
         <motion.div
@@ -56,10 +63,10 @@ export default function ServicesPage() {
           <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 md:mb-6 block">Logistics Network</span>
           <h1 className="text-4xl md:text-[9rem] font-black text-[var(--color-brand-blue)] leading-[0.9] md:leading-[0.8] mb-6 md:mb-8 uppercase font-display tracking-tighter">
             Services <br className="hidden md:block" />
-            <span className="text-[var(--color-brand-orange)]">Modularized.</span>
+            <span className="text-[var(--color-brand-orange)]">Integrated.</span>
           </h1>
           <p className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl font-medium leading-relaxed">
-            From temperature-critical pharma to high-volume automobile logistics, we deploy modular transport logic at any scale.
+            From premier cargo solutions to expert relocation services, we deploy integrated operational logic at any scale.
           </p>
         </motion.div>
       </section>

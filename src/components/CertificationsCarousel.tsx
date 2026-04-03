@@ -7,7 +7,7 @@ const certifications = [
   { name: "ISO 9001:2015", body: "QUALITY MGMT", year: "ACTIVE" },
   { name: "WCA WORLD", body: "REGISTERED AGENT", year: "PREMIUM" },
   { name: "IATA", body: "CARGO AGENT", year: "VALID" },
-  { name: "CUSTOMS", body: "AUTHORIZED CARRIER", year: "SAARC" },
+  { name: "CUSTOMS", body: "AUTHORIZED CARRIER", year: "DOMESTIC" },
 ];
 
 export function CertificationsCarousel() {

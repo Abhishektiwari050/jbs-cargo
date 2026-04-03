@@ -40,21 +40,21 @@ export function Footer() {
           {/* Brand Col */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center border border-white/5 shadow-2xl">
-                <span className="text-white font-black text-xl">J</span>
+              <div className="relative h-10 w-20 flex items-center justify-center border border-white/20 rounded-full bg-white/5">
+                <span className="text-white font-black text-lg">JBS</span>
               </div>
-              <span className="text-2xl font-black tracking-tighter font-display uppercase">
-                JBS<span className="text-[var(--color-brand-orange)]">Cargo</span>
+              <span className="text-xl font-black tracking-tighter font-display uppercase">
+                JBS Cargo <span className="text-[var(--color-brand-orange)]">Movers</span>
               </span>
             </div>
             <p className="text-gray-400 font-medium leading-relaxed">
-              Industrial-grade freight forwarding and specialized cool-chain logistics solutions for the global enterprise.
+              Integrated logistics and specialized relocation solutions for the modern Indian enterprise.
             </p>
             <div className="flex gap-3">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[var(--color-brand-orange)] hover:text-white hover:border-transparent transition-all duration-200">
                 <LinkedInIcon />
               </a>
-              <a href="https://wa.me/911140506700" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white hover:border-transparent transition-all duration-200">
+              <a href="https://wa.me/919582566995" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white hover:border-transparent transition-all duration-200">
                 <WhatsAppIcon />
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-gradient-to-tr hover:from-purple-500 hover:to-pink-500 hover:text-white hover:border-transparent transition-all duration-200">
@@ -67,10 +67,10 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-8">Services</h4>
             <ul className="space-y-4">
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Commercial Cold Chain</Link></li>
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Freight Forwarding</Link></li>
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Relocation Services</Link></li>
-              <li><Link href="/track" className="text-gray-300 hover:text-white transition-colors font-medium">Live Tracking</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Express Cargo (Air/Surface)</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Residential & Office Relocation</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Consolidation Services</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Value-Added Services</Link></li>
             </ul>
           </div>
 
@@ -89,9 +89,9 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-8">Headquarters</h4>
             <address className="not-italic space-y-4 text-gray-300 font-medium">
-              <p>1/413, Vaishali, Ghaziabad<br />Delhi NCR - 110001</p>
-              <p>Email: <Link href="mailto:ops@jbscargo.com" className="hover:text-white transition-colors">ops@jbscargo.com</Link></p>
-              <p>Phone: +91 (0) 11 4050 6700</p>
+              <p>Plot No 6, Kh No 349, VPO Shahbad Mohamadpur,<br />Bijwasan Sub Post Office, South West Delhi, Delhi - 110061</p>
+              <p>Email: <Link href="mailto:jbscargomovers@gmail.com" className="hover:text-white transition-colors">jbscargomovers@gmail.com</Link></p>
+              <p>Phone: +91 9582566995 / 8460246040</p>
             </address>
           </div>
         </motion.div>
