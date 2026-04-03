@@ -52,40 +52,40 @@ export function LeadForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div className="space-y-2">
             <label htmlFor="companyName" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Company Name</label>
-            <input id="companyName" placeholder="Acme Corp" title="Company Name" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+            <input id="companyName" placeholder="Acme Corp" title="Company Name" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="workEmail" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Work Email</label>
-            <input id="workEmail" placeholder="ops@enterprise.com" title="Work Email" required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+            <input id="workEmail" placeholder="ops@enterprise.com" title="Work Email" required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="phone" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Phone Number</label>
-            <input id="phone" placeholder="+91 XXXX-XXXXXX" title="Phone Number" required type="tel" pattern="^\+?[0-9\s\-]{10,}$" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+            <input id="phone" placeholder="+91 XXXX-XXXXXX" title="Phone Number" required type="tel" pattern="^\+?[0-9\s\-]{10,}$" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="volume" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Shipment Volume</label>
-            <input id="volume" placeholder="e.g. 50+ Containers" title="Shipment Volume" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+            <input id="volume" placeholder="e.g. 50+ Containers" title="Shipment Volume" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="shipDate" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Est. Shipment Date</label>
-            <input id="shipDate" title="Shipment Date" required type="date" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all font-medium text-[var(--color-text-secondary)] text-sm md:text-base" />
+            <input id="shipDate" title="Shipment Date" required type="date" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all font-medium text-[var(--color-text-secondary)] text-sm md:text-base" />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
            <div className="space-y-2">
              <label htmlFor="origin" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Origin Hub</label>
-             <input id="origin" placeholder="e.g. ICD Dadri / Mumbai" title="Origin" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+             <input id="origin" placeholder="e.g. ICD Dadri / Mumbai" title="Origin" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
            </div>
            <div className="space-y-2">
              <label htmlFor="destination" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Destination Hub</label>
-             <input id="destination" placeholder="e.g. Kathmandu / Dubai" title="Destination" required type="text" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+             <input id="destination" placeholder="e.g. Kathmandu / Dubai" title="Destination" required type="text" suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
            </div>
         </div>
         
         <div className="space-y-2">
           <label htmlFor="logisticsService" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Service Division</label>
-          <select id="logisticsService" title="Select Service" required className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all appearance-none cursor-pointer font-medium text-[var(--color-text-secondary)] text-sm md:text-base">
+          <select id="logisticsService" title="Select Service" required suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all appearance-none cursor-pointer font-medium text-[var(--color-text-secondary)] text-sm md:text-base">
             <option value="">Select Service Division...</option>
             <option value="cold_chain">Cold Chain Operations</option>
             <option value="freight">Freight Forwarding (Ocean/Air)</option>
