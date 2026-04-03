@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const Boxes = ({ className, ...rest }: { className?: string }) => {
-  // Balanced grid size for performance and visual coverage
-  const rows = useMemo(() => new Array(60).fill(1).map((_, i) => i), []);
-  const cols = useMemo(() => new Array(40).fill(1).map((_, i) => i), []);
+  // Dense grid for full viewport coverage after scaling and skewing
+  const rows = useMemo(() => new Array(100).fill(1).map((_, i) => i), []);
+  const cols = useMemo(() => new Array(80).fill(1).map((_, i) => i), []);
 
   const colors = [
     "var(--color-brand-orange)",
@@ -23,7 +23,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "absolute left-1/4 p-4 -top-1/4 flex -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 hero-boxes-grid",
+        "absolute left-0 p-4 top-0 flex -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 hero-boxes-grid",
         className
       )}
       {...rest}
@@ -31,7 +31,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
       {rows.map((i) => (
         <motion.div
           key={`row` + i}
-          className="w-16 h-8 border-l border-slate-100 relative"
+          className="w-16 h-8 border-l border-slate-200 relative"
         >
           {cols.map((j) => (
             <motion.div
@@ -40,7 +40,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
                 transition: { duration: 0 },
               }}
               key={`col` + j}
-              className="w-16 h-8 border-r border-t border-slate-100 relative"
+              className="w-16 h-8 border-r border-t border-slate-200 relative"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg
@@ -49,7 +49,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-100 stroke-[1px] pointer-events-none"
+                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-200 stroke-[1px] pointer-events-none"
                 >
                   <path
                     strokeLinecap="round"
