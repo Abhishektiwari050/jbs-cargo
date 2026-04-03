@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export const ShimmerButton = ({
   children,
@@ -24,16 +25,14 @@ export const ShimmerButton = ({
   [key: string]: any;
 }) => {
   return (
-    <button
-      style={
-        {
-          "--shimmer-color": shimmerColor,
-          "--shimmer-size": shimmerSize,
-          "--shimmer-duration": shimmerDuration,
-          "--border-radius": borderRadius,
-          "--background": background,
-        } as React.CSSProperties
-      }
+    <motion.button
+      animate={{
+        "--shimmer-color": shimmerColor,
+        "--shimmer-size": shimmerSize,
+        "--shimmer-duration": shimmerDuration,
+        "--border-radius": borderRadius,
+        "--background": background,
+      } as any}
       className={cn(
         "group relative flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 py-3 text-white [background:var(--background)] [border-radius:var(--border-radius)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]",
         className
@@ -50,6 +49,6 @@ export const ShimmerButton = ({
       <div className="absolute [background:var(--background)] [border-radius:var(--border-radius)] [inset:var(--shimmer-size)]" />
 
       <div className="z-10 flex items-center gap-2">{children}</div>
-    </button>
+    </motion.button>
   );
 };

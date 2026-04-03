@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { useMousePosition } from "@/lib/hooks/use-mouse-position";
 
 export const CardSpotlight = ({
@@ -42,10 +43,12 @@ export const CardSpotlight = ({
         className
       )}
     >
-      <div
-        className="pointer-events-none absolute -inset-px transition duration-300 opacity-0 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(${radius}px circle at ${relativePos.x}px ${relativePos.y}px, ${spotlightColor}, transparent 80%)`,
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-md opacity-0 transition duration-300 group-hover:opacity-100"
+        animate={{
+          background: `radial-gradient(${radius}px circle at ${relativePos.x}px ${relativePos.y}px, ${
+            color === "orange" ? "rgba(221, 92, 0, 0.15)" : "rgba(10, 25, 47, 0.15)"
+          }, transparent 80%)`,
         }}
       />
       <div className="relative z-10">{children}</div>

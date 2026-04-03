@@ -1,100 +1,65 @@
 @import "tailwindcss";
 
+/* 
+ * TAILWIND 4 THEME SYSTEM
+ * Using @theme rule for core branding and design tokens.
+ */
 @theme {
   --color-brand-blue: #0A192F;
-  --color-brand-orange: #dd5c00;
-  --color-surface-white: #FFFFFF;
-  --color-surface-light: #eceef0;
-  --color-surface-soft: #f2f4f6;
+  --color-brand-orange: #FF4D00;
+  --color-brand-muted: #172A45;
+  --color-brand-gray: #8892B0;
   
-  --color-text-primary: #191c1e;
-  --color-text-primary: #191c1e;
-  --color-text-secondary: #44474d;
-
-  @keyframes aurora {
-    from {
-      background-position: 50% 50%, 50% 50%;
-    }
-    to {
-      background-position: 350% 50%, 350% 50%;
-    }
-  }
-
-  @keyframes shimmer {
-    0% {
-      transform: rotate(0deg) scale(2);
-    }
-    100% {
-      transform: rotate(360deg) scale(2);
-    }
-  }
-
-  @keyframes scroll {
-    to {
-      transform: translate(calc(-50% - 0.5rem));
-    }
-  }
-
-  @keyframes spotlight {
-    0% { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
-    100% { opacity: 1; transform: translate(-50%, -40%) scale(1); }
-  }
-
-  --animate-aurora: aurora 60s linear infinite;
-  --animate-shimmer: shimmer 3s linear infinite;
-  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
-  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  --font-heading: "Inter", sans-serif;
 }
 
-:root {
-  /* Tonal Architecture - Level 0 Surface */
-  --background: #f7f9fb; 
-  --foreground: #191c1e;
-  
-  /* Tyopgraphy - The Editorial Voice */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
-  --font-display: var(--font-manrope), ui-sans-serif, system-ui;
+@layer base {
+  :root {
+    --background: white;
+    --foreground: #171717;
+  }
+
+  /* 
+   * SCROLLBAR COMPATIBILITY
+   * Optimized for modern and legacy browsers.
+   */
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow: -moz-scrollbars-none; /* Legacy Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
 }
 
+@layer utilities {
+  .text-balance {
+    @supports (text-wrap: balance) {
+      text-wrap: balance;
+    }
+  }
+}
+
+/* Base Body Styles */
 body {
-  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, .font-display {
-  font-family: var(--font-display);
-  letter-spacing: -0.04em;
-  font-weight: 800;
+/* Animations */
+@keyframes shimmer {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Base Aceternity component utilities for layout */
-.no-visible-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.no-visible-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Tonal Layering Utilities */
-.surface-lift {
-  background: var(--color-surface-white);
-  box-shadow: 0 20px 40px rgba(10, 25, 47, 0.06);
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-33.33%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-@keyframes kenburns {
-  0% { transform: scale(1.05); }
-  100% { transform: scale(1.15); }
+.animate-shimmer {
+  animation: shimmer var(--shimmer-duration) linear infinite;
 }

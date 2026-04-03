@@ -30,11 +30,15 @@ export function WobbleCard({ children, containerClassName, className }: WobbleCa
         setIsHovered(false);
         setMousePosition({ x: 0, y: 0 });
       }}
-      style={{
+      animate={{
         transform: isHovered
           ? `translate3d(${mousePosition.x / 20}px, ${mousePosition.y / 20}px, 0) scale3d(1.03, 1.03, 1)`
           : "translate3d(0, 0, 0) scale3d(1, 1, 1)",
-        transition: "transform 0.1s ease-out",
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
       }}
       className={cn(
         "relative overflow-hidden rounded-3xl",
@@ -43,16 +47,21 @@ export function WobbleCard({ children, containerClassName, className }: WobbleCa
     >
       <div
         className="relative h-full overflow-hidden sm:mx-0 sm:rounded-3xl"
-        style={{
-          boxShadow: "0 10px 32px rgba(34, 42, 53, 0.12), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.05), 0 4px 6px rgba(34, 42, 53, 0.08), 0 24px 108px rgba(47, 48, 55, 0.10)",
-        }}
       >
         <motion.div
+          animate={{
+            boxShadow: isHovered 
+              ? "0 20px 40px rgba(34, 42, 53, 0.2)" 
+              : "0 10px 32px rgba(34, 42, 53, 0.12), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.05), 0 4px 6px rgba(34, 42, 53, 0.08), 0 24px 108px rgba(47, 48, 55, 0.10)",
+          }}
+          className="absolute inset-0 rounded-3xl pointer-events-none"
+        />
+        <motion.div
           className="pointer-events-none absolute -inset-px rounded-3xl"
-          style={{
+          animate={{
             background: isHovered
               ? `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), transparent 80%)`
-              : "none",
+              : "rgba(255,255,255,0)",
           }}
         />
         <div className={cn("relative h-full", className)}>

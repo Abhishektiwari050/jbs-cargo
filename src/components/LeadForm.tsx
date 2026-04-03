@@ -56,11 +56,11 @@ export function LeadForm() {
           </div>
           <div className="space-y-2">
             <label htmlFor="workEmail" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Work Email</label>
-            <input id="workEmail" placeholder="ops@enterprise.com" title="Work Email" required type="email" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+            <input id="workEmail" placeholder="ops@enterprise.com" title="Work Email" required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="phone" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Phone Number</label>
-            <input id="phone" placeholder="+91 XXXX-XXXXXX" title="Phone Number" required type="tel" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
+            <input id="phone" placeholder="+91 XXXX-XXXXXX" title="Phone Number" required type="tel" pattern="^\+?[0-9\s\-]{10,}$" className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all placeholder:text-gray-400 font-medium text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="volume" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Shipment Volume</label>

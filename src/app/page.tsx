@@ -107,7 +107,7 @@ export default function Home() {
               </h1>
             </motion.div>
 
-            <motion.p 
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
@@ -120,7 +120,7 @@ export default function Home() {
                 className="text-[var(--color-brand-orange)] font-black"
                 duration={2500}
               />
-            </motion.p>
+            </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
