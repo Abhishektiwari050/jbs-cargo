@@ -11,9 +11,9 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
   const colors = [
     "var(--color-brand-orange)",
     "var(--color-brand-blue)",
-    "var(--color-sky-500)",
-    "var(--color-indigo-500)",
-    "var(--color-slate-500)",
+    "#3b82f6", // blue-500
+    "#8b5cf6", // violet-500
+    "#f43f5e", // rose-500
   ];
 
   const getRandomColor = () => {
@@ -31,7 +31,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
       {rows.map((i) => (
         <motion.div
           key={`row` + i}
-          className="w-16 h-8 border-l border-white/5 relative"
+          className="w-16 h-8 border-l border-slate-100 relative"
         >
           {cols.map((j) => (
             <motion.div
@@ -40,7 +40,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
                 transition: { duration: 0 },
               }}
               key={`col` + j}
-              className="w-16 h-8 border-r border-t border-white/5 relative"
+              className="w-16 h-8 border-r border-t border-slate-100 relative"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg
@@ -49,7 +49,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-white/5 stroke-[1px] pointer-events-none"
+                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-100 stroke-[1px] pointer-events-none"
                 >
                   <path
                     strokeLinecap="round"
