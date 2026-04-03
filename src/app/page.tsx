@@ -225,7 +225,7 @@ export default function Home() {
         {/* ════════════════════════════════
             HERITAGE TIMELINE 
             ════════════════════════════════ */}
-        <section id="heritage" className="bg-white">
+        <section id="heritage" className="bg-white relative">
           <HeritageTimeline />
         </section>
 

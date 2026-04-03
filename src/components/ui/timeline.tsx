@@ -42,7 +42,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           The JBS Legacy
         </h2>
         <p className="text-neutral-700 text-sm md:text-base max-w-sm">
-          More than three decades of engineering logistics excellence and global cargo movemnt.
+          More than three decades of engineering logistics excellence and global cargo movement.
         </p>
       </div>
 
