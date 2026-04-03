@@ -85,3 +85,7 @@ body {
     transparent 80%
   );
 }
+
+.hero-boxes-grid {
+  transform: translate3d(-45%, -45%, 0) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0);
+}

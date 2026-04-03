@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { FlipWords } from "@/components/ui/flip-words";
 import { GlowingCard } from "@/components/ui/glowing-effect";
+import { Boxes } from "@/components/ui/background-boxes";
 import { WobbleCard } from "@/components/ui/wobble-card";
-import { BackgroundLines } from "@/components/ui/background-lines";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { CountUpStats } from "@/components/CountUpStats";
 import { InfiniteTestimonialMarquee } from "@/components/InfiniteTestimonialMarquee";
@@ -85,12 +85,13 @@ export default function Home() {
         {/* ═══════════════════════════════════════════
             HERO SECTION — Light Theme with BackgroundLines 
             ═══════════════════════════════════════════ */}
-        <BackgroundLines className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden w-full">
-          {/* Subtle gradient accent at top */}
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[var(--color-brand-orange)] to-transparent" />
+        <section className="relative min-h-screen flex items-center justify-center bg-slate-900 overflow-hidden w-full">
+          <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+          
+          <Boxes />
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full flex flex-col items-center text-center">
+          <div className="relative z-30 max-w-7xl mx-auto px-6 py-32 w-full flex flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,7 +102,7 @@ export default function Home() {
                 Established 2023 · Premium Logistics Partner
               </span>
               <h1 className="text-4xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.9] md:leading-[0.8] tracking-tighter uppercase font-display text-center mb-8">
-                <span className="text-[var(--color-brand-blue)]">JBS Cargo</span>
+                <span className="text-white">JBS Cargo</span>
                 <br />
                 <span className="text-[var(--color-brand-orange)]">Movers.</span>
               </h1>
@@ -111,7 +112,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-lg md:text-2xl text-gray-500 mb-8 max-w-3xl font-medium leading-relaxed text-center px-4"
+              className="text-lg md:text-2xl text-neutral-400 mb-8 max-w-3xl font-medium leading-relaxed text-center px-4"
             >
               Integrated logistics and specialized{" "}
               <br className="block sm:hidden" />
@@ -138,7 +139,7 @@ export default function Home() {
               </button>
               <button 
                 onClick={() => { const el = document.getElementById('track'); el?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="w-full sm:w-auto group px-10 py-4 border-2 border-[var(--color-brand-blue)]/10 text-[var(--color-brand-blue)] rounded-xl font-black text-sm uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
+                className="w-full sm:w-auto group px-10 py-4 border-2 border-white/10 text-white rounded-xl font-black text-sm uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
                 suppressHydrationWarning
               >
                 LIVE TRACKING
@@ -151,7 +152,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.5, duration: 1 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-8 border-t border-black/5"
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-8 border-t border-white/10"
             >
               {[
                 { num: "6,000+", label: "Annual Shipments" },
@@ -160,17 +161,17 @@ export default function Home() {
                 { num: "24/7", label: "Pan-India Reach" },
               ].map((s, i) => (
                 <div key={i} className="text-center">
-                  <span className="text-2xl md:text-3xl font-black text-[var(--color-brand-blue)] font-display tracking-tighter">{s.num}</span>
-                  <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">{s.label}</span>
+                  <span className="text-2xl md:text-3xl font-black text-white font-display tracking-tighter">{s.num}</span>
+                  <span className="block text-[10px] font-bold text-neutral-500 uppercase tracking-widest mt-1">{s.label}</span>
                 </div>
               ))}
             </motion.div>
           </div>
 
           {/* Scroll Indicator */}
-          <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
-            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">Scroll</span>
-            <motion.div className="w-[1px] bg-gray-200 overflow-hidden" style={{ height: 60 }}>
+          <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30">
+            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500">Scroll</span>
+            <motion.div className="w-[1px] bg-neutral-800 overflow-hidden" style={{ height: 60 }}>
               <motion.div 
                 className="w-full bg-[var(--color-brand-orange)]"
                 animate={{ height: [0, 60, 0] }}
@@ -178,7 +179,7 @@ export default function Home() {
               />
             </motion.div>
           </motion.div>
-        </BackgroundLines>
+        </section>
 
         {/* ═══════════════════════════════════
             TRUST TICKER
