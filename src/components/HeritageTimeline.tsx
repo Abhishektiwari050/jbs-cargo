@@ -8,7 +8,7 @@ export function HeritageTimeline() {
       content: (
         <div>
           <p className="text-neutral-800 text-xs md:text-sm font-black uppercase mb-4 tracking-widest">
-            Founding & Core Infrastructure
+            Founding & Core Operations
           </p>
           <div className="grid grid-cols-2 gap-4">
              <div className="bg-neutral-100 rounded-3xl p-6 border border-black/5">

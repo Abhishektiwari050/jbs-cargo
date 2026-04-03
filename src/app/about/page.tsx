@@ -75,8 +75,8 @@ const timelineData = [
     title: "2026",
     content: (
       <div>
-        <h3 className="text-xl md:text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">Infrastructure Logic</h3>
-        <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed mb-6">Managing 6,000+ annual reefer units for global pharma and FMCG enterprises. Multi-division logistics powerhouse with 24/7 infrastructure operations.</p>
+        <h3 className="text-xl md:text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">Operations Excellence</h3>
+        <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed mb-6">Managing 6,000+ annual reefer units for global pharma and FMCG enterprises. Multi-division logistics powerhouse with 24/7 fleet monitoring and control.</p>
         <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5">
           <img src="/assets/images/timeline-2026.png" alt="Future Nodes" className="w-full h-full object-cover" />
         </div>
@@ -106,10 +106,10 @@ export default function AboutPage() {
               <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-6 block">Est. 2005</span>
               <h1 className="text-4xl md:text-[8rem] font-black text-[var(--color-brand-blue)] leading-[0.9] md:leading-[0.8] mb-8 uppercase font-display tracking-tighter">
                 The JBS <br className="hidden md:block" />
-                <span className="text-[var(--color-brand-orange)]">Infrastructure.</span>
+                <span className="text-[var(--color-brand-orange)]">Legacy.</span>
               </h1>
               <p className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-2xl font-medium leading-relaxed">
-                Two decades of engineering the primary transit routes for global trade. We don&apos;t just move cargo; we manage infrastructure.
+                Two decades of engineering the primary transit routes for global trade. We don&apos;t just move cargo; we engineer supply chains.
               </p>
             </div>
             <motion.div 

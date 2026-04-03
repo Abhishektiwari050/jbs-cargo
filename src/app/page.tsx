@@ -98,12 +98,12 @@ export default function Home() {
               className="flex flex-col items-center justify-center w-full"
             >
               <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.3em] mb-4 block text-center">
-                Since 2005 · Delhi Infrastructure Hub
+                Since 2005 · Delhi Logistics Hub
               </span>
               <h1 className="text-4xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.9] md:leading-[0.8] tracking-tighter uppercase font-display text-center mb-8">
-                <span className="text-[var(--color-brand-blue)]">Infrastructure</span>
+                <span className="text-[var(--color-brand-blue)]">Logistics</span>
                 <br />
-                <span className="text-[var(--color-brand-orange)]">Logic.</span>
+                <span className="text-[var(--color-brand-orange)]">Precision.</span>
               </h1>
             </motion.div>
 
@@ -155,7 +155,7 @@ export default function Home() {
                 { num: "6,000+", label: "Reefer Shipments / Year" },
                 { num: "70+", label: "Fleet Vehicles" },
                 { num: "20+", label: "Years of Legacy" },
-                { num: "24/7", label: "Infrastructure Ops" },
+                { num: "24/7", label: "Operations Control" },
               ].map((s, i) => (
                 <div key={i} className="text-center">
                   <span className="text-2xl md:text-3xl font-black text-[var(--color-brand-blue)] font-display tracking-tighter">{s.num}</span>
@@ -185,7 +185,7 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(3)].map((_, set) => (
               <div key={set} className="flex items-center gap-16 mx-8">
-                {["LEADING PHARMA", "FMCG GLOBAL", "TECH ENTERPRISE", "GOVT INFRA", "RETAIL GIANT", "AUTO OEM", "COLD CHAIN"].map((client) => (
+                {["LEADING PHARMA", "FMCG GLOBAL", "TECH ENTERPRISE", "LOGISTICS NETWORKS", "RETAIL GIANT", "AUTO OEM", "COLD CHAIN"].map((client) => (
                   <span key={`${set}-${client}`} className="text-xs font-black tracking-[0.3em] text-white/20 uppercase font-display flex items-center gap-4">
                     <span className="w-1.5 h-1.5 bg-[var(--color-brand-orange)] rounded-full" />
                     {client}
@@ -205,7 +205,7 @@ export default function Home() {
               { label: "Annual Reefers", value: "6,000+" },
               { label: "Precision Fleet", value: "70+" },
               { label: "Years of Heritage", value: "20+" },
-              { label: "Infrastructure Ops", value: "24/7" },
+              { label: "Operations Control", value: "24/7" },
             ].map((stat, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                 <GlowingCard className="bg-white border border-black/5 p-8 rounded-3xl shadow-sm">
@@ -243,7 +243,7 @@ export default function Home() {
               Services <br /><span className="text-[var(--color-brand-orange)]">Modularized.</span>
             </motion.h2>
             <p className="text-lg text-gray-400 font-medium max-w-2xl mx-auto">
-              From temperature-critical pharma to massive automobile infrastructure.
+              From temperature-critical pharma to high-volume automobile logistics.
             </p>
           </div>
 
@@ -266,7 +266,7 @@ export default function Home() {
           {/* Background Watermark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
             <span className="text-[20vw] md:text-[20vw] opacity-[0.03] font-black text-white uppercase tracking-tighter leading-none whitespace-nowrap">
-              GLOBAL INFRASTRUCTURE
+              GLOBAL CARGO NETWORK
             </span>
           </div>
 
@@ -274,7 +274,7 @@ export default function Home() {
             <div className="text-center mb-12 md:mb-20">
               <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
                 Cross-Border <br className="block md:hidden" />
-                <span className="text-[var(--color-brand-orange)]">Architecture.</span>
+                <span className="text-[var(--color-brand-orange)]">Logistics.</span>
               </h2>
               <p className="text-base md:text-lg text-gray-500 font-medium max-w-2xl mx-auto px-4">
                 Global hub coordinates and SAARC corridor telemetry.

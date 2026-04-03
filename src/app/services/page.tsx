@@ -9,7 +9,7 @@ const services = [
   { 
     title: "Cold Chain Precision", 
     specs: ["GDP Compliant", "Pharma Certified", "Real-time Telemetry", "-18°C to +25°C"],
-    detail: "Management of sensitive cargo requires infrastructure, not just transport. Our 70-trailer reefer fleet features dedicated gensets and mobile power backups.",
+    detail: "Management of sensitive cargo requires precision, not just transport. Our 70-trailer reefer fleet features dedicated gensets and mobile power backups.",
     bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a2744]",
     image: "/assets/images/cold-chain.png"
   },
@@ -37,7 +37,7 @@ const services = [
   { 
     title: "Corporate Relocation", 
     specs: ["IT Asset Transit", "White Glove Service", "Secure Chain of Custody", "Industrial Rigging"],
-    detail: "Specialized relocation logic for sensitive corporate infrastructure, high-value labs, and mission-critical server environments.",
+    detail: "Specialized relocation logic for sensitive corporate assets, high-value labs, and mission-critical server environments.",
     bg: "bg-gradient-to-br from-[#2a1500] to-[#3a2510]",
     image: "/assets/images/relocation.png"
   }
@@ -53,13 +53,13 @@ export default function ServicesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 md:mb-6 block">Modular Infrastructure</span>
+          <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 md:mb-6 block">Logistics Network</span>
           <h1 className="text-4xl md:text-[9rem] font-black text-[var(--color-brand-blue)] leading-[0.9] md:leading-[0.8] mb-6 md:mb-8 uppercase font-display tracking-tighter">
             Services <br className="hidden md:block" />
             <span className="text-[var(--color-brand-orange)]">Modularized.</span>
           </h1>
           <p className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl font-medium leading-relaxed">
-            From temperature-critical pharma to massive automobile infrastructure, we deploy modular logistics logic at any scale.
+            From temperature-critical pharma to high-volume automobile logistics, we deploy modular transport logic at any scale.
           </p>
         </motion.div>
       </section>

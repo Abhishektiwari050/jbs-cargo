@@ -48,7 +48,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-gray-400 font-medium leading-relaxed">
-              Industrial-grade freight forwarding and cool-chain logistics infrastructure for the global enterprise.
+              Industrial-grade freight forwarding and specialized cool-chain logistics solutions for the global enterprise.
             </p>
             <div className="flex gap-3">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[var(--color-brand-orange)] hover:text-white hover:border-transparent transition-all duration-200">
@@ -65,7 +65,7 @@ export function Footer() {
 
           {/* Links Col 1 */}
           <div>
-            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-8">Infrastructure</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-8">Services</h4>
             <ul className="space-y-4">
               <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Commercial Cold Chain</Link></li>
               <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Freight Forwarding</Link></li>
@@ -98,7 +98,7 @@ export function Footer() {
 
         {/* Legal Bottom */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-bold px-0">
-          <p>© 2026 JBS Cargo Movers. All Infrastructure Reserved.</p>
+          <p>© 2026 JBS Cargo Movers. All Rights Reserved.</p>
           <div className="flex gap-8 uppercase tracking-widest text-[10px] items-center">
              <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
              <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

@@ -41,7 +41,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Our Heritage
         </h2>
         <p className="text-neutral-700 text-sm md:text-base max-w-sm font-medium">
-          Twenty years of infrastructure logic, technical precision, and industrial trust.
+          Twenty years of logistics precision, technical excellence, and industrial trust.
         </p>
       </div>
 

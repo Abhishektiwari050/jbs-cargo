@@ -15,13 +15,13 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 md:mb-6 block">Infrastructure Access</span>
+            <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 md:mb-6 block">Network Access</span>
             <h1 className="text-4xl md:text-[7rem] font-black text-[var(--color-brand-blue)] leading-[0.9] md:leading-[0.8] mb-6 md:mb-8 uppercase font-display tracking-tighter">
               Connect <br className="hidden md:block" />
               <span className="text-[var(--color-brand-orange)]">Hubs.</span>
             </h1>
             <p className="text-lg md:text-xl text-[var(--color-text-secondary)] mb-10 md:mb-12 font-medium leading-relaxed">
-              Strategic infrastructure access. Connect with our New Delhi HQ or North India hubs.
+              Strategic logistics access. Connect with our New Delhi HQ or North India hubs.
             </p>
             
             <div className="space-y-6 md:space-y-8">
