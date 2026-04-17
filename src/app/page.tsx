@@ -38,7 +38,7 @@ const globeConfig = {
   maxRings: 3,
   initialPosition: { lat: 28.6, lng: 77.2 },
   autoRotate: true,
-  autoRotateSpeed: 0.5,
+  autoRotateSpeed: 0.3,
 };
 
 const colors = ["#06b6d4", "#3b82f6", "#6366f1"];

@@ -30,7 +30,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${manrope.variable} h-full antialiased light font-sans`}
+      className={`${inter.variable} ${manrope.variable} min-h-screen antialiased light font-sans`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <SmoothScroll>
