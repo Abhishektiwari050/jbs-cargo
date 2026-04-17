@@ -4,7 +4,7 @@ import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useInView, motion, AnimatePresence } from "framer-motion";
+import { useInView } from "framer-motion";
 import countries from "@/data/globe.json";
 
 // Filter out the THREE.Clock deprecation warning that is often triggered
@@ -266,53 +266,40 @@ export function WebGLRendererConfig() {
 export function World(props: WorldProps) {
   const { globeConfig } = props;
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: false, amount: 0.1 });
   
   const scene = new Scene();
   scene.fog = new Fog(0x050505, 400, 2000);
 
   return (
     <div ref={containerRef} className="relative w-full h-full">
-      <AnimatePresence>
-        {isInView && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="w-full h-full"
-          >
-            <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)} gl={{ antialias: false, powerPreference: "high-performance" }}>
-              <WebGLRendererConfig />
-              <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
-              <directionalLight
-                color={globeConfig.directionalLeftLight}
-                position={new Vector3(-400, 100, 400)}
-              />
-              <directionalLight
-                color={globeConfig.directionalTopLight}
-                position={new Vector3(-200, 500, 200)}
-              />
-              <pointLight
-                color={globeConfig.pointLight}
-                position={new Vector3(-200, 500, 200)}
-                intensity={0.8}
-              />
-              <Globe {...props} />
-              <OrbitControls
-                enablePan={false}
-                enableZoom={true}
-                minDistance={cameraZ}
-                maxDistance={cameraZ * 2}
-                autoRotateSpeed={globeConfig.autoRotateSpeed || 1}
-                autoRotate={globeConfig.autoRotate}
-                minPolarAngle={Math.PI / 3.5}
-                maxPolarAngle={Math.PI - Math.PI / 3}
-              />
-            </Canvas>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)} gl={{ antialias: false, powerPreference: "high-performance" }}>
+        <WebGLRendererConfig />
+        <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
+        <directionalLight
+          color={globeConfig.directionalLeftLight}
+          position={new Vector3(-400, 100, 400)}
+        />
+        <directionalLight
+          color={globeConfig.directionalTopLight}
+          position={new Vector3(-200, 500, 200)}
+        />
+        <pointLight
+          color={globeConfig.pointLight}
+          position={new Vector3(-200, 500, 200)}
+          intensity={0.8}
+        />
+        <Globe {...props} />
+        <OrbitControls
+          enablePan={false}
+          enableZoom={true}
+          minDistance={cameraZ}
+          maxDistance={cameraZ * 2}
+          autoRotateSpeed={globeConfig.autoRotateSpeed || 1}
+          autoRotate={globeConfig.autoRotate}
+          minPolarAngle={Math.PI / 3.5}
+          maxPolarAngle={Math.PI - Math.PI / 3}
+        />
+      </Canvas>
     </div>
   );
 }
