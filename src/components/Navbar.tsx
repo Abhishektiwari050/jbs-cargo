@@ -61,14 +61,14 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-4 group" onClick={() => setIsMobileMenuOpen(false)}>
           <div className="relative h-12 w-24 flex items-center justify-center">
             {/* Oval Logo Base */}
-            <div className="absolute inset-0 border-2 border-[var(--color-brand-blue)] rounded-full group-hover:border-[var(--color-brand-orange)] transition-colors duration-500" />
-            <span className="text-2xl font-black text-[var(--color-brand-blue)] group-hover:text-[var(--color-brand-orange)] transition-colors duration-500 font-display tracking-tighter">
+            <div className="absolute inset-0 border-2 border-[var(--color-brand-orange)] rounded-full group-hover:border-[var(--color-brand-blue)] transition-colors duration-500" />
+            <span className="text-2xl font-black text-[var(--color-brand-orange)] group-hover:text-[var(--color-brand-blue)] transition-colors duration-500 font-display tracking-tighter">
               JBS
             </span>
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-black tracking-tighter text-[var(--color-brand-blue)] font-display uppercase leading-none">
-              JBS Cargo <span className="text-[var(--color-brand-orange)]">Movers</span>
+              <span className="text-[var(--color-brand-orange)]">JBS</span> Cargo Movers
             </span>
             <span className="text-[7px] font-bold text-gray-400 uppercase tracking-[0.3em] mt-1">Express Cargo · All Over India</span>
           </div>
@@ -93,17 +93,7 @@ export function Navbar() {
             </Link>
           ))}
 
-          {/* Moving Border CTA */}
-          <MovingBorder
-            onClick={() => window.location.href = '/contact'}
-            borderRadius="0.75rem"
-            containerClassName="h-10"
-            className="px-6 py-2"
-          >
-            <span className="text-white font-black text-xs uppercase tracking-widest whitespace-nowrap">
-              Terminal Login
-            </span>
-          </MovingBorder>
+
         </nav>
 
         {/* Mobile Toggle */}
@@ -181,16 +171,7 @@ export function Navbar() {
                   <p className="text-sm font-bold text-[var(--color-brand-blue)]">jbscargomovers@gmail.com</p>
                 </div>
                 
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    window.location.href = '/contact';
-                  }}
-                  className="w-full py-6 bg-[var(--color-brand-blue)] text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl shadow-black/20 active:scale-[0.98] transition-transform"
-                  suppressHydrationWarning={true}
-                >
-                  Terminal Login
-                </button>
+
                 <p className="text-center text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                   JBS Cargo Movers © 2026
                 </p>

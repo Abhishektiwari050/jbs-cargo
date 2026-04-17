@@ -46,102 +46,41 @@ export default function TrackShipment() {
           </p>
         </motion.div>
 
-        {/* Premium Search */}
-        <div className="mb-12 md:mb-16">
-          <PlaceholdersAndVanishInput
-            placeholders={[
-              "Enter JBS Tracking ID...",
-              "JBS-2026-X89HQ",
-              "Track your domestic cargo",
-              "Monitor gateway status",
-            ]}
-            onChange={(e) => setTrackingId(e.target.value.toUpperCase())}
-            onSubmit={handleSearch}
-          />
-        </div>
+        {/* Coming Soon Interface */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-white border border-black/5 p-12 md:p-24 rounded-[3rem] shadow-2xl relative overflow-hidden text-center"
+        >
+          <div className="absolute top-0 right-0 p-12 text-6xl md:text-9xl font-black text-black/[0.02] font-display uppercase select-none pointer-events-none tracking-tighter">ESTABLISHING LINK</div>
+          
+          <div className="relative z-10 flex flex-col items-center">
+            <div className="bg-[var(--color-brand-blue)] text-white px-8 py-2.5 rounded-full text-[11px] font-black uppercase tracking-[0.4em] mb-8 shadow-2xl animate-pulse">
+              System Integration Phase
+            </div>
+            
+            <h2 className="text-5xl md:text-7xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-6 leading-none">
+              Live Network <br/>
+              <span className="text-[var(--color-brand-orange)]">Telemetry.</span>
+            </h2>
+            
+            <p className="max-w-xl text-gray-500 font-medium text-lg leading-relaxed mb-12">
+              Our next-generation tracking portal is currently undergoing secure gateway synchronization. Real-time fleet triangulation and predictive arrival intelligence will be active shortly.
+            </p>
 
-        {/* Results */}
-        <AnimatePresence mode="wait">
-          {status === "SEARCHING" && (
-             <motion.div
-               key="searching"
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
-               className="flex flex-col items-center justify-center py-20"
-             >
-               <div className="w-12 h-12 border-4 border-[var(--color-brand-orange)] border-t-transparent rounded-full animate-spin mb-4" />
-               <p className="text-xs font-black uppercase tracking-widest text-gray-400">Syncing with Hubs...</p>
-             </motion.div>
-          )}
-
-          {status === "FOUND" && (
-            <motion.div 
-              key="found"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white border border-black/5 p-6 md:p-10 rounded-3xl mb-16 shadow-2xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 p-8 text-6xl md:text-8xl font-black text-black/[0.02] font-display uppercase select-none pointer-events-none">VALIDATED</div>
-              
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-black/5 pb-8 mb-10 gap-8">
-                <div>
-                  <span className="text-[10px] md:text-xs font-black tracking-[0.2em] text-green-600 uppercase mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> In Transit
-                  </span>
-                  <p className="text-3xl md:text-4xl font-black text-[var(--color-brand-blue)] font-display tracking-tighter">{trackingId}</p>
-                </div>
-                <div className="text-left md:text-right">
-                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Estimated Arrival</p>
-                  <p className="text-xl md:text-2xl font-black text-[var(--color-brand-orange)]">March 25, 2026</p>
-                </div>
-              </div>
- 
-              {/* Timeline Steps */}
-              <div className="space-y-0 px-2 md:px-4">
-                {TRACKING_STEPS.map((step, i) => (
-                  <div key={i} className="flex gap-4 md:gap-6 items-start">
-                    <div className="flex flex-col items-center">
-                      <div className={`w-3.5 h-3.5 md:w-4 h-4 rounded-full ring-4 ${step.done ? 'bg-[var(--color-brand-orange)] ring-orange-100' : 'bg-gray-200 ring-gray-100'}`} />
-                      {i < TRACKING_STEPS.length - 1 && (
-                        <div className={`w-[1px] h-14 md:h-16 ${step.done ? 'bg-gradient-to-b from-orange-200 to-transparent' : 'bg-gray-100'}`} />
-                      )}
-                    </div>
-                    <div className="pb-8 md:pb-10 flex-1">
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-1">
-                        <h4 className={`font-black text-base md:text-lg uppercase font-display tracking-tighter ${step.done ? 'text-[var(--color-brand-blue)]' : 'text-gray-300'}`}>{step.label}</h4>
-                        <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full border ${step.done ? 'border-orange-100 text-[var(--color-brand-orange)] bg-orange-50' : 'border-gray-100 text-gray-300 bg-gray-50'} w-fit`}>{step.status}</span>
-                      </div>
-                      <p className="text-gray-400 font-medium text-xs md:text-sm mt-0.5">{step.location}</p>
-                      <time className={`text-[10px] md:text-xs font-bold mt-1 block ${step.done ? 'text-[var(--color-brand-orange)]' : 'text-gray-300'}`}>{step.time}</time>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {status === "ERROR" && (
-            <motion.div 
-              key="error"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              className="bg-red-50 border border-red-100 text-red-600 p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 mb-16"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <div>
-                <p className="font-black text-lg md:text-xl uppercase tracking-tighter">Authentication Failure</p>
-                <p className="opacity-70 font-medium text-sm md:text-base">Tracking ID not recognized. Check your manifest.</p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            <div className="flex flex-col md:flex-row gap-6 w-full max-w-md">
+              <input 
+                type="text" 
+                disabled 
+                placeholder="Enter Email for API Access" 
+                className="flex-1 bg-neutral-50 border-2 border-neutral-100 px-8 py-5 rounded-2xl outline-none text-sm font-bold placeholder:text-neutral-300"
+              />
+              <button className="bg-[var(--color-brand-blue)] text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[var(--color-brand-orange)] transition-all shadow-xl">
+                Notify Me
+              </button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </main>
   );

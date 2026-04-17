@@ -102,9 +102,9 @@ export default function Home() {
                 Established 2023 · Premium Logistics Partner
               </span>
               <h1 className="text-4xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.9] md:leading-[0.8] tracking-tighter uppercase font-display text-center mb-8 pointer-events-auto">
-                <span className="text-[var(--color-brand-blue)]">JBS Cargo</span>
+                <span className="text-[var(--color-brand-orange)]">JBS</span>
                 <br />
-                <span className="text-[var(--color-brand-orange)]">Movers.</span>
+                <span className="text-[var(--color-brand-blue)]">Cargo Movers.</span>
               </h1>
             </motion.div>
 

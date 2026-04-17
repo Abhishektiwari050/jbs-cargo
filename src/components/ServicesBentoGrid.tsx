@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 const services = [
   {
@@ -81,17 +82,19 @@ export function ServicesBentoGrid() {
           >
             {/* Background Images for specific cards */}
             {i === 0 && (
-              <img 
-                 src="/images/cold-chain-tech.png" 
-                 className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
-                 alt=""
+              <Image 
+                 src="/assets/images/cold-chain.png" 
+                 fill
+                 className="absolute inset-0 object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+                 alt="Cold Chain"
               />
             )}
             {i === 3 && (
-              <img 
-                 src="/images/auto-logistics.png" 
-                 className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
-                 alt=""
+              <Image 
+                 src="/assets/images/automobile.png" 
+                 fill
+                 className="absolute inset-0 object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+                 alt="Auto Logistics"
               />
             )}
 

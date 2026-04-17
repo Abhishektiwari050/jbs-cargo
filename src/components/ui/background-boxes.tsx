@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 
 export const Boxes = ({ className, ...rest }: { className?: string }) => {
   // Dense grid for full viewport coverage after scaling and skewing
-  const rows = useMemo(() => new Array(100).fill(1).map((_, i) => i), []);
-  const cols = useMemo(() => new Array(80).fill(1).map((_, i) => i), []);
+  const rows = useMemo(() => new Array(25).fill(1).map((_, i) => i), []);
+  const cols = useMemo(() => new Array(20).fill(1).map((_, i) => i), []);
 
   const colors = [
     "var(--color-brand-orange)",
@@ -31,7 +31,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
       {rows.map((i) => (
         <motion.div
           key={`row` + i}
-          className="w-16 h-8 border-l border-slate-200 relative"
+          className="w-64 h-32 border-l border-slate-200 relative"
         >
           {cols.map((j) => (
             <motion.div
@@ -40,7 +40,7 @@ export const Boxes = ({ className, ...rest }: { className?: string }) => {
                 transition: { duration: 0 },
               }}
               key={`col` + j}
-              className="w-16 h-8 border-r border-t border-slate-200 relative"
+              className="w-64 h-32 border-r border-t border-slate-200 relative"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg

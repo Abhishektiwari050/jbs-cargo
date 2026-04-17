@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { GlowingCard } from "@/components/ui/glowing-effect";
 import { Timeline } from "@/components/ui/timeline";
+import Image from "next/image";
 
 const timelineData = [
   {
@@ -12,8 +13,8 @@ const timelineData = [
       <div>
         <h3 className="text-xl md:text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">JBS Cargo Movers Founded</h3>
         <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed mb-6">Founded by Lalit Saini in South West Delhi to redefine domestic logistics with 24/7 reliability and a 5.0-star service standard.</p>
-        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5">
-          <img src="/assets/images/timeline-2005.png" alt="Founding" className="w-full h-full object-cover" />
+        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5 relative">
+          <Image src="/assets/images/timeline-2005.png" alt="Founding" fill className="object-cover" />
         </div>
         <div className="flex flex-wrap gap-2">
           <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Air Cargo</span>
@@ -28,8 +29,8 @@ const timelineData = [
       <div>
         <h3 className="text-xl md:text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">Operational Excellence</h3>
         <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed mb-6">Established a direct-to-enterprise network across National Highway 9 and major rail hubs, ensuring pre-defined delivery schedules.</p>
-        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5">
-          <img src="/assets/images/hub-dadri.png" alt="ICD Dadri Hub" className="w-full h-full object-cover" />
+        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5 relative">
+          <Image src="/assets/images/hub-dadri.png" alt="ICD Dadri Hub" fill className="object-cover" />
         </div>
         <div className="flex flex-wrap gap-2">
           <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Train Cargo</span>
@@ -44,8 +45,8 @@ const timelineData = [
       <div>
         <h3 className="text-xl md:text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">Pan-India Integration</h3>
         <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed mb-6">Expanding specialized bulk courier and sampling services to 28+ states, backed by excellent communication and transparency.</p>
-        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5">
-          <img src="/assets/images/automobile.png" alt="Fleet" className="w-full h-full object-cover" />
+        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5 relative">
+          <Image src="/assets/images/automobile.png" alt="Fleet" fill className="object-cover" />
         </div>
         <div className="flex flex-wrap gap-2">
           <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">70+ Fleet</span>
@@ -60,8 +61,8 @@ const timelineData = [
       <div>
         <h3 className="text-xl md:text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">The Future Roadmap</h3>
         <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed mb-6">Integrating AI-driven routing and real-time dashboarding to maintain our perfect 5.0 Justdial rating at scale. Specialized in Bulk Courier and Sampling services.</p>
-        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5">
-          <img src="/assets/images/consolidation.png" alt="Strategic Operations" className="w-full h-full object-cover" />
+        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5 relative">
+          <Image src="/assets/images/consolidation.png" alt="Strategic Operations" fill className="object-cover" />
         </div>
         <div className="flex flex-wrap gap-2">
           <span className="px-3 py-1.5 bg-[var(--color-surface-light)] rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-blue)]">Bulk Courier</span>
@@ -77,8 +78,8 @@ const timelineData = [
       <div>
         <h3 className="text-xl md:text-2xl font-black text-[var(--color-brand-blue)] uppercase font-display tracking-tighter mb-3">5.0 Star Presence</h3>
         <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed mb-6">Delivering professional excellence with 24/7 support. Recommended by clients across Delhi NCR for on-time performance and safe handling.</p>
-        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5">
-          <img src="/assets/images/timeline-2026.png" alt="Future Nodes" className="w-full h-full object-cover" />
+        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-6 border border-black/5 relative">
+          <Image src="/assets/images/timeline-2026.png" alt="Future Nodes" fill className="object-cover" />
         </div>
         <div className="flex flex-wrap gap-2">
           <span className="px-3 py-1.5 bg-[var(--color-brand-orange)]/10 rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-orange)]">6,000+ Shipments</span>
@@ -116,9 +117,15 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="order-1 lg:order-2 aspect-video bg-gray-100 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white"
+              className="order-1 lg:order-2 aspect-video bg-gray-100 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white relative"
             >
-              <img src="/assets/images/heritage-hero.png" alt="Heritage" className="w-full h-full object-cover" />
+              <Image 
+                src="/assets/images/heritage-hero.png" 
+                alt="Heritage" 
+                fill 
+                priority 
+                className="object-cover" 
+              />
             </motion.div>
           </div>
         </motion.div>

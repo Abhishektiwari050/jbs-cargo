@@ -40,11 +40,9 @@ export function Footer() {
           {/* Brand Col */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="relative h-10 w-20 flex items-center justify-center border border-white/20 rounded-full bg-white/5">
-                <span className="text-white font-black text-lg">JBS</span>
-              </div>
+                <span className="text-[var(--color-brand-orange)] font-black text-lg">JBS</span>
               <span className="text-xl font-black tracking-tighter font-display uppercase">
-                JBS Cargo <span className="text-[var(--color-brand-orange)]">Movers</span>
+                <span className="text-[var(--color-brand-orange)]">JBS</span> Cargo Movers
               </span>
             </div>
             <p className="text-gray-400 font-medium leading-relaxed">
