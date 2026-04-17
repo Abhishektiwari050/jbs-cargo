@@ -46,7 +46,7 @@ export function LeadForm() {
       <h3 className="text-2xl md:text-3xl font-black text-[var(--color-brand-blue)] mb-2 uppercase tracking-tighter font-display">
         Enterprise Inquiry
       </h3>
-      <p className="text-xs md:text-base text-[var(--color-text-secondary)] mb-8 font-medium">Premium Logistics & Storage Solutions.</p>
+      <p className="text-xs md:text-base text-[var(--color-text-secondary)] mb-8 font-medium">Premium Cargo & Workforce Solutions.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -87,11 +87,11 @@ export function LeadForm() {
           <label htmlFor="logisticsService" className="text-[10px] md:text-xs font-bold text-[var(--color-brand-blue)] uppercase tracking-widest">Service Division</label>
           <select id="logisticsService" title="Select Service" required suppressHydrationWarning={true} className="w-full bg-[var(--color-surface-soft)] px-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-[var(--color-brand-orange)] outline-none transition-all appearance-none cursor-pointer font-medium text-[var(--color-text-secondary)] text-sm md:text-base">
             <option value="">Select Service Division...</option>
-            <option value="express">Express Cargo (Air/Surface)</option>
-            <option value="storage">Self-Storage Solutions</option>
-            <option value="freight">Freight Forwarding</option>
+            <option value="air-surface">Air & Surface Cargo</option>
+            <option value="train">Train Cargo</option>
             <option value="consolidation">Consolidation Services</option>
-            <option value="warehousing">Managed Warehousing</option>
+            <option value="workforce">Workforce Solutions</option>
+            <option value="express">Express Cargo</option>
           </select>
         </div>
 

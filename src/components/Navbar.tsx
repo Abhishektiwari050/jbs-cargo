@@ -70,7 +70,7 @@ export function Navbar() {
             <span className="text-xl font-black tracking-tighter text-[var(--color-brand-blue)] font-display uppercase leading-none">
               <span className="text-[var(--color-brand-orange)]">JBS</span> Cargo Movers
             </span>
-            <span className="text-[7px] font-bold text-gray-400 uppercase tracking-[0.3em] mt-1">Express Cargo · All Over India</span>
+            <span className="text-[7px] font-bold text-gray-400 uppercase tracking-[0.3em] mt-1">Cargo & Workforce · All Over India</span>
           </div>
         </Link>
 

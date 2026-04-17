@@ -7,44 +7,44 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const services = [
   { 
-    title: "Air & Surface Cargo", 
-    specs: ["Domestic Flights", "Road Transit", "Real-time Tracking", "Pan-India Coverage"],
-    detail: "High-speed surface and air cargo solutions tailored for mission-critical shipments across India. From document courier to bulk freight.",
+    title: "Air Cargo", 
+    specs: ["Domestic Flights", "Time-Critical", "Secure Handling", "Pan-India"],
+    detail: "High-speed air freight solutions designed for mission-critical cargo. Leveraging major airline networks for rapid door-to-door delivery.",
     bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a2744]",
     image: "/assets/images/express-cargo.png"
   },
   { 
-    title: "Residential & Office Relocation", 
-    specs: ["Professional Packing", "Safe Transit", "Unpacking Support", "Corporate Shifting"],
-    detail: "Premium packers and movers service for seamless home and office transitions. Vetted teams ensure zero damage and minimal downtime.",
+    title: "Surface Cargo", 
+    specs: ["Road Transit", "FTL/LTL", "Nationwide Network", "GPS Enabled"],
+    detail: "Extensive road transport services covering every corner of India. Reliable fleet management for bulk and commercial shipments.",
     bg: "bg-gradient-to-br from-[#1a0d1a] to-[#2a1529]",
     image: "/assets/images/self-storage.png"
   },
   { 
     title: "Train Cargo", 
-    specs: ["Railway Networks", "Bulk Transit", "Cost-Effective", "Reliable Schedules"],
-    detail: "Leveraging India's vast railway network for reliable, cost-effective long-distance transport of heavy and commercial cargo.",
+    specs: ["Retail Express", "Railway Network", "Cost-Effective", "Secure"],
+    detail: "The backbone of bulk logistics. Safe and efficient rail transport for heavy cargo with predictable schedules and low carbon footprint.",
     bg: "bg-gradient-to-br from-[#1a0a00] to-[#2a1500]",
     image: "/assets/images/freight.png"
   },
   { 
-    title: "Commercial Courier", 
-    specs: ["B2B Deliveries", "Bulk Courier", "Corporate Accounts", "Secure Routing"],
-    detail: "Specialized bulk and commercial courier services for corporate partners. Tailored for safe, scheduled, and documented deliveries.",
+    title: "Consolidation", 
+    specs: ["LCL Solutions", "Hub & Spoke", "Cost Savings", "Efficiency"],
+    detail: "Expert cargo consolidation to optimize shipping costs and timelines. Grouping multiple shipments for streamlined long-haul transit.",
     bg: "bg-gradient-to-br from-[#0a1a0d] to-[#142a19]",
     image: "/assets/images/consolidation.png"
   },
   { 
-    title: "Express Cargo", 
-    specs: ["Time-Definite", "Door-to-Door", "Expedited", "24/7 Operations"],
-    detail: "Premium expedited cargo handling for time-sensitive deliveries. Door-to-door service with zero downtime, powered by 24/7 logistics logic.",
+    title: "Workforce Solutions", 
+    specs: ["Manpower", "Labor Logic", "Skilled Staff", "On-site Support"],
+    detail: "Professional manpower and workforce management for logistical hubs. Vetted teams to handle loading, unloading, and warehouse operations.",
     bg: "bg-gradient-to-br from-[#2a1500] to-[#3a2510]",
     image: "/assets/images/warehousing.png"
   },
   { 
-    title: "Self-Storage", 
-    specs: ["Secure Units", "Flexible Terms", "Climate Controlled", "24/7 Access"],
-    detail: "New specialized self-storage solutions for businesses and individuals. Secure, scalable, and conveniently located storage nodes in South West Delhi.",
+    title: "Express Cargo", 
+    specs: ["Priority Delivery", "Real-time Tracking", "24/7 Support", "Door-to-Door"],
+    detail: "Premium expedited delivery for your most important packages. Faster turnaround times with dedicated customer support.",
     bg: "bg-gradient-to-br from-[#0d1b2a] to-[#1a1c2c]",
     image: "/assets/images/heritage-hero.png"
   }

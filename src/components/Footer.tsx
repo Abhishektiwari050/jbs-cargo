@@ -46,7 +46,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-gray-400 font-medium leading-relaxed">
-              Integrated logistics and specialized relocation solutions for the modern Indian enterprise.
+              Integrated logistics and specialized workforce solutions for the modern Indian enterprise.
             </p>
             <div className="flex gap-3">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[var(--color-brand-orange)] hover:text-white hover:border-transparent transition-all duration-200">
@@ -65,10 +65,10 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[var(--color-brand-orange)] mb-8">Services</h4>
             <ul className="space-y-4">
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Express Cargo (Air/Surface)</Link></li>
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Residential & Office Relocation</Link></li>
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Consolidation Services</Link></li>
-              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Value-Added Services</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Air & Surface Cargo</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Train Cargo & Consolidation</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Workforce Solutions</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">Express Logistics</Link></li>
             </ul>
           </div>
 

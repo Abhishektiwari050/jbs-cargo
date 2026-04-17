@@ -117,7 +117,7 @@ export default function Home() {
               Integrated logistics and specialized{" "}
               <br className="block sm:hidden" />
               <FlipWords 
-                words={["Logistics.", "Freight.", "Express.", "Storage."]} 
+                words={["Cargo.", "Workforce.", "Express.", "Consolidation."]} 
                 className="text-[var(--color-brand-orange)] font-black"
                 duration={2500}
               />

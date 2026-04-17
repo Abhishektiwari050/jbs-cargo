@@ -7,29 +7,29 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Cold Chain Logistics",
-    description: "Temperature-controlled precision for Pharma & Food industries.",
+    title: "Air & Surface Cargo",
+    description: "High-speed domestic and road transit with 5-star precision.",
     color: "bg-[var(--color-brand-blue)]",
     textColor: "text-[#F8FAFC]",
     span: "md:col-span-2",
   },
   {
-    title: "Freight Forwarding",
-    description: "End-to-end Air, Sea, and Rail global transport.",
+    title: "Train Cargo",
+    description: "Cost-effective bulk transit via India's vast railway network.",
     color: "bg-white",
     textColor: "text-[var(--color-brand-blue)]",
     span: "md:col-span-1",
   },
   {
-    title: "Relocation Services",
-    description: "Seamless B2C and corporate office shifting.",
+    title: "Consolidation",
+    description: "Strategic grouping of cargo for maximum operational efficiency.",
     color: "bg-white",
     textColor: "text-[var(--color-brand-blue)]",
     span: "md:col-span-1",
   },
   {
-    title: "Cross-Border Transit",
-    description: "Dedicated routes to Nepal, Bhutan & Bangladesh.",
+    title: "Workforce Solutions",
+    description: "Professional manpower management and specialized labor logic.",
     color: "bg-[var(--color-brand-orange)]",
     textColor: "text-white",
     span: "md:col-span-2",
