@@ -25,7 +25,10 @@ export function ShipmentTracker() {
         <p className="max-w-md text-gray-500 font-medium leading-relaxed mb-8">
           We are integrating real-time telemetry and AI-driven predictive transit coordinates. Enterprise API access will be available shortly.
         </p>
-        <button className="px-8 py-4 border-2 border-[var(--color-brand-blue)]/20 text-[var(--color-brand-blue)] rounded-2xl font-black text-xs uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all">
+        <button 
+          suppressHydrationWarning 
+          className="px-8 py-4 border-2 border-[var(--color-brand-blue)]/20 text-[var(--color-brand-blue)] rounded-2xl font-black text-xs uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
+        >
           Notify My Enterprise
         </button>
       </div>
@@ -41,12 +44,14 @@ export function ShipmentTracker() {
                disabled
                placeholder="JB-99827-X"
                className="w-full bg-neutral-50 px-8 py-6 rounded-[2rem] border-2 border-transparent outline-none transition-all text-xl font-bold uppercase placeholder:text-neutral-300"
+               suppressHydrationWarning
              />
           </div>
         </div>
         <button 
           disabled
           className="bg-[var(--color-brand-blue)] text-white px-12 py-6 rounded-[2rem] font-black uppercase text-sm tracking-widest opacity-50"
+          suppressHydrationWarning
         >
           Analyze Transit
         </button>
