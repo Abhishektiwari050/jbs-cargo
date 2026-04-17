@@ -37,13 +37,23 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-white font-sans md:px-10 relative"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black max-w-4xl font-bold">
-          The JBS Legacy
-        </h2>
-        <p className="text-neutral-700 text-sm md:text-base max-w-sm">
-          More than three decades of engineering logistics excellence and global cargo movement.
-        </p>
+      <div className="max-w-7xl mx-auto py-24 px-4 md:px-8 lg:px-10 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl md:text-[6rem] mb-6 text-[var(--color-brand-blue)] font-black tracking-tighter uppercase leading-[0.9] md:leading-[0.85]"
+        >
+          The <span className="text-[var(--color-brand-orange)]">JBS</span> <br className="md:hidden" /> Legacy
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-neutral-500 text-sm md:text-xl max-w-2xl mx-auto font-medium"
+        >
+          More than three decades of engineering logistics excellence and global cargo movement across India.
+        </motion.p>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

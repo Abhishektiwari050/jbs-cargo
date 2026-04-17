@@ -362,7 +362,7 @@ function ServiceRevealCard({ service, index }: { service: { title: string; desc:
               animationSpeed={3}
               containerClassName={service.bg}
               colors={service.colors}
-              dotSize={2}
+              dotSize={12}
             />
             <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-white/30" />
           </motion.div>

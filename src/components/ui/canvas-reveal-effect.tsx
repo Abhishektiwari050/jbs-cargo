@@ -34,25 +34,32 @@ export const CanvasRevealEffect: React.FC<
 
     const w = canvas.width;
     const h = canvas.height;
-    const cols = Math.floor(w / dotSize);
-    const rows = Math.floor(h / dotSize);
+    const cols = Math.ceil(w / dotSize);
+    const rows = Math.ceil(h / dotSize);
 
     ctx.clearRect(0, 0, w, h);
 
     const time = Date.now() * animationSpeed * 0.001;
 
+    // Optimization: Draw in batches or use a more efficient pattern
     for (let i = 0; i < cols; i++) {
+        const x = i * dotSize;
+        const noiseI = i * 0.1 + time;
       for (let j = 0; j < rows; j++) {
-        const noise = Math.sin(i * 0.1 + time) * Math.cos(j * 0.1 + time * 0.5);
+        const y = j * dotSize;
+        const noise = Math.sin(noiseI) * Math.cos(j * 0.1 + time * 0.5);
         const normalizedNoise = (noise + 1) / 2;
+        
+        // Skip drawing if opacity would be very low
         const opacityIndex = Math.floor(normalizedNoise * (opacities.length - 1));
         const opacity = opacities[opacityIndex];
+        if (opacity < 0.1) continue;
 
         const colorIndex = Math.floor(normalizedNoise * colors.length) % colors.length;
         const [r, g, b] = colors[colorIndex];
 
         ctx.fillStyle = `rgba(${r},${g},${b},${opacity})`;
-        ctx.fillRect(i * dotSize, j * dotSize, dotSize - 1, dotSize - 1);
+        ctx.fillRect(x, y, dotSize - 0.5, dotSize - 0.5);
       }
     }
 
