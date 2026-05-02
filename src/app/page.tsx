@@ -14,6 +14,9 @@ import { LeadForm } from "@/components/LeadForm";
 import { HeritageTimeline } from "@/components/HeritageTimeline";
 import { ShipmentTracker } from "@/components/ShipmentTracker";
 import { CertificationsCarousel } from "@/components/CertificationsCarousel";
+import { IndustryCard } from "@/components/IndustryCard";
+import { FeaturesSection } from "@/components/FeaturesSection";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), { ssr: false });
@@ -83,28 +86,39 @@ export default function Home() {
 
       <main className="relative min-h-screen bg-white text-[var(--foreground)] selection:bg-[var(--color-brand-orange)] selection:text-white font-sans">
         {/* ═══════════════════════════════════════════
-            HERO SECTION — Light Theme with BackgroundLines 
+            HERO SECTION — Enhanced with Visual Depth
             ═══════════════════════════════════════════ */}
-        <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden w-full">
-          <div className="absolute inset-0 w-full h-full bg-white z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+        <section className="relative min-h-screen flex items-center justify-center bg-zinc-950 overflow-hidden w-full">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/hero-network.png"
+              alt="Logistics Network"
+              fill
+              className="object-cover opacity-40 scale-105 animate-pulse-slow"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-transparent to-zinc-950" />
+            <div className="absolute inset-0 bg-zinc-950/20" />
+          </div>
           
-          <Boxes className="z-10" />
+          <Boxes className="z-10 opacity-20" />
 
           {/* Content */}
-          <div className="relative z-30 max-w-7xl mx-auto px-6 py-32 w-full flex flex-col items-center text-center pointer-events-none">
+          <div className="relative z-30 max-w-7xl mx-auto px-6 py-32 w-full flex flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="flex flex-col items-center justify-center w-full pointer-events-none"
+              className="flex flex-col items-center justify-center w-full"
             >
-              <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.3em] mb-4 block text-center">
+              <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.3em] mb-6 block bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
                 Established 2023 · Premium Logistics Partner
               </span>
-              <h1 className="text-4xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.9] md:leading-[0.8] tracking-tighter uppercase font-display text-center mb-8 pointer-events-auto">
+              <h1 className="text-5xl md:text-8xl lg:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase font-display text-center mb-8 text-white">
                 <span className="text-[var(--color-brand-orange)]">JBS</span>
                 <br />
-                <span className="text-[var(--color-brand-blue)]">Cargo Movers.</span>
+                <span className="text-white drop-shadow-2xl">Cargo Movers.</span>
               </h1>
             </motion.div>
 
@@ -112,10 +126,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-lg md:text-2xl text-gray-500 mb-8 max-w-3xl font-medium leading-relaxed text-center px-4 pointer-events-auto"
+              className="text-lg md:text-2xl text-zinc-400 mb-10 max-w-3xl font-medium leading-relaxed text-center px-4"
             >
               Integrated logistics and specialized{" "}
-              <br className="block sm:hidden" />
+              <br className="hidden sm:block" />
               <FlipWords 
                 words={["Cargo.", "Workforce.", "Express.", "Consolidation."]} 
                 className="text-[var(--color-brand-orange)] font-black"
@@ -127,54 +141,32 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-6 pointer-events-auto"
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full px-6"
             >
               <button 
                 onClick={() => { const el = document.getElementById('contact'); el?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="w-full sm:w-auto group relative px-10 py-4 bg-[var(--color-brand-orange)] text-white rounded-xl font-black text-sm uppercase tracking-widest hover:bg-orange-600 transition-all shadow-2xl shadow-orange-500/20"
-                suppressHydrationWarning
+                className="w-full sm:w-auto group relative px-12 py-5 bg-[var(--color-brand-orange)] text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-orange-600 transition-all shadow-2xl shadow-orange-500/40 hover:-translate-y-1 active:translate-y-0"
               >
                 ENTERPRISE INQUIRY
                 <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
               </button>
               <button 
                 onClick={() => { const el = document.getElementById('track'); el?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="w-full sm:w-auto group px-10 py-4 border-2 border-[var(--color-brand-blue)]/10 text-[var(--color-brand-blue)] rounded-xl font-black text-sm uppercase tracking-widest hover:border-[var(--color-brand-orange)] hover:text-[var(--color-brand-orange)] transition-all"
-                suppressHydrationWarning
+                className="w-full sm:w-auto group px-12 py-5 border border-white/20 text-white backdrop-blur-xl rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all hover:-translate-y-1 active:translate-y-0"
               >
                 LIVE TRACKING
                 <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">→</span>
               </button>
             </motion.div>
-
-            {/* Stat highlights inline */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.5, duration: 1 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-8 border-t border-black/5 pointer-events-auto"
-            >
-              {[
-                { num: "6,000+", label: "Annual Shipments" },
-                { num: "100+", label: "Service Experts" },
-                { num: "70+", label: "Fleet Vehicles" },
-                { num: "24/7", label: "Pan-India Reach" },
-              ].map((s, i) => (
-                <div key={i} className="text-center">
-                  <span className="text-2xl md:text-3xl font-black text-[var(--color-brand-blue)] font-display tracking-tighter">{s.num}</span>
-                  <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">{s.label}</span>
-                </div>
-              ))}
-            </motion.div>
           </div>
 
           {/* Scroll Indicator */}
-          <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30 pointer-events-none">
-            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">Scroll</span>
-            <motion.div className="w-[1px] bg-gray-200 overflow-hidden" style={{ height: 60 }}>
+          <motion.div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-30 pointer-events-none">
+            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-zinc-500">Scroll Down</span>
+            <motion.div className="w-[1px] h-16 bg-white/10 overflow-hidden">
               <motion.div 
                 className="w-full bg-[var(--color-brand-orange)]"
-                animate={{ height: [0, 60, 0] }}
+                animate={{ height: [0, 64, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
@@ -184,13 +176,13 @@ export default function Home() {
         {/* ═══════════════════════════════════
             TRUST TICKER
             ═══════════════════════════════════ */}
-        <section className="py-6 bg-[var(--color-brand-blue)] overflow-hidden border-y border-white/5 shadow-2xl relative z-20">
+        <section className="py-8 bg-zinc-900 overflow-hidden border-y border-white/5 relative z-20">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, set) => (
               <div key={set} className="flex items-center gap-16 mx-12">
                 {["E-COMMERCE GIANTS", "FMCG NETWORKS", "B2B ENTERPRISE", "D2C BRANDS", "RETAIL CHAINS", "AUTO OEM", "BULK COURIER"].map((client) => (
-                  <span key={`${set}-${client}`} className="text-[10px] md:text-xs font-black tracking-[0.4em] text-white/50 uppercase font-display flex items-center gap-6 group hover:text-[var(--color-brand-orange)] transition-colors duration-300">
-                    <span className="w-2 h-2 bg-[var(--color-brand-orange)] rounded-full shadow-[0_0_10px_#FF4D00]" />
+                  <span key={`${set}-${client}`} className="text-[10px] md:text-xs font-black tracking-[0.4em] text-zinc-500 uppercase font-display flex items-center gap-8 group hover:text-[var(--color-brand-orange)] transition-colors duration-300">
+                    <span className="w-2 h-2 bg-[var(--color-brand-orange)] rounded-full shadow-[0_0_15px_#FF4D00]" />
                     {client}
                   </span>
                 ))}
@@ -200,9 +192,33 @@ export default function Home() {
         </section>
 
         {/* ═══════════════════════════════
+            INDUSTRIES — Visual Grid
+            ═══════════════════════════════ */}
+        <section className="py-32 bg-zinc-50 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-20">
+              <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 block">Verticals</span>
+              <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display leading-none">
+                Industries We <br /><span className="text-[var(--color-brand-orange)]">Transform.</span>
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { title: "E-Commerce", description: "Hyper-local fulfillment and nationwide express delivery for the modern digital economy.", image: "/images/ecommerce.png" },
+                { title: "Pharma & Cold Chain", description: "Temperature-controlled logistics with precision monitoring for life-saving cargo.", image: "/images/pharma.png" },
+                { title: "Automotive OEM", description: "Just-in-time logistics for manufacturing components and finished vehicle transport.", image: "/images/auto-logistics.png" },
+              ].map((industry, i) => (
+                <IndustryCard key={i} {...industry} index={i} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════
             STATS STRIP
             ═══════════════════════════════ */}
-        <section className="py-24 bg-[var(--color-surface-light)] relative">
+        <section className="py-24 bg-white relative">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { label: "Annual Shipments", value: "6,000+" },
@@ -211,10 +227,10 @@ export default function Home() {
               { label: "Pan-India Presence", value: "28 States" },
             ].map((stat, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <GlowingCard className="bg-white border border-black/5 p-8 rounded-3xl shadow-sm">
+                <GlowingCard className="bg-zinc-50 border border-black/5 p-10 rounded-[2.5rem] shadow-sm">
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-[40px] h-[1px] bg-[var(--color-brand-orange)] mb-6" />
-                    <span className="text-4xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 font-display tracking-tighter">
+                    <div className="w-[40px] h-[1.5px] bg-[var(--color-brand-orange)] mb-6" />
+                    <span className="text-5xl md:text-6xl font-black text-[var(--color-brand-blue)] mb-2 font-display tracking-tighter">
                       <CountUpStats value={stat.value} />
                     </span>
                     <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">{stat.label}</span>
@@ -226,6 +242,11 @@ export default function Home() {
         </section>
 
         {/* ════════════════════════════════
+            FEATURES — Why Choose Us
+            ════════════════════════════════ */}
+        <FeaturesSection />
+
+        {/* ════════════════════════════════
             HERITAGE TIMELINE 
             ════════════════════════════════ */}
         <section id="heritage" className="bg-white relative">
@@ -235,27 +256,27 @@ export default function Home() {
         {/* ═══════════════════════════════════
             SERVICES — CanvasRevealEffect Cards
             ═══════════════════════════════════ */}
-        <section id="services" className="py-32 bg-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+        <section id="services" className="py-32 bg-zinc-950 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 mb-20">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-[6rem] font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display leading-[0.9] md:leading-[0.85] mb-4"
+              className="text-4xl md:text-[8rem] font-black tracking-tighter text-white uppercase font-display leading-[0.85] mb-8"
             >
-              Services <br /><span className="text-[var(--color-brand-orange)]">Modularized.</span>
+              Services <br /><span className="text-[var(--color-brand-orange)]">Architected.</span>
             </motion.h2>
-            <p className="text-lg text-gray-400 font-medium max-w-2xl mx-auto">
-              From mission-critical commercial courier to scalable relocation solutions.
+            <p className="text-xl text-zinc-500 font-medium max-w-2xl">
+              Precision-engineered cargo solutions for the most demanding supply chains.
             </p>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { title: "Air & Surface Cargo", desc: "High-speed air and surface cargo solutions tailored for mission-critical shipments across India.", colors: [[221, 92, 0]] as [number, number, number][], bg: "bg-white", tags: ["AIR/SURFACE", "FAST-TRACK", "SECURE"] },
-              { title: "Self-Storage", desc: "Secure, climate-controlled storage solutions for personal and business assets with 24/7 accessibility.", colors: [[10, 25, 47]] as [number, number, number][], bg: "bg-slate-50", tags: ["SECURE", "FLEXIBLE", "24/7"] },
-              { title: "Train Cargo", desc: "Cost-effective, highly reliable long-haul freight via our extensive railway network integrations.", colors: [[221, 92, 0]] as [number, number, number][], bg: "bg-white", tags: ["RAILWAY", "BULK TRANSIT", "ECONOMICAL"] },
-              { title: "Relocation Services", desc: "End-to-end residential and office moving services with professional handling and real-time tracking.", colors: [[10, 25, 47]] as [number, number, number][], bg: "bg-slate-50", tags: ["RELOCATION", "PACKING", "MOVING"] },
+              { title: "Air & Surface Cargo", desc: "High-speed air and surface cargo solutions tailored for mission-critical shipments across India.", colors: [[232, 106, 47]] as [number, number, number][], bg: "bg-zinc-900", tags: ["AIR/SURFACE", "FAST-TRACK", "SECURE"] },
+              { title: "Self-Storage", desc: "Secure, climate-controlled storage solutions for personal and business assets with 24/7 accessibility.", colors: [[30, 41, 59]] as [number, number, number][], bg: "bg-zinc-900", tags: ["SECURE", "FLEXIBLE", "24/7"] },
+              { title: "Train Cargo", desc: "Cost-effective, highly reliable long-haul freight via our extensive railway network integrations.", colors: [[232, 106, 47]] as [number, number, number][], bg: "bg-zinc-900", tags: ["RAILWAY", "BULK TRANSIT", "ECONOMICAL"] },
+              { title: "Relocation Services", desc: "End-to-end residential and office moving services with professional handling and real-time tracking.", colors: [[30, 41, 59]] as [number, number, number][], bg: "bg-zinc-900", tags: ["RELOCATION", "PACKING", "MOVING"] },
             ].map((service, i) => (
               <ServiceRevealCard key={i} service={service} index={i} />
             ))}
@@ -268,24 +289,24 @@ export default function Home() {
         <section className="relative bg-[#050505] overflow-hidden py-32">
           {/* Background Watermark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-            <span className="text-[20vw] md:text-[20vw] opacity-[0.03] font-black text-white uppercase tracking-tighter leading-none whitespace-nowrap">
+            <span className="text-[20vw] opacity-[0.03] font-black text-white uppercase tracking-tighter leading-none whitespace-nowrap">
               DOMESTIC CARGO NETWORK
             </span>
           </div>
 
           <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-12 md:mb-20">
-              <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
-                Pan-India <br className="block md:hidden" />
+            <div className="text-center mb-20">
+              <h2 className="text-5xl md:text-8xl font-black tracking-tighter text-white uppercase font-display mb-6">
+                Pan-India <br />
                 <span className="text-[var(--color-brand-orange)]">Logistics.</span>
               </h2>
-              <p className="text-base md:text-lg text-gray-500 font-medium max-w-2xl mx-auto px-4">
+              <p className="text-lg md:text-xl text-zinc-500 font-medium max-w-2xl mx-auto">
                 Extensive domestic hub coordinates and state border telemetry.
               </p>
             </div>
-            <div className="relative w-full h-[350px] md:h-[700px]">
-              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-[#050505] z-40" />
-              <div className="absolute w-full -bottom-10 md:-bottom-20 h-72 md:h-full z-10">
+            <div className="relative w-full h-[400px] md:h-[800px]">
+              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b from-transparent to-[#050505] z-40" />
+              <div className="absolute w-full -bottom-10 md:-bottom-20 h-full z-10">
                 <World data={sampleArcs} globeConfig={globeConfig} />
               </div>
             </div>
@@ -297,15 +318,16 @@ export default function Home() {
             ═══════════════════════════════ */}
         <section id="track" className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
-            <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-4">
-              Live <span className="text-[var(--color-brand-orange)]">Transit</span> <br className="block md:hidden" /> Monitoring.
+            <h2 className="text-4xl md:text-8xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-6">
+              Live <span className="text-[var(--color-brand-orange)]">Transit</span> Monitoring.
             </h2>
-            <p className="text-base md:text-lg font-medium text-gray-400 max-w-2xl mx-auto px-4">
+            <p className="text-lg font-medium text-gray-400 max-w-2xl mx-auto">
               Real-time hub coordinates, border clearance status, and precise temperature telemetry.
             </p>
           </div>
           <ShipmentTracker />
         </section>
+
 
         {/* Certifications */}
         <CertificationsCarousel />
@@ -347,7 +369,7 @@ function ServiceRevealCard({ service, index }: { service: { title: string; desc:
       transition={{ delay: index * 0.1 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative group border border-black/[0.08] rounded-3xl flex flex-col justify-between min-h-[280px] md:min-h-[320px] p-6 md:p-10 overflow-hidden cursor-pointer bg-white hover:shadow-xl transition-shadow duration-300"
+      className="relative group border border-white/5 rounded-[2.5rem] flex flex-col justify-between min-h-[350px] p-8 md:p-12 overflow-hidden cursor-pointer bg-zinc-900 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
     >
       {/* Canvas Reveal on Hover */}
       <AnimatePresence>
@@ -364,24 +386,24 @@ function ServiceRevealCard({ service, index }: { service: { title: string; desc:
               colors={service.colors}
               dotSize={12}
             />
-            <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-white/30" />
+            <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-zinc-900/30" />
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Static content */}
       <div className="relative z-10">
-        <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-4 block">0{index + 1} / DIV</span>
-        <h3 className="text-2xl md:text-4xl font-black uppercase font-display tracking-tighter mb-4 transition-colors duration-300 text-[var(--color-brand-blue)]">
+        <span className="text-[10px] font-black text-[var(--color-brand-orange)] uppercase tracking-[0.4em] mb-6 block bg-white/5 w-fit px-3 py-1 rounded-full">0{index + 1} / DIV</span>
+        <h3 className="text-3xl md:text-5xl font-black uppercase font-display tracking-tighter mb-6 transition-colors duration-300 text-white leading-tight">
           {service.title}
         </h3>
-        <p className="font-medium mb-6 max-w-md transition-colors duration-300 text-gray-500 text-sm md:text-base">
+        <p className="font-medium mb-8 max-w-md transition-colors duration-300 text-zinc-400 text-sm md:text-lg leading-relaxed">
           {service.desc}
         </p>
       </div>
-      <div className="relative z-10 flex flex-wrap gap-2">
+      <div className="relative z-10 flex flex-wrap gap-3">
         {service.tags.map(tag => (
-          <span key={tag} className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-colors duration-300 ${hovered ? 'bg-white/10 border border-white/20 text-white/70' : 'bg-gray-50 border border-black/5 text-gray-400'}`}>
+          <span key={tag} className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${hovered ? 'bg-white/10 border border-white/20 text-white' : 'bg-white/5 border border-white/5 text-zinc-500'}`}>
             {tag}
           </span>
         ))}
