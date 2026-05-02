@@ -14,6 +14,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { HeritageTimeline } from "@/components/HeritageTimeline";
 import { ShipmentTracker } from "@/components/ShipmentTracker";
 import { CertificationsCarousel } from "@/components/CertificationsCarousel";
+import { LogoMarquee } from "@/components/LogoMarquee";
 import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), { ssr: false });
@@ -182,61 +183,22 @@ export default function Home() {
         </section>
 
         {/* ═══════════════════════════════════
-            TRUST TICKER
+            BRANDS MARQUEE
             ═══════════════════════════════════ */}
-        <section className="py-6 bg-[var(--color-brand-blue)] overflow-hidden border-y border-white/5 shadow-2xl relative z-20">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...Array(2)].map((_, set) => (
-              <div key={set} className="flex items-center gap-16 mx-12">
-                {["E-COMMERCE GIANTS", "FMCG NETWORKS", "B2B ENTERPRISE", "D2C BRANDS", "RETAIL CHAINS", "AUTO OEM", "BULK COURIER"].map((client) => (
-                  <span key={`${set}-${client}`} className="text-[10px] md:text-xs font-black tracking-[0.4em] text-white/50 uppercase font-display flex items-center gap-6 group hover:text-[var(--color-brand-orange)] transition-colors duration-300">
-                    <span className="w-2 h-2 bg-[var(--color-brand-orange)] rounded-full shadow-[0_0_10px_#FF4D00]" />
-                    {client}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ═══════════════════════════════
-            STATS STRIP
-            ═══════════════════════════════ */}
-        <section className="py-24 bg-[var(--color-surface-light)] relative">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { label: "Annual Shipments", value: "6,000+" },
-              { label: "Service Experts", value: "100+" },
-              { label: "Precision Fleet", value: "70+" },
-              { label: "Pan-India Presence", value: "28 States" },
-            ].map((stat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <GlowingCard className="bg-white border border-black/5 p-8 rounded-3xl shadow-sm">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-[40px] h-[1px] bg-[var(--color-brand-orange)] mb-6" />
-                    <span className="text-4xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 font-display tracking-tighter">
-                      <CountUpStats value={stat.value} />
-                    </span>
-                    <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">{stat.label}</span>
-                  </div>
-                </GlowingCard>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        <LogoMarquee />
 
         {/* ════════════════════════════════
             HERITAGE TIMELINE 
             ════════════════════════════════ */}
-        <section id="heritage" className="bg-white relative">
+        <section id="heritage" className="bg-white relative py-20">
           <HeritageTimeline />
         </section>
 
         {/* ═══════════════════════════════════
             SERVICES — CanvasRevealEffect Cards
             ═══════════════════════════════════ */}
-        <section id="services" className="py-32 bg-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+        <section id="services" className="py-20 bg-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -265,8 +227,7 @@ export default function Home() {
         {/* ═══════════════════════════════
             GLOBE — 3D Route Visualization 
             ═══════════════════════════════ */}
-        <section className="relative bg-[#050505] overflow-hidden py-32">
-          {/* Background Watermark */}
+        <section className="relative bg-[#050505] overflow-hidden py-24">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
             <span className="text-[20vw] md:text-[20vw] opacity-[0.03] font-black text-white uppercase tracking-tighter leading-none whitespace-nowrap">
               DOMESTIC CARGO NETWORK
@@ -274,18 +235,15 @@ export default function Home() {
           </div>
 
           <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-12 md:mb-20">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
                 Pan-India <br className="block md:hidden" />
                 <span className="text-[var(--color-brand-orange)]">Logistics.</span>
               </h2>
-              <p className="text-base md:text-lg text-gray-500 font-medium max-w-2xl mx-auto px-4">
-                Extensive domestic hub coordinates and state border telemetry.
-              </p>
             </div>
-            <div className="relative w-full h-[350px] md:h-[700px]">
+            <div className="relative w-full h-[300px] md:h-[600px]">
               <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-[#050505] z-40" />
-              <div className="absolute w-full -bottom-10 md:-bottom-20 h-72 md:h-full z-10">
+              <div className="absolute w-full -bottom-10 md:-bottom-20 h-64 md:h-full z-10">
                 <World data={sampleArcs} globeConfig={globeConfig} />
               </div>
             </div>
@@ -295,8 +253,8 @@ export default function Home() {
         {/* ═══════════════════════════════
             SHIPMENT TRACKING
             ═══════════════════════════════ */}
-        <section id="track" className="py-32 bg-white">
-          <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+        <section id="track" className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
             <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-4">
               Live <span className="text-[var(--color-brand-orange)]">Transit</span> <br className="block md:hidden" /> Monitoring.
             </h2>
@@ -311,8 +269,8 @@ export default function Home() {
         <CertificationsCarousel />
 
         {/* TESTIMONIALS */}
-        <section className="bg-[var(--color-surface-light)] py-32">
-          <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+        <section className="bg-[var(--color-surface-light)] py-20">
+          <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display">
               The Industry <span className="text-[var(--color-brand-orange)]">Voice.</span>
             </h2>
@@ -321,10 +279,9 @@ export default function Home() {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="py-32 bg-white px-6">
-          <div className="max-w-4xl mx-auto bg-[var(--color-surface-light)] p-8 md:p-16 rounded-[2.5rem] md:rounded-[3rem] border border-black/5 shadow-xl">
-            <h2 className="text-2xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 uppercase font-display tracking-tighter text-center leading-tight">Filing Logistics Inquiry</h2>
-            <p className="text-xs md:text-sm text-gray-400 mb-10 font-medium text-center">Enterprise-grade response within 4 business hours.</p>
+        <section id="contact" className="py-20 bg-white px-6">
+          <div className="max-w-4xl mx-auto bg-[var(--color-surface-light)] p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] border border-black/5 shadow-xl">
+            <h2 className="text-2xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 uppercase font-display tracking-tighter text-center leading-tight">Inquiry Portal</h2>
             <LeadForm />
           </div>
         </section>
