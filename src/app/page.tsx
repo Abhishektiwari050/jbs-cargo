@@ -303,13 +303,6 @@ export default function Home() {
           <InfiniteTestimonialMarquee />
         </section>
 
-        {/* CONTACT */}
-        <section id="contact" className="py-20 bg-white px-6">
-          <div className="max-w-4xl mx-auto bg-[var(--color-surface-light)] p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] border border-black/5 shadow-xl">
-            <h2 className="text-2xl md:text-5xl font-black text-[var(--color-brand-blue)] mb-2 uppercase font-display tracking-tighter text-center leading-tight">Inquiry Portal</h2>
-            <LeadForm />
-          </div>
-        </section>
       </main>
     </>
   );
