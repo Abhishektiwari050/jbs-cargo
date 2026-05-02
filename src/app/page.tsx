@@ -11,9 +11,7 @@ import { WobbleCard } from "@/components/ui/wobble-card";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { CountUpStats } from "@/components/CountUpStats";
 import { InfiniteTestimonialMarquee } from "@/components/InfiniteTestimonialMarquee";
-import { LeadForm } from "@/components/LeadForm";
 import { HeritageTimeline } from "@/components/HeritageTimeline";
-import { ShipmentTracker } from "@/components/ShipmentTracker";
 import { CertificationsCarousel } from "@/components/CertificationsCarousel";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import dynamic from "next/dynamic";
@@ -275,20 +273,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ═══════════════════════════════
-            SHIPMENT TRACKING
-            ═══════════════════════════════ */}
-        <section id="track" className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-            <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-[var(--color-brand-blue)] uppercase font-display mb-4">
-              Live <span className="text-[var(--color-brand-orange)]">Transit</span> <br className="block md:hidden" /> Monitoring.
-            </h2>
-            <p className="text-base md:text-lg font-medium text-gray-400 max-w-2xl mx-auto px-4">
-              Real-time hub coordinates, border clearance status, and precise temperature telemetry.
-            </p>
-          </div>
-          <ShipmentTracker />
-        </section>
 
         {/* Certifications */}
         <CertificationsCarousel />
