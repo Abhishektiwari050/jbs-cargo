@@ -6,6 +6,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { FlipWords } from "@/components/ui/flip-words";
 import { GlowingCard } from "@/components/ui/glowing-effect";
 import { Boxes } from "@/components/ui/background-boxes";
+import { cn } from "@/lib/utils";
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { CountUpStats } from "@/components/CountUpStats";
@@ -225,26 +226,50 @@ export default function Home() {
         </section>
 
         {/* ═══════════════════════════════
-            GLOBE — 3D Route Visualization 
+            GLOBE — Split Layout 
             ═══════════════════════════════ */}
-        <section className="relative bg-[#050505] overflow-hidden py-24">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-            <span className="text-[20vw] md:text-[20vw] opacity-[0.03] font-black text-white uppercase tracking-tighter leading-none whitespace-nowrap">
-              DOMESTIC CARGO NETWORK
-            </span>
+        <section className="relative min-h-[700px] bg-slate-950 overflow-hidden py-24 flex items-center">
+          {/* Background Texture & Spotlights */}
+          <div className="absolute inset-0 z-0">
+            <Boxes className="opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent z-10" />
+            {/* Spotlights */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+              <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[var(--color-brand-blue)]/10 blur-[120px]" />
+              <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-[var(--color-brand-orange)]/5 blur-[120px]" />
+            </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-white uppercase font-display mb-4">
-                Pan-India <br className="block md:hidden" />
-                <span className="text-[var(--color-brand-orange)]">Logistics.</span>
-              </h2>
-            </div>
-            <div className="relative w-full h-[300px] md:h-[600px]">
-              <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-[#050505] z-40" />
-              <div className="absolute w-full -bottom-10 md:-bottom-20 h-64 md:h-full z-10">
-                <World data={sampleArcs} globeConfig={globeConfig} />
+          <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="text-left">
+                <div className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-brand-orange)]/10 border border-[var(--color-brand-orange)]/20 mb-6">
+                  <span className="text-[var(--color-brand-orange)] text-xs font-bold uppercase tracking-widest">Network Telemetry</span>
+                </div>
+                <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase font-display mb-6 leading-[0.9]">
+                  Pan-India <br />
+                  <span className="text-[var(--color-brand-orange)]">Logistics.</span>
+                </h2>
+                <p className="text-lg md:text-xl text-gray-400 font-medium max-w-xl mb-8 leading-relaxed">
+                  Extensive domestic hub coordinates and state border telemetry. We connect the furthest reaches of the subcontinent with precision and speed.
+                </p>
+                <div className="grid grid-cols-2 gap-6">
+                  <div>
+                    <div className="text-3xl font-black text-white">28+</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 font-bold">States Covered</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-black text-white">500+</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 font-bold">Hub Nodes</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-[400px] md:h-[600px] w-full">
+                <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+                <div className="absolute inset-0 z-0 scale-110 md:scale-125">
+                  <World data={sampleArcs} globeConfig={globeConfig} />
+                </div>
               </div>
             </div>
           </div>
